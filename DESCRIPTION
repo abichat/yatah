@@ -10,7 +10,11 @@ Authors@R:
 Description: Provides functions to manage taxonomy when lineages
     are described with strings and taxa separated with "|*__".
 License: CC0
-Encoding: UTF-8
-LazyData: true
 URL: https://github.com/abichat/yatah
 BugReports: https://github.com/abichat/yatah/issues
+Imports: 
+    stringr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
