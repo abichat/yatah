@@ -1,5 +1,5 @@
 Package: yatah
-Title: Yet Another TAxonomy Handler.
+Title: Yet Another TAxonomy Handler
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Antoine",
@@ -18,3 +18,7 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
+Suggests: 
+    spelling,
+    testthat
+Language: en-US
