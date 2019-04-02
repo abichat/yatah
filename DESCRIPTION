@@ -9,7 +9,7 @@ Authors@R:
            comment = c(ORCID = "0000-0001-6599-7081"))
 Description: Provides functions to manage taxonomy when lineages
     are described with strings and taxa separated with "|*__".
-License: CC0
+License: GPL-3
 URL: https://github.com/abichat/yatah
 BugReports: https://github.com/abichat/yatah/issues
 Imports: 
