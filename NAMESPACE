@@ -2,7 +2,12 @@
 
 export(is_level)
 export(last_level)
+export(taxtable)
+importFrom(purrr,map)
+importFrom(purrr,transpose)
 importFrom(stringr,str_count)
 importFrom(stringr,str_detect)
 importFrom(stringr,str_remove)
+importFrom(stringr,str_remove_all)
+importFrom(stringr,str_split)
 importFrom(stringr,str_sub)

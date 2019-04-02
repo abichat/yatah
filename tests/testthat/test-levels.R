@@ -14,7 +14,7 @@ test_that("is_level() is correct", {
   expect_equal(is_level(lineages, "sp"), c(FALSE, FALSE, TRUE))
 })
 
-test_that("is_level() throw error", {
+test_that("is_level() throws error when needed", {
   expect_error(is_level(lineages, "OTUs"))
 })
 
@@ -26,6 +26,6 @@ test_that("last_level() is correct", {
                c("Verrucomicrobiae", "Clostridia", "Delftia_unclassified"))
 })
 
-test_that("last_level() throw error", {
+test_that("last_level() throws error when needed", {
   expect_error(last_level(lineages, same = TRUE))
 })
