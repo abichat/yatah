@@ -20,7 +20,8 @@ logical.
 Test if a lineage go down to a specified level
 }
 \examples{
-lineage <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
-is_level(lineage, "class")
-is_level(lineage, "genus")
+lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
+lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
+is_level(c(lineage1, lineage2), "class")
+is_level(c(lineage1, lineage2), "order")
 }
