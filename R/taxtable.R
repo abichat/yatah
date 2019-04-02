@@ -23,5 +23,5 @@ taxtable <- function(lineage) {
   list <- map(list, ~ .[-1])
 
   list <- map(transpose(list, .names = levels[1:(N[1] + 1)]), unlist)
-  as.data.frame(list)
+  as.data.frame(list, stringsAsFactors = FALSE)
 }

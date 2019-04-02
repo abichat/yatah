@@ -15,12 +15,12 @@ lineages2 <- c(lin4, lin5, lin6)
 lineages3 <- c(lin6, lin7)
 
 test_that("taxtable() is correct", {
-  expect_equal(as.character(taxtable(lineages1)$kingdom), rep("Bacteria", 3))
-  expect_equal(as.character(taxtable(lineages1)$phylum),
+  expect_equal(taxtable(lineages1)$kingdom, rep("Bacteria", 3))
+  expect_equal(taxtable(lineages1)$phylum,
                c("Verrucomicrobia", rep("Firmicutes", 2)))
-  expect_equal(as.character(taxtable(lineages1)$class),
+  expect_equal(taxtable(lineages1)$class,
                c("Verrucomicrobiae", "Clostridia", "Bacilli"))
-  expect_equal(as.character(taxtable(lineages2)$order),
+  expect_equal(taxtable(lineages2)$order,
                c("Lactobacillales", "Bacteroidales", "Coriobacteriales"))
 })
 
