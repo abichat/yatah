@@ -56,28 +56,40 @@ library(yatah)
 lineages <- c(
   "k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Coriobacteriales",
   "k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales",
+  "k__Bacteria|p__Bacteroidetes|c__Flavobacteriia|o__Flavobacteriales",
   "k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales",
   "k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales",
-  "k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales"
+  "k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales",
+  "k__Bacteria|p__Proteobacteria|c__Epsilonproteobacteria|o__Campylobacterales",
+  "k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales",
+  "k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales"
 )
 ```
 
-`is_level()` checks if the lineages are of the desired order. Useful with `dplyr::filter()`.
+* `is_level()` checks if the lineages are of the desired order. Useful with `dplyr::filter()`.
 
 ```{r is_level}
 is_level(lineages, "order")
 ```
 
-`last_level()` extracts the last level of the lineages.
-
+* `last_level()` extracts the last level of the lineages.
 
 ```{r last_level}
 last_level(lineages)
 ```
 
-`taxtable()` computes the taxonomic table corresponding to the lineages.
+* `taxtable()` computes the taxonomic table corresponding to the lineages.
 
 ```{r taxtable}
-taxtable(lineages)
+table <- taxtable(lineages)
+table
+```
+
+* `taxtree()` computes the taxonomic tree (format `phylo`) from a taxonomic table. 
+
+```{r taxtree}
+tree <- taxtree(table)
+tree
+plot(tree, show.node.label = TRUE)
 ```
 

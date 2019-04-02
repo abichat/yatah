@@ -48,36 +48,76 @@ library(yatah)
 lineages <- c(
   "k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Coriobacteriales",
   "k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales",
+  "k__Bacteria|p__Bacteroidetes|c__Flavobacteriia|o__Flavobacteriales",
   "k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales",
   "k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales",
-  "k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales"
+  "k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales",
+  "k__Bacteria|p__Proteobacteria|c__Epsilonproteobacteria|o__Campylobacterales",
+  "k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales",
+  "k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales"
 )
 ```
 
-`is_level()` checks if the lineages are of the desired order. Useful
-with `dplyr::filter()`.
+  - `is_level()` checks if the lineages are of the desired order. Useful
+    with `dplyr::filter()`.
+
+<!-- end list -->
 
 ``` r
 is_level(lineages, "order")
-#> [1] TRUE TRUE TRUE TRUE TRUE
+#> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ```
 
-`last_level()` extracts the last level of the lineages.
+  - `last_level()` extracts the last level of the lineages.
+
+<!-- end list -->
 
 ``` r
 last_level(lineages)
-#> [1] "Coriobacteriales"  "Bacteroidales"     "Bacillales"       
-#> [4] "Lactobacillales"   "Enterobacteriales"
+#> [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales" 
+#> [4] "Bacillales"        "Lactobacillales"   "Clostridiales"    
+#> [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"
 ```
 
-`taxtable()` computes the taxonomic table corresponding to the lineages.
+  - `taxtable()` computes the taxonomic table corresponding to the
+    lineages.
+
+<!-- end list -->
 
 ``` r
-taxtable(lineages)
-#>    kingdom         phylum               class             order
-#> 1 Bacteria Actinobacteria      Actinobacteria  Coriobacteriales
-#> 2 Bacteria  Bacteroidetes         Bacteroidia     Bacteroidales
-#> 3 Bacteria     Firmicutes             Bacilli        Bacillales
-#> 4 Bacteria     Firmicutes             Bacilli   Lactobacillales
-#> 5 Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales
+table <- taxtable(lineages)
+table
+#>    kingdom         phylum                 class             order
+#> 1 Bacteria Actinobacteria        Actinobacteria  Coriobacteriales
+#> 2 Bacteria  Bacteroidetes           Bacteroidia     Bacteroidales
+#> 3 Bacteria  Bacteroidetes        Flavobacteriia  Flavobacteriales
+#> 4 Bacteria     Firmicutes               Bacilli        Bacillales
+#> 5 Bacteria     Firmicutes               Bacilli   Lactobacillales
+#> 6 Bacteria     Firmicutes            Clostridia     Clostridiales
+#> 7 Bacteria Proteobacteria Epsilonproteobacteria Campylobacterales
+#> 8 Bacteria Proteobacteria   Gammaproteobacteria Enterobacteriales
+#> 9 Bacteria Proteobacteria   Gammaproteobacteria   Pseudomonadales
 ```
+
+  - `taxtree()` computes the taxonomic tree (format `phylo`) from a
+    taxonomic table.
+
+<!-- end list -->
+
+``` r
+tree <- taxtree(table)
+tree
+#> 
+#> Phylogenetic tree with 9 tips and 6 internal nodes.
+#> 
+#> Tip labels:
+#>  Coriobacteriales, Bacteroidales, Flavobacteriales, Bacillales, Lactobacillales, Clostridiales, ...
+#> Node labels:
+#> [1] "Bacteria"            "Bacteroidetes"       "Firmicutes"         
+#> [4] "Bacilli"             "Proteobacteria"      "Gammaproteobacteria"
+#> 
+#> Rooted; includes branch lengths.
+plot(tree, show.node.label = TRUE)
+```
+
+<img src="man/figures/README-taxtree-1.png" width="100%" />
