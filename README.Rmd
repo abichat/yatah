@@ -1,0 +1,74 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# yatah
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of yatah is to manage taxonomy when lineages are described with strings and taxa separated with "|*__".
+
+For instance, the well-known _Escherichia coli_ could be coded as `k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli`
+
+## Installation
+
+<!-- You can install the released version of yatah from [CRAN](https://CRAN.R-project.org) with: -->
+
+<!-- ``` r -->
+<!-- install.packages("yatah") -->
+<!-- ``` -->
+
+<!-- And the development version from [GitHub](https://github.com/) with: -->
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("abichat/yatah")
+```
+## Example
+
+```{r}
+library(yatah)
+```
+
+
+```{r}
+lineages <- c(
+  "k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Coriobacteriales",
+  "k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales",
+  "k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales",
+  "k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales",
+  "k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales"
+)
+```
+
+`is_level()` checks if the lineages are of the desired order. Useful with `dplyr::filter()`.
+
+```{r is_level}
+is_level(lineages, "order")
+```
+
+`last_level()` extracts the last level of the lineages.
+
+
+```{r last_level}
+last_level(lineages)
+```
+
+`taxtable()` computes the taxonomic table corresponding to the lineages.
+
+```{r taxtable}
+taxtable(lineages)
+```
+
