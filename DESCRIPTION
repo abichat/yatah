@@ -12,3 +12,5 @@ Description: Provides functions to manage taxonomy when lineages
 License: CC0
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/abichat/yatah
+BugReports: https://github.com/abichat/yatah/issues
