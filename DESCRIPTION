@@ -1,6 +1,6 @@
 Package: yatah
 Title: Yet Another TAxonomy Handler
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     person(given = "Antoine",
            family = "Bichat",
