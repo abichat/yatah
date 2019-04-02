@@ -70,6 +70,7 @@ lineages <- c(
 
 ```{r is_level}
 is_level(lineages, "order")
+is_level(lineages, "species")
 ```
 
 * `last_level()` extracts the last level of the lineages.

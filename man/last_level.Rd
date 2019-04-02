@@ -7,12 +7,12 @@
 last_level(lineage, same = TRUE)
 }
 \arguments{
-\item{lineage}{string.}
+\item{lineage}{string. Vector of lineages.}
 
 \item{same}{logical. Do the lineage must be at the same depth? Default to TRUE.}
 }
 \value{
-A string.
+A string. The last levels of the given lineages.
 }
 \description{
 Extract the last level of a lineage

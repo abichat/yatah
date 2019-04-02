@@ -7,11 +7,20 @@
 taxtable(lineage)
 }
 \arguments{
-\item{lineage}{string.}
+\item{lineage}{string. Vector of lineages.}
 }
 \value{
-A data.frame
+A data.frame with columns corresponding to different levels.
 }
 \description{
 Compute taxonomic table from lineages.
+}
+\details{
+Duplicated lineages are removed.
+}
+\examples{
+lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
+lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
+lineage3 <- "k__Bacteria|p__Firmicutes|c__Bacilli"
+taxtable(c(lineage1, lineage2, lineage3))
 }

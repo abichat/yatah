@@ -8,7 +8,7 @@ is_level(lineage, level = c("kingdom", "phylum", "class", "order",
   "family", "genus", "species", "strain"))
 }
 \arguments{
-\item{lineage}{string.}
+\item{lineage}{string. Vector of lineages.}
 
 \item{level}{string. One of \code{c("kingdom", "phylum", "class",
 "order", "family", "genus", "species", "strain")} with partial matching.}

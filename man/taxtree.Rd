@@ -11,10 +11,20 @@ taxtree(table, collapse = TRUE, lineage_length = 1, root = "")
 
 \item{collapse}{logical. Should node with one child be vanished? Default to TRUE.}
 
-\item{lineage_length}{double. Mean lineage length. Default to 1.}
+\item{lineage_length}{double. Lineage length from the root to the leaves. Default to 1.}
 
-\item{root}{character. Name of the root if no natural root is given.}
+\item{root}{character. Name of the root if there is no natural root.}
+}
+\value{
+A phylo object.
 }
 \description{
-Compute taxonomic tree from taxonomic table
+Compute taxonomic tree from taxonomic table.
+}
+\examples{
+lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
+lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
+lineage3 <- "k__Bacteria|p__Firmicutes|c__Bacilli"
+table <- taxtable(c(lineage1, lineage2, lineage3))
+taxtree(table)
 }

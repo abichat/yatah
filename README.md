@@ -66,6 +66,8 @@ lineages <- c(
 ``` r
 is_level(lineages, "order")
 #> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+is_level(lineages, "species")
+#> [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ```
 
   - `last_level()` extracts the last level of the lineages.

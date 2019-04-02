@@ -1,6 +1,6 @@
 #' Test if a lineage go down to a specified level
 #'
-#' @param lineage string.
+#' @param lineage string. Vector of lineages.
 #' @param level string. One of \code{c("kingdom", "phylum", "class",
 #' "order", "family", "genus", "species", "strain")} with partial matching.
 #'
@@ -25,10 +25,10 @@ is_level <- function(lineage,
 
 #' Extract the last level of a lineage
 #'
-#' @param lineage string.
+#' @param lineage string. Vector of lineages.
 #' @param same logical. Do the lineage must be at the same depth? Default to TRUE.
 #'
-#' @return A string.
+#' @return A string. The last levels of the given lineages.
 #' @importFrom stringr str_count str_remove
 #' @export
 #'
