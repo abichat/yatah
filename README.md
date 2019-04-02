@@ -10,6 +10,8 @@
 [![packageversion](https://img.shields.io/badge/Package%20version-0.0.0.9001-orange.svg?style=flat-square)](commits/master)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah)
 [![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--02-yellowgreen.svg)](/commits/master)
+[![Travis build
+status](https://travis-ci.org/abichat/yatah.svg?branch=master)](https://travis-ci.org/abichat/yatah)
 <!-- badges: end -->
 
 The goal of yatah is to manage taxonomy when lineages are described with
