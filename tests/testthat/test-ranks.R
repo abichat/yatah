@@ -8,6 +8,9 @@ lineage3 <- paste0("k__Bacteria|p__Proteobacteria|c__Betaproteobacteria",
 lineages <- c(lineage1, lineage2, lineage3)
 # Need to add a strain rank
 
+
+## is_rank()
+
 test_that("is_rank() is correct", {
   expect_equal(is_rank(lineages, "class"), c(TRUE, TRUE, FALSE))
   expect_equal(is_rank(lineages, "order"), c(FALSE, FALSE, FALSE))
@@ -18,6 +21,24 @@ test_that("is_rank() throws error when needed", {
   expect_error(is_rank(lineages, "OTUs"))
 })
 
+
+## is_clade()
+
+test_that("is_clade() is correct", {
+  expect_equal(is_clade(lineages, "Clostridia", "class"), c(FALSE, TRUE, FALSE))
+  expect_equal(is_clade(lineages, "Verrucomicrobia"), c(TRUE, FALSE, FALSE))
+  expect_equal(is_clade(lineages, "Bacteria"), c(TRUE, TRUE, TRUE))
+  expect_equal(is_clade(lineages, "Bacter"), c(FALSE, FALSE, FALSE))
+})
+
+test_that("is_clade() throws error when needed", {
+  expect_error(is_clade(lineages, "Bacteria", "otu"))
+  expect_error(is_clade(lineages, "Bacteria", c("class", "phylum")))
+  expect_error(is_clade(lineages, c("Bacteria", "Clostridia")))
+})
+
+
+## last_rank()
 
 test_that("last_rank() is correct", {
   expect_equal(last_rank(lineages[1:2]),

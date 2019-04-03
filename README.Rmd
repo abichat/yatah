@@ -72,9 +72,16 @@ lineages <- c(
 * `is_rank()` checks if the lineages are of the desired rank.
 
 ```{r is_rank}
-is_rank(lineages, "order")
-is_rank(lineages, "species")
+is_rank(lineages, rank = "order")
+is_rank(lineages, rank = "species")
 ```
+
+* `is_clade()` checks if the lineages belong to the desired clade.
+
+```{r is_clade}
+is_clade(lineages, clade = "Proteobacteria", rank = "phylum")
+```
+
 
 * `last_rank()` extracts the last rank of the lineages.
 
