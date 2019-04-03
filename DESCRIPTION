@@ -1,6 +1,6 @@
 Package: yatah
 Title: Yet Another TAxonomy Handler
-Version: 0.0.0.9002
+Version: 0.0.0.9003
 Authors@R: 
     person(given = "Antoine",
            family = "Bichat",
@@ -8,7 +8,7 @@ Authors@R:
            email = "a.bichat@yahoo.fr",
            comment = c(ORCID = "0000-0001-6599-7081"))
 Description: Provides functions to manage taxonomy when lineages
-    are described with strings and taxa separated with "|*__".
+    are described with strings and ranks separated with "|*__".
 License: GPL-3
 URL: https://github.com/abichat/yatah
 BugReports: https://github.com/abichat/yatah/issues

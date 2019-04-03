@@ -7,7 +7,7 @@
 
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![packageversion](https://img.shields.io/badge/Package%20version-0.0.0.9002-orange.svg?style=flat-square)](commits/master)
+[![packageversion](https://img.shields.io/badge/Package%20version-0.0.0.9003-orange.svg?style=flat-square)](commits/master)
 [![Travis build
 status](https://travis-ci.org/abichat/yatah.svg?branch=master)](https://travis-ci.org/abichat/yatah)
 [![AppVeyor build
@@ -18,8 +18,8 @@ coverage](https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg)](ht
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
 
-The goal of yatah is to manage taxonomy when lineages are described with
-strings and taxa separated with "|\*\_\_".
+The goal of {yatah} is to manage taxonomy when lineages are described
+with strings and ranks separated with `|*__`.
 
 For instance, the well-known *Escherichia coli* could be coded as
 `k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli`
@@ -64,24 +64,23 @@ lineages <- c(
 )
 ```
 
-  - `is_level()` checks if the lineages are of the desired order. Useful
-    with `dplyr::filter()`.
+  - `is_rank()` checks if the lineages are of the desired rank.
 
 <!-- end list -->
 
 ``` r
-is_level(lineages, "order")
+is_rank(lineages, "order")
 #> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-is_level(lineages, "species")
+is_rank(lineages, "species")
 #> [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ```
 
-  - `last_level()` extracts the last level of the lineages.
+  - `last_rank()` extracts the last rank of the lineages.
 
 <!-- end list -->
 
 ``` r
-last_level(lineages)
+last_rank(lineages)
 #> [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales" 
 #> [4] "Bacillales"        "Lactobacillales"   "Clostridiales"    
 #> [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"

@@ -34,17 +34,17 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
 
   table <- na.omit(table)
 
-  ## Number of levels
+  ## Number of ranks
 
-  nlvl <- ncol(table)
+  nrk <- ncol(table)
 
   ## Create a root if necessary
 
   if (length(unique(table[, 1])) >= 2) {
-    table[, nlvl + 1] <- as.factor(root)
-    table <- table[, c(nlvl + 1, 1:nlvl)]
+    table[, nrk + 1] <- as.factor(root)
+    table <- table[, c(nrk + 1, 1:nrk)]
 
-    nlvl <- nlvl + 1
+    nrk <- nrk + 1
   }
 
   ## Labels & convert factors to unique integer
@@ -55,7 +55,7 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
   count <- length(tiplab)
   nodelab <- character()
 
-  for (i in 1:(nlvl - 1)) {
+  for (i in 1:(nrk - 1)) {
     nodelab <- c(nodelab, levels(table[[i]]))
 
     table[[i]] <- as.numeric(table[[i]]) + count
@@ -69,8 +69,8 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
 
   el <- as.matrix(table[, 1:2])
 
-  if (nlvl > 2) {
-    for (i in 2:(nlvl - 1)) {
+  if (nrk > 2) {
+    for (i in 2:(nrk - 1)) {
       el <- rbind(el, as.matrix(table[, i:(i + 1)]))
     }
   }
@@ -81,7 +81,7 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
 
   tree <- list(edge = el, tip.label = tiplab,
                Nnode = length(nodelab), node.label = nodelab,
-               edge.length = rep(lineage_length / (nlvl - 1), nrow(el)))
+               edge.length = rep(lineage_length / (nrk - 1), nrow(el)))
   class(tree) <- "phylo"
 
   tree <- read.tree(text = write.tree(tree))

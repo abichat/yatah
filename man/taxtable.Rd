@@ -10,7 +10,7 @@ taxtable(lineage)
 \item{lineage}{string. Vector of lineages.}
 }
 \value{
-A data.frame with columns corresponding to different levels.
+A data.frame with columns corresponding to different ranks.
 }
 \description{
 Compute taxonomic table from lineages.

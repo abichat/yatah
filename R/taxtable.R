@@ -6,7 +6,7 @@
 #'
 #' @param lineage string. Vector of lineages.
 #'
-#' @return A data.frame with columns corresponding to different levels.
+#' @return A data.frame with columns corresponding to different ranks.
 #' @importFrom stringr str_count str_remove_all str_split
 #' @importFrom purrr map transpose
 #' @export
@@ -17,8 +17,8 @@
 #' lineage3 <- "k__Bacteria|p__Firmicutes|c__Bacilli"
 #' taxtable(c(lineage1, lineage2, lineage3))
 taxtable <- function(lineage) {
-  levels <- c("kingdom", "phylum", "class", "order",
-              "family", "genus", "species", "strain")
+  ranks <- c("kingdom", "phylum", "class", "order",
+             "family", "genus", "species", "strain")
 
   N <- str_count(lineage, "\\|")
   if (!all(N == N[1])) {
@@ -28,6 +28,6 @@ taxtable <- function(lineage) {
   list <- str_split(str_remove_all(unique(lineage), "\\|"), ".__")
   list <- map(list, ~ .[-1])
 
-  list <- map(transpose(list, .names = levels[1:(N[1] + 1)]), unlist)
+  list <- map(transpose(list, .names = ranks[1:(N[1] + 1)]), unlist)
   as.data.frame(list, stringsAsFactors = FALSE)
 }

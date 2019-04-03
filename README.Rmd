@@ -29,7 +29,7 @@ version <- gsub('-', '.', version)
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
 
-The goal of yatah is to manage taxonomy when lineages are described with strings and taxa separated with "|*__".
+The goal of {yatah} is to manage taxonomy when lineages are described with strings and ranks separated with `|*__`.
 
 For instance, the well-known _Escherichia coli_ could be coded as `k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli`
 
@@ -69,17 +69,17 @@ lineages <- c(
 )
 ```
 
-* `is_level()` checks if the lineages are of the desired order. Useful with `dplyr::filter()`.
+* `is_rank()` checks if the lineages are of the desired rank.
 
-```{r is_level}
-is_level(lineages, "order")
-is_level(lineages, "species")
+```{r is_rank}
+is_rank(lineages, "order")
+is_rank(lineages, "species")
 ```
 
-* `last_level()` extracts the last level of the lineages.
+* `last_rank()` extracts the last rank of the lineages.
 
-```{r last_level}
-last_level(lineages)
+```{r last_rank}
+last_rank(lineages)
 ```
 
 * `taxtable()` computes the taxonomic table corresponding to the lineages.

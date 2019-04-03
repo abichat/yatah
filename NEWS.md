@@ -1,3 +1,7 @@
+# yatah 0.0.0.9003
+
+* Used `rank` instead of `level` (breaking change)
+
 # yatah 0.0.0.9002
 
 * Used continuous integration.
