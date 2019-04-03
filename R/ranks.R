@@ -1,3 +1,25 @@
+#' Test if a string is a lineage
+#'
+#' @param string string.
+#'
+#' @return A logical.
+#' @importFrom stringr str_detect
+#' @export
+#'
+#' @examples
+#' is_lineage("k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales")
+is_lineage <- function(string){
+  str_detect(string, paste0("^k__[a-zA-Z_]*",
+                            "($|\\|p__[a-zA-Z0-9_]*)",
+                            "($|\\|c__[a-zA-Z0-9_]*)",
+                            "($|\\|o__[a-zA-Z0-9_]*)",
+                            "($|\\|f__[a-zA-Z0-9_]*)",
+                            "($|\\|g__[a-zA-Z0-9_]*)",
+                            "($|\\|s__[a-zA-Z0-9_]*)",
+                            "($|\\|t__[a-zA-Z0-9_]*)$"))
+}
+
+
 #' Test if a lineage goes down to a specified rank
 #'
 #' @param lineage string. Vector of lineages.
