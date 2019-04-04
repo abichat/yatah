@@ -21,18 +21,22 @@
 #' taxtree(table)
 taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
 
-  ## Convert to data.frame with factor columns
-
-  table <- as.data.frame(apply(table, 2, as.factor))
-
   ## Remove NA columns
 
   na_col <- apply(table, 2, function(x) all(is.na(x)))
-  table <- table[,!na_col]
+  table <- table[, !na_col]
 
-  ## Remove rows that contains NA
+  ## Return error if there is only one unique row without NA
 
-  table <- na.omit(table)
+  stopifnot(nrow(unique(na.omit(table))) > 1)
+
+  ## Remove duplicated rows
+
+  table <- unique(na.omit(table))
+
+  ## Convert to data.frame with factor columns
+
+  table <- as.data.frame(apply(table, 2, as.factor))
 
   ## Number of ranks
 
