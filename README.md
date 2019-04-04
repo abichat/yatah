@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
+[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.0.0.9004-orange.svg?style=flat-square)](commits/master)
 [![Travis build
@@ -18,11 +18,11 @@ coverage](https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg)](ht
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
 
-The goal of {yatah} is to manage taxonomy when lineages are described
+The goal of **yatah** is to manage taxonomy when lineages are described
 with strings and ranks separated with `|*__`.
 
 For instance, the well-known *Escherichia coli* could be coded as
-`k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli`
+`k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli`.
 
 ## Installation
 
