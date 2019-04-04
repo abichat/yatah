@@ -83,10 +83,10 @@ is_clade(lineages, clade = "Proteobacteria", rank = "phylum")
 ```
 
 
-* `last_rank()` extracts the last rank of the lineages.
+* `last_clade()` extracts the last clade of the lineages.
 
 ```{r last_rank}
-last_rank(lineages)
+last_clade(lineages)
 ```
 
 * `taxtable()` computes the taxonomic table corresponding to the lineages.

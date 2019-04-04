@@ -3,6 +3,7 @@
 export(is_clade)
 export(is_lineage)
 export(is_rank)
+export(last_clade)
 export(last_rank)
 export(taxtable)
 export(taxtree)

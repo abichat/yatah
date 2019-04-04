@@ -7,14 +7,14 @@
 
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![packageversion](https://img.shields.io/badge/Package%20version-0.0.0.9003-orange.svg?style=flat-square)](commits/master)
+[![packageversion](https://img.shields.io/badge/Package%20version-0.0.0.9004-orange.svg?style=flat-square)](commits/master)
 [![Travis build
 status](https://travis-ci.org/abichat/yatah.svg?branch=master)](https://travis-ci.org/abichat/yatah)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/abichat/yatah?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/yatah)
 [![Codecov test
 coverage](https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/yatah?branch=master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--03-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--04-yellowgreen.svg)](/commits/master)
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
 
@@ -84,12 +84,12 @@ is_clade(lineages, clade = "Proteobacteria", rank = "phylum")
 #> [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
 ```
 
-  - `last_rank()` extracts the last rank of the lineages.
+  - `last_clade()` extracts the last clade of the lineages.
 
 <!-- end list -->
 
 ``` r
-last_rank(lineages)
+last_clade(lineages)
 #> [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales" 
 #> [4] "Bacillales"        "Lactobacillales"   "Clostridiales"    
 #> [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"
