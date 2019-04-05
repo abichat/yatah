@@ -20,7 +20,7 @@ taxtable <- function(lineage) {
   ranks <- c("kingdom", "phylum", "class", "order",
              "family", "genus", "species", "strain")
 
-  N <- str_count(lineage, "\\|")
+  N <- str_count(lineage, "__")
   if (!all(N == N[1])) {
     stop("Lineages don't have the same depth")
   }
@@ -28,6 +28,6 @@ taxtable <- function(lineage) {
   list <- str_split(str_remove_all(unique(lineage), "\\|"), ".__")
   list <- map(list, ~ .[-1])
 
-  list <- map(transpose(list, .names = ranks[1:(N[1] + 1)]), unlist)
+  list <- map(transpose(list, .names = ranks[1:(N[1])]), unlist)
   as.data.frame(list, stringsAsFactors = FALSE)
 }

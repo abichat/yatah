@@ -92,7 +92,7 @@ is_clade <- function(lineage, clade,
 #' last_clade(c(lineage1, lineage2))
 last_clade <- function(lineage, same = TRUE) {
   if (same) {
-    if (!all(str_count(lineage, "\\|") == str_count(lineage[1], "\\|"))) {
+    if (!all(str_count(lineage, "__") == str_count(lineage[1], "__"))) {
       stop("Lineages don't have the same depth")
     }
   }
@@ -116,7 +116,7 @@ last_clade <- function(lineage, same = TRUE) {
 #' last_rank(c(lineage1, lineage2))
 last_rank <- function(lineage, same = TRUE) {
   if (same) {
-    if (!all(str_count(lineage, "\\|") == str_count(lineage[1], "\\|"))) {
+    if (!all(str_count(lineage, "__") == str_count(lineage[1], "__"))) {
       stop("Lineages don't have the same depth")
     }
   }
