@@ -29,7 +29,7 @@ version <- gsub('-', '.', version)
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
 
-The goal of __yatah__ is to manage taxonomy when lineages are described with strings and ranks separated with `|*__`.
+The goal of __yatah__ is to manage taxonomy when lineages are described with strings and ranks separated with special patterns like `|*__` or `;*__`.
 
 For instance, the well-known _Escherichia coli_ could be coded as `k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli`.
 

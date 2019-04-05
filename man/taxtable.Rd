@@ -4,10 +4,13 @@
 \alias{taxtable}
 \title{Taxonomic table}
 \usage{
-taxtable(lineage)
+taxtable(lineage, sep = "\\\\|")
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
+
+\item{sep}{string. Rank separator. Default to \code{\\|} but
+\code{;} could be used too.}
 }
 \value{
 A data.frame with columns corresponding to different ranks.

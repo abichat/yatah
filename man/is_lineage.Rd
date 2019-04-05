@@ -4,10 +4,13 @@
 \alias{is_lineage}
 \title{Test if a string is a lineage}
 \usage{
-is_lineage(string)
+is_lineage(string, sep = "\\\\|")
 }
 \arguments{
 \item{string}{string.}
+
+\item{sep}{string. Rank separator. Default to \code{\\|} but
+\code{;} could be used too.}
 }
 \value{
 A logical.

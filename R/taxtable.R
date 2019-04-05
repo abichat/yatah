@@ -5,6 +5,8 @@
 #' Duplicated lineages are removed.
 #'
 #' @param lineage string. Vector of lineages.
+#' @param sep string. Rank separator. Default to \code{\\|} but
+#' \code{;} could be used too.
 #'
 #' @return A data.frame with columns corresponding to different ranks.
 #' @importFrom stringr str_count str_remove_all str_split
@@ -16,7 +18,7 @@
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' lineage3 <- "k__Bacteria|p__Firmicutes|c__Bacilli"
 #' taxtable(c(lineage1, lineage2, lineage3))
-taxtable <- function(lineage) {
+taxtable <- function(lineage, sep = "\\|") {
   ranks <- c("kingdom", "phylum", "class", "order",
              "family", "genus", "species", "strain")
 
@@ -25,7 +27,7 @@ taxtable <- function(lineage) {
     stop("Lineages don't have the same depth")
   }
 
-  list <- str_split(str_remove_all(unique(lineage), "\\|"), ".__")
+  list <- str_split(str_remove_all(unique(lineage), sep), ".__")
   list <- map(list, ~ .[-1])
 
   list <- map(transpose(list, .names = ranks[1:(N[1])]), unlist)

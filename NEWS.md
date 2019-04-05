@@ -1,3 +1,7 @@
+# yatah 0.0.0.9005
+
+* Added a new argument `sep` in several functions to choose the separator (# 1)
+
 # yatah 0.0.0.9004
 
 * Changed `last_rank()` into `last_clade` (breaking change).
