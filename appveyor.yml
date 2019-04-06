@@ -22,6 +22,7 @@ build_script:
   - travis-tool.sh install_deps
   - travis-tool.sh install_bioc ggtree
   - travis-tool.sh install_bioc curatedMetagenomicData
+  - travis-tool.sh install_bioc_deps
 
 test_script:
   - travis-tool.sh run_tests
