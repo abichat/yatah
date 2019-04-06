@@ -1,0 +1,93 @@
+---
+title: "Taxonomy of _Gammaproteobacteria_"
+output: rmarkdown::html_vignette
+bibliography: references.bib
+link-citations: yes
+vignette: >
+  %\VignetteIndexEntry{Taxonomy_of_Gammaproteobacteria}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Preliminaries
+
+This vignette illustrates the most useful functions of **yatah**. 
+
+```{r setup, message=FALSE}
+library(curatedMetagenomicData) # from Bioconductor
+library(ggtree) # from Bioconductor
+library(dplyr)
+library(yatah)
+```
+
+## Data
+
+For this example, we use normalized data given in **curatedMetagenomicData** (@cmd2017) corresponding to the dataset from @zeller2014potential. We collect the lineages of bacteria present in 199 stool samples.
+
+```{r data, message=FALSE}
+taxonomy <-
+  "ZellerG_2014.metaphlan_bugs_list.stool" %>%
+  curatedMetagenomicData(dryrun = FALSE) %>% 
+  mergeData() %>% 
+  exprs() %>%
+  as_tibble(rownames = "lineages") %>% 
+  select(lineages)
+```
+
+```{r taxonomy}
+taxonomy
+```
+
+## Filtering
+
+Here, we have all the present bacteria at all different ranks. As we are just interested in genera that belong to the _Gammaproteobacteria_ class, we `filter()` the lineages with `is_clade()` and `is_rank()`. The genus name is accessible with `last_clade()`.
+
+```{r filter}
+taxonomy %>% 
+  filter(is_clade(lineages, "Gammaproteobacteria"),
+         is_rank(lineages, "genus")) %>% 
+  mutate(genus = last_clade(lineages))
+```
+
+## Taxonomic table
+
+It is useful to have a taxonomic table. `taxtable()` do the job.
+
+```{r table}
+gammap_table <-
+  taxonomy %>% 
+  filter(is_clade(lineages, "Gammaproteobacteria"),
+         is_rank(lineages, "genus")) %>% 
+  pull(lineages) %>% 
+  taxtable()
+```
+
+```{r displaytibble}
+as_tibble(gammap_table)
+```
+
+## Taxonomic tree
+
+To have a tree, use `taxtree()` with a taxonomic table in input. By default, it collapses ranks with only one subrank.
+
+```{r tree}
+gammap_tree <- taxtree(gammap_table)
+gammap_tree
+```
+
+Instead of a classical `plot`, we use **ggtree** (@ggtree2017) to display the tree. 
+
+```{r ggtree, fig.width=7, fig.height=7}
+ggtree(gammap_tree) +
+  geom_tiplab(hjust = 1, geom = "label") +
+  geom_nodelab(hjust = 0, size = 3)
+```
+
+## References

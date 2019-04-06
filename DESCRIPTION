@@ -19,8 +19,15 @@ Imports:
     stringr
 Suggests: 
     covr,
+    curatedMetagenomicData,
+    dplyr,
+    ggtree,
+    knitr,
+    rmarkdown,
     spelling,
     testthat
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 Language: en-US
 LazyData: true
