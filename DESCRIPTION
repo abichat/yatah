@@ -22,6 +22,7 @@ Suggests:
     curatedMetagenomicData,
     dplyr,
     ggtree,
+    httpuv,
     knitr,
     rmarkdown,
     spelling,
