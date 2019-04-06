@@ -20,6 +20,8 @@ environment:
 
 build_script:
   - travis-tool.sh install_deps
+  - travis-tool.sh install_bioc ggtree
+  - travis-tool.sh install_bioc curatedMetagenomicData
 
 test_script:
   - travis-tool.sh run_tests
