@@ -1,0 +1,32 @@
+navbar:
+  title: "yatah"
+  left:
+    - icon: fa-home
+      href: index.html
+    - text: "Get started"
+      href: articles/gammaproteobacteria.html
+    - text: "Reference"
+      href: reference/index.html
+  right:
+    - icon: fa-newspaper-o
+      href: news/index.html
+    - icon: fa-github
+      href: https://github.com/abichat/yatah
+
+reference:
+  - title: Filter taxonomy
+    desc: ~
+    contents:
+    - '`is_lineage`'
+    - '`is_clade`'
+    - '`is_rank`'
+  - title: Extract last clade and rank
+    desc: ~
+    contents:
+    - '`last_clade`'
+    - '`last_rank`'
+  - title: Convert into other formats
+    desc: ~
+    contents:
+    - '`taxtable`'
+    - '`taxtree`'
