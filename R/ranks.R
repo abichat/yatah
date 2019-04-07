@@ -49,9 +49,7 @@ is_rank <- function(lineage,
 
 #' Test if a lineage belongs to a clade
 #'
-#'
-#'
-#' If \code{rank} is set to \code{.}, clade is looked for among all ranks.
+#' @details  If \code{rank} is set to \code{.}, clade is looked for among all ranks.
 #'
 #' @param lineage string. Vector of lineages.
 #' @param clade string.
