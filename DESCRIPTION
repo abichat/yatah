@@ -22,16 +22,13 @@ Suggests:
     curatedMetagenomicData,
     dplyr,
     ggtree,
-    httpuv,
     knitr,
     rmarkdown,
     spelling,
     testthat
 VignetteBuilder: 
     knitr
-biocViews:
-    curatedMetagenomicData,
-    ggtree
+biocViews: curatedMetagenomicData, ggtree
 Encoding: UTF-8
 Language: en-US
 LazyData: true
