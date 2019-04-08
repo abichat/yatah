@@ -9,7 +9,7 @@ is_lineage(string, sep = "\\\\|")
 \arguments{
 \item{string}{string.}
 
-\item{sep}{string. Rank separator. Default to \code{\\|} but
+\item{sep}{string. Rank separator. Default to \code{\\\\|} but
 \code{;} could be used too.}
 }
 \value{

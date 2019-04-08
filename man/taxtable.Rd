@@ -9,7 +9,7 @@ taxtable(lineage, sep = "\\\\|")
 \arguments{
 \item{lineage}{string. Vector of lineages.}
 
-\item{sep}{string. Rank separator. Default to \code{\\|} but
+\item{sep}{string. Rank separator. Default to \code{\\\\|} but
 \code{;} could be used too.}
 }
 \value{

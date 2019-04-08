@@ -1,7 +1,7 @@
 #' Test if a string is a lineage
 #'
 #' @param string string.
-#' @param sep string. Rank separator. Default to \code{\\|} but
+#' @param sep string. Rank separator. Default to \code{\\\\|} but
 #' \code{;} could be used too.
 #'
 #' @return A logical.
@@ -55,7 +55,7 @@ is_rank <- function(lineage,
 #' @param clade string.
 #' @param rank string. One of \code{c(".", "kingdom", "phylum", "class",
 #' "order", "family", "genus", "species", "strain")} with partial matching.
-#' @param sep string. Rank separator. Default to \code{\\|} but
+#' @param sep string. Rank separator. Default to \code{\\\\|} but
 #' \code{;} could be used too.
 #'
 #' @return logical.

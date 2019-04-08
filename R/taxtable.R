@@ -5,7 +5,7 @@
 #' Duplicated lineages are removed.
 #'
 #' @param lineage string. Vector of lineages.
-#' @param sep string. Rank separator. Default to \code{\\|} but
+#' @param sep string. Rank separator. Default to \code{\\\\|} but
 #' \code{;} could be used too.
 #'
 #' @return A data.frame with columns corresponding to different ranks.

@@ -15,7 +15,7 @@ is_clade(lineage, clade, rank = c(".", "kingdom", "phylum", "class",
 \item{rank}{string. One of \code{c(".", "kingdom", "phylum", "class",
 "order", "family", "genus", "species", "strain")} with partial matching.}
 
-\item{sep}{string. Rank separator. Default to \code{\\|} but
+\item{sep}{string. Rank separator. Default to \code{\\\\|} but
 \code{;} could be used too.}
 }
 \value{
