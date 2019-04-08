@@ -1,4 +1,4 @@
-context("Ranks handlers")
+context("Ranks and clades handlers")
 
 lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
