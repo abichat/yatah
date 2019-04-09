@@ -8,6 +8,9 @@ bioc_packages:
   - curatedMetagenomicData
   - ggtree
 
+r_github_packages:
+  - r-lib/devtools
+
 after_success:
     - Rscript -e 'covr::codecov()'
 
