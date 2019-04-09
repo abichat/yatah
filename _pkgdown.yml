@@ -29,9 +29,10 @@ reference:
     - '`is_lineage`'
     - '`is_clade`'
     - '`is_rank`'
-  - title: Extract last clade and rank
+  - title: Extract clades and ranks
     desc: ~
     contents:
+    - '`all_clades`'
     - '`last_clade`'
     - '`last_rank`'
   - title: Convert into other formats

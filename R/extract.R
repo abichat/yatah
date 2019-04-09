@@ -50,3 +50,43 @@ last_rank <- function(lineage, same = TRUE) {
   unname(ranks[letter])
 }
 
+
+#' Extract all clades present in the lineages
+#'
+#' @param lineages string. Vector of lineages.
+#' @param simplify logical. Should the output be a vector or a dataframe?
+#' @param sep string. Rank separator. Default to \code{\\\\|} but
+#' \code{;} could be used too.
+#'
+#' @return The clades present in the lineage. Vector of ordered strings
+#'  or data.frame.
+#' @importFrom stringr str_split str_sub
+#' @export
+#'
+#' @examples
+#' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
+#' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
+#' all_clades(c(lineage1, lineage2))
+#' all_clades(c(lineage1, lineage2), simplify = FALSE)
+all_clades <- function(lineages, simplify = TRUE, sep = "\\|") {
+  clades <- unique(unlist(str_split(lineages, pattern = sep)))
+
+  if (simplify) {
+
+    return(sort(str_sub(clades, start = 4)))
+
+  } else {
+
+    ranks <- c(k = "kingdom", p = "phylum", c = "class", o = "order",
+               f = "family", g = "genus", s = "species", t = "strain")
+    ranks_ <- ranks[str_sub(clades, end = 1)]
+    df <-data.frame(clade = str_sub(clades, start = 4), rank = ranks_,
+                    stringsAsFactors = FALSE)
+    ind <- order(df$clade)
+
+    return(df[ind, ])
+
+  }
+}
+
+

@@ -13,7 +13,7 @@ lineage1bis <- "k__Bacteria;p__Verrucomicrobia;c__Verrucomicrobiae"
 lineage2bis <- "k__Bacteria;p__Firmicutes;c__Clostridia"
 lineagesbis <- c(lineage1bis, lineage2bis)
 
-## is_rank()
+#### is_rank() ####
 
 test_that("is_rank() is correct", {
   expect_equal(is_rank(lineages, "class"), c(TRUE, TRUE, FALSE, FALSE, FALSE))
@@ -28,7 +28,7 @@ test_that("is_rank() throws error when needed", {
 })
 
 
-## is_clade()
+#### is_clade() ####
 
 test_that("is_clade() is correct", {
   expect_equal(is_clade(lineages, "Clostridia", "class"),
@@ -50,7 +50,7 @@ test_that("is_clade() throws error when needed", {
 })
 
 
-## last_clade()
+#### last_clade() ####
 
 test_that("last_clade() is correct", {
   expect_equal(last_clade(lineages[1:2]),
@@ -67,7 +67,7 @@ test_that("last_clade() throws error when needed", {
 })
 
 
-## last_rank()
+#### last_rank() ####
 
 test_that("last_rank() is correct", {
   expect_equal(last_rank(lineages[1:2]),
@@ -80,4 +80,32 @@ test_that("last_rank() is correct", {
 
 test_that("last_rank() throws error when needed", {
   expect_error(last_rank(lineages, same = TRUE))
+})
+
+#### all_clades() ####
+
+test_that("all_clades() have the correct output format", {
+  expect_is(all_clades(lineages), "character")
+  expect_is(all_clades(lineages, simplify = FALSE), "data.frame")
+  expect_equal(dim(all_clades(lineages, simplify = FALSE)),
+               c(length(all_clades(lineages)), 2))
+  expect_equal(colnames(all_clades(lineages, simplify = FALSE)),
+               c("clade", "rank"))
+})
+
+test_that("all_clades() is correct", {
+  expect_equal(all_clades(c(lineage1, lineage2)),
+               c("Bacteria", "Clostridia", "Firmicutes", "Verrucomicrobia",
+                 "Verrucomicrobiae"))
+  expect_equal(all_clades(lineage5), "Viruses")
+  expect_equal(all_clades(c(lineage4, lineage5), simplify = FALSE)$clade,
+               c("Bac", "Clos", "Clost", "Fir", "Rumi",
+                 "Sub_su", "Subdo", "Viruses", "X_56Z"))
+  expect_equal(all_clades(c(lineage4, lineage5), simplify = FALSE)$rank,
+               c("kingdom", "class", "order", "phylum", "family",
+                 "species", "genus", "kingdom", "strain"))
+  expect_equal(all_clades(lineage5), "Viruses")
+  expect_equal(all_clades(lineagesbis, sep = ";"), all_clades(lineages[1:2]))
+  expect_equal(all_clades(lineagesbis, simplify = FALSE, sep = ";"),
+               all_clades(lineages[1:2], simplify = FALSE))
 })
