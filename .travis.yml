@@ -4,8 +4,6 @@ language: R
 
 cache: packages
 
-before_install: R -e 'source("https://install-github.me/r-lib/remotes")'
-
 bioc_packages:
   - curatedMetagenomicData
   - ggtree
