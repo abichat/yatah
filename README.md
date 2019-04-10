@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# yatah <img src='man/figures/logo.png' align="right" height="139" />
+# yatah <a href='https://abichat.github.io/yatah'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -12,7 +12,7 @@
 status](https://travis-ci.org/abichat/yatah.svg?branch=master)](https://travis-ci.org/abichat/yatah)
 [![Codecov test
 coverage](https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/yatah?branch=master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--09-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--10-yellowgreen.svg)](/commits/master)
 <!-- [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abichat/yatah?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/yatah) -->
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
