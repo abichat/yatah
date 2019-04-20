@@ -26,9 +26,23 @@ badlin4 <- "k__Bac|p__Fir|b__Clos|o__Clo|f__Rumi|"
 badlin5 <- "k__Bac|c__Clos|o__Clost|f__Rumi"
 badlins <- c(badlin1, badlin2, badlin3, badlin4, badlin5)
 
+
+#### is_lineage()
+
 test_that("is_lineage() is correct", {
   expect_equal(is_lineage(lineages), rep(TRUE, 8))
   expect_equal(is_lineage(lineagesbis, sep = ";"), rep(TRUE, 5))
   expect_equal(is_lineage(badlins), rep(FALSE, 5))
+})
+
+
+#### error_lineage()
+
+test_that("error_lineage() is correct", {
+  expect_silent(error_lineage(lineages))
+  expect_silent(error_lineage(lineagesbis, sep = ";"))
+  expect_error(error_lineage(badlins),
+               paste0("Your string is not a lineage. Maybe you have specified",
+                      " the wrong separator or used special caracters."))
 })
 

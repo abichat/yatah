@@ -22,6 +22,7 @@ is_lineage <- function(string, sep = "\\|"){
 }
 
 
+
 #' Test if a lineage goes down to a specified rank
 #'
 #' @param lineage string. Vector of lineages.
