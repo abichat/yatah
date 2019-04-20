@@ -4,7 +4,7 @@
 \alias{last_clade}
 \title{Extract the last clade of a lineage}
 \usage{
-last_clade(lineage, same = TRUE)
+last_clade(lineage, sep = "\\\\|", same = TRUE)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}

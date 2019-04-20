@@ -4,7 +4,7 @@
 \alias{last_rank}
 \title{Extract the last rank of a lineage}
 \usage{
-last_rank(lineage, same = TRUE)
+last_rank(lineage, sep = "\\\\|", same = TRUE)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}

@@ -11,7 +11,10 @@
 #' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' last_clade(c(lineage1, lineage2))
-last_clade <- function(lineage, same = TRUE) {
+last_clade <- function(lineage, sep = "\\|", same = TRUE) {
+
+  error_lineage(lineage, sep = sep)
+
   if (same) {
     if (!all(str_count(lineage, "__") == str_count(lineage[1], "__"))) {
       stop("Lineages don't have the same depth")
@@ -35,7 +38,10 @@ last_clade <- function(lineage, same = TRUE) {
 #' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' last_rank(c(lineage1, lineage2))
-last_rank <- function(lineage, same = TRUE) {
+last_rank <- function(lineage, sep = "\\|", same = TRUE) {
+
+  error_lineage(lineage, sep = sep)
+
   if (same) {
     if (!all(str_count(lineage, "__") == str_count(lineage[1], "__"))) {
       stop("Lineages don't have the same depth")
@@ -68,7 +74,10 @@ last_rank <- function(lineage, same = TRUE) {
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' all_clades(c(lineage1, lineage2))
 #' all_clades(c(lineage1, lineage2), simplify = FALSE)
-all_clades <- function(lineages, simplify = TRUE, sep = "\\|") {
+all_clades <- function(lineages, sep = "\\|", simplify = TRUE) {
+
+  error_lineage(lineages, sep = sep)
+
   clades <- unique(unlist(str_split(lineages, pattern = sep)))
 
   if (simplify) {

@@ -4,15 +4,15 @@
 \alias{all_clades}
 \title{Extract all clades present in the lineages}
 \usage{
-all_clades(lineages, simplify = TRUE, sep = "\\\\|")
+all_clades(lineages, sep = "\\\\|", simplify = TRUE)
 }
 \arguments{
 \item{lineages}{string. Vector of lineages.}
 
-\item{simplify}{logical. Should the output be a vector or a dataframe?}
-
 \item{sep}{string. Rank separator. Default to \code{\\\\|} but
 \code{;} could be used too.}
+
+\item{simplify}{logical. Should the output be a vector or a dataframe?}
 }
 \value{
 The clades present in the lineage. Vector of ordered strings

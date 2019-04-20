@@ -26,6 +26,8 @@ badlin4 <- "k__Bac|p__Fir|b__Clos|o__Clo|f__Rumi|"
 badlin5 <- "k__Bac|c__Clos|o__Clost|f__Rumi"
 badlins <- c(badlin1, badlin2, badlin3, badlin4, badlin5)
 
+errorbadlin <- paste0("Your string is not a lineage. Maybe you have specified",
+                      " the wrong separator or used special caracters.")
 
 #### is_lineage()
 
@@ -41,8 +43,19 @@ test_that("is_lineage() is correct", {
 test_that("error_lineage() is correct", {
   expect_silent(error_lineage(lineages))
   expect_silent(error_lineage(lineagesbis, sep = ";"))
-  expect_error(error_lineage(badlins),
-               paste0("Your string is not a lineage. Maybe you have specified",
-                      " the wrong separator or used special caracters."))
+  expect_error(error_lineage(badlins), errorbadlin)
+  expect_error(error_lineage(c(lineages, badlin5)), errorbadlin)
+})
+
+
+#### all functions
+
+test_that("errors are thrown with bad lineages", {
+  expect_error(all_clades(c(lineage5, badlin2)), errorbadlin)
+  expect_error(is_clade(c(lineage5, badlin2), "Bac"), errorbadlin)
+  expect_error(is_rank(c(lineage5, badlin2), "family"), errorbadlin)
+  expect_error(last_clade(c(lineage5, badlin2)), errorbadlin)
+  expect_error(last_rank(c(lineage5, badlin2)), errorbadlin)
+  expect_error(taxtable(c(lineage5, badlin2)), errorbadlin)
 })
 

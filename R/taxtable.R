@@ -19,6 +19,9 @@
 #' lineage3 <- "k__Bacteria|p__Firmicutes|c__Bacilli"
 #' taxtable(c(lineage1, lineage2, lineage3))
 taxtable <- function(lineage, sep = "\\|") {
+
+  error_lineage(lineage, sep = sep)
+
   ranks <- c("kingdom", "phylum", "class", "order",
              "family", "genus", "species", "strain")
 

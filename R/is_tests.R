@@ -40,11 +40,15 @@ is_lineage <- function(string, sep = "\\|"){
 #' is_rank(c(lineage1, lineage2), "order")
 is_rank <- function(lineage,
                     rank = c("kingdom", "phylum", "class", "order",
-                             "family", "genus", "species", "strain")) {
-    rank <- match.arg(rank)
-    letter <- ifelse(rank == "strain", "t", str_sub(rank, end = 1))
+                             "family", "genus", "species", "strain"),
+                    sep = "\\|") {
 
-    str_detect(lineage, paste0(letter, "__[a-zA-Z0-9_]*$"))
+  error_lineage(lineage, sep = sep)
+
+  rank <- match.arg(rank)
+  letter <- ifelse(rank == "strain", "t", str_sub(rank, end = 1))
+
+  str_detect(lineage, paste0(letter, "__[a-zA-Z0-9_]*$"))
   }
 
 
@@ -71,6 +75,8 @@ is_clade <- function(lineage, clade,
                      rank = c(".", "kingdom", "phylum", "class", "order",
                               "family", "genus", "species", "strain"),
                      sep = "\\|") {
+
+  error_lineage(lineage, sep = sep)
 
   stopifnot(length(clade) == 1)
 
