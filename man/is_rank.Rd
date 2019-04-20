@@ -12,6 +12,9 @@ is_rank(lineage, rank = c("kingdom", "phylum", "class", "order",
 
 \item{rank}{string. One of \code{c("kingdom", "phylum", "class",
 "order", "family", "genus", "species", "strain")} with partial matching.}
+
+\item{sep}{string. Rank separator. Default to \code{\\\\|} but
+\code{;} could be used too.}
 }
 \value{
 logical.

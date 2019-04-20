@@ -1,6 +1,8 @@
 #' Extract the last clade of a lineage
 #'
 #' @param lineage string. Vector of lineages.
+#' @param sep string. Rank separator. Default to \code{\\\\|} but
+#' \code{;} could be used too.
 #' @param same logical. Does the lineage have the same depth? Default to TRUE.
 #'
 #' @return A string. The last clades of the given lineages.
@@ -28,6 +30,8 @@ last_clade <- function(lineage, sep = "\\|", same = TRUE) {
 #' Extract the last rank of a lineage
 #'
 #' @param lineage string. Vector of lineages.
+#' @param sep string. Rank separator. Default to \code{\\\\|} but
+#' \code{;} could be used too.
 #' @param same logical. Does the lineage have the same depth? Default to TRUE.
 #'
 #' @return A string. The last rank of the given lineages.
@@ -60,9 +64,9 @@ last_rank <- function(lineage, sep = "\\|", same = TRUE) {
 #' Extract all clades present in the lineages
 #'
 #' @param lineages string. Vector of lineages.
-#' @param simplify logical. Should the output be a vector or a dataframe?
 #' @param sep string. Rank separator. Default to \code{\\\\|} but
 #' \code{;} could be used too.
+#' @param simplify logical. Should the output be a vector or a dataframe?
 #'
 #' @return The clades present in the lineage. Vector of ordered strings
 #'  or data.frame.

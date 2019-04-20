@@ -28,6 +28,8 @@ is_lineage <- function(string, sep = "\\|"){
 #' @param lineage string. Vector of lineages.
 #' @param rank string. One of \code{c("kingdom", "phylum", "class",
 #' "order", "family", "genus", "species", "strain")} with partial matching.
+#' @param sep string. Rank separator. Default to \code{\\\\|} but
+#' \code{;} could be used too.
 #'
 #' @return logical.
 #' @importFrom stringr str_sub str_detect
