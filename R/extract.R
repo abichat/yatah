@@ -55,7 +55,7 @@ last_rank <- function(lineage, sep = "\\|", same = TRUE) {
 
 #' Extract all clades present in the lineages
 #'
-#' @param lineages string. Vector of lineages.
+#' @param lineage string. Vector of lineages.
 #' @param sep string. Rank separator. Default to \code{\\\\|} but
 #' \code{;} could be used too.
 #' @param simplify logical. Should the output be a vector or a dataframe?
@@ -70,11 +70,11 @@ last_rank <- function(lineage, sep = "\\|", same = TRUE) {
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' all_clades(c(lineage1, lineage2))
 #' all_clades(c(lineage1, lineage2), simplify = FALSE)
-all_clades <- function(lineages, sep = "\\|", simplify = TRUE) {
+all_clades <- function(lineage, sep = "\\|", simplify = TRUE) {
 
-  error_lineage(lineages, sep = sep)
+  error_lineage(lineage, sep = sep)
 
-  clades <- unique(unlist(str_split(lineages, pattern = sep)))
+  clades <- unique(unlist(str_split(lineage, pattern = sep)))
 
   if (simplify) {
 

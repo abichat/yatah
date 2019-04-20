@@ -4,10 +4,10 @@
 \alias{all_clades}
 \title{Extract all clades present in the lineages}
 \usage{
-all_clades(lineages, sep = "\\\\|", simplify = TRUE)
+all_clades(lineage, sep = "\\\\|", simplify = TRUE)
 }
 \arguments{
-\item{lineages}{string. Vector of lineages.}
+\item{lineage}{string. Vector of lineages.}
 
 \item{sep}{string. Rank separator. Default to \code{\\\\|} but
 \code{;} could be used too.}
