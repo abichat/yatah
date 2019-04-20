@@ -9,7 +9,7 @@
 #' \code{;} could be used too.
 #'
 #' @return A data.frame with columns corresponding to different ranks.
-#' @importFrom stringr str_count str_remove_all str_split
+#' @importFrom stringr str_remove_all str_split
 #' @importFrom purrr map transpose
 #' @export
 #'
@@ -25,10 +25,7 @@ taxtable <- function(lineage, sep = "\\|") {
   ranks <- c("kingdom", "phylum", "class", "order",
              "family", "genus", "species", "strain")
 
-  N <- str_count(lineage, "__")
-  if (!all(N == N[1])) {
-    stop("Lineages don't have the same depth")
-  }
+  N <- depth(lineage)
 
   list <- str_split(str_remove_all(unique(lineage), sep), ".__")
   list <- map(list, ~ .[-1])

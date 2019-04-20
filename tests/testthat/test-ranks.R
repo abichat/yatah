@@ -13,6 +13,8 @@ lineage1bis <- "k__Bacteria;p__Verrucomicrobia;c__Verrucomicrobiae"
 lineage2bis <- "k__Bacteria;p__Firmicutes;c__Clostridia"
 lineagesbis <- c(lineage1bis, lineage2bis)
 
+errormessdepth <- "Lineages don't have the same depth."
+
 #### is_rank() ####
 
 test_that("is_rank() is correct", {
@@ -63,7 +65,7 @@ test_that("last_clade() is correct", {
 })
 
 test_that("last_clade() throws error when needed", {
-  expect_error(last_clade(lineages, same = TRUE))
+  expect_error(last_clade(lineages, same = TRUE), errormessdepth)
 })
 
 
@@ -79,7 +81,7 @@ test_that("last_rank() is correct", {
 })
 
 test_that("last_rank() throws error when needed", {
-  expect_error(last_rank(lineages, same = TRUE))
+  expect_error(last_rank(lineages, same = TRUE), errormessdepth)
 })
 
 #### all_clades() ####

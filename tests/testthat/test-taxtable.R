@@ -11,6 +11,10 @@ lin6 <- "k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Coriobacteriales"
 lineages1 <- c(lin1, lin2, lin3)
 lineages2 <- c(lin4, lin5, lin6)
 
+errormessdepth <- "Lineages don't have the same depth."
+
+####
+
 test_that("taxtable() is correct", {
   expect_equal(taxtable(lineages1)$kingdom, rep("Bacteria", 3))
   expect_equal(taxtable(lineages1)$phylum,
@@ -27,6 +31,7 @@ lineages3 <- c(lin6, lin7)
 
 test_that("taxtable() throws error when needed", {
   expect_error(taxtable(lineages3))
+  expect_error(taxtable(c(lin3, lin4)), errormessdepth)
 })
 
 lin1bis <- "k__Bacteria;p__Verrucomicrobia;c__Verrucomicrobiae"

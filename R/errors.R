@@ -9,3 +9,18 @@ error_lineage <- function(string, sep = "\\|"){
                 "specified the wrong separator or used special caracters."))
   }
 }
+
+
+#' Common depth
+#'
+#' Throw an error if depth is not the same across lineages.
+#'
+#' @param lineage string. Vector of lineages.
+#' @importFrom stringr str_count
+depth <- function(lineage) {
+  N <- str_count(lineage, "__")
+  if (!all(N == N[1])) {
+    stop("Lineages don't have the same depth.")
+  }
+  return(N)
+}

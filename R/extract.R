@@ -6,7 +6,7 @@
 #' @param same logical. Does the lineage have the same depth? Default to TRUE.
 #'
 #' @return A string. The last clades of the given lineages.
-#' @importFrom stringr str_count str_remove
+#' @importFrom stringr str_remove
 #' @export
 #'
 #' @examples
@@ -17,11 +17,7 @@ last_clade <- function(lineage, sep = "\\|", same = TRUE) {
 
   error_lineage(lineage, sep = sep)
 
-  if (same) {
-    if (!all(str_count(lineage, "__") == str_count(lineage[1], "__"))) {
-      stop("Lineages don't have the same depth")
-    }
-  }
+  if (same) depth(lineage)
 
   str_remove(lineage, ".*__")
 }
@@ -35,7 +31,7 @@ last_clade <- function(lineage, sep = "\\|", same = TRUE) {
 #' @param same logical. Does the lineage have the same depth? Default to TRUE.
 #'
 #' @return A string. The last rank of the given lineages.
-#' @importFrom stringr str_count str_remove
+#' @importFrom stringr str_remove
 #' @export
 #'
 #' @examples
@@ -46,11 +42,7 @@ last_rank <- function(lineage, sep = "\\|", same = TRUE) {
 
   error_lineage(lineage, sep = sep)
 
-  if (same) {
-    if (!all(str_count(lineage, "__") == str_count(lineage[1], "__"))) {
-      stop("Lineages don't have the same depth")
-    }
-  }
+  if (same) depth(lineage)
 
   ranks <- c(k = "kingdom", p = "phylum", c = "class", o = "order",
              f = "family", g = "genus", s = "species", t = "strain")
