@@ -22,14 +22,11 @@ taxtable <- function(lineage, sep = "\\|") {
 
   error_lineage(lineage, sep = sep)
 
-  ranks <- c("kingdom", "phylum", "class", "order",
-             "family", "genus", "species", "strain")
-
   N <- depth(lineage)
 
   list <- str_split(str_remove_all(unique(lineage), sep), ".__")
   list <- map(list, ~ .[-1])
 
-  list <- map(transpose(list, .names = ranks[1:(N[1])]), unlist)
+  list <- map(transpose(list, .names = .ranks[1:(N[1])]), unlist)
   as.data.frame(list, stringsAsFactors = FALSE)
 }

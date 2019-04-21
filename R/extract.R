@@ -44,12 +44,9 @@ last_rank <- function(lineage, sep = "\\|", same = TRUE) {
 
   if (same) depth(lineage)
 
-  ranks <- c(k = "kingdom", p = "phylum", c = "class", o = "order",
-             f = "family", g = "genus", s = "species", t = "strain")
-
   letter <- str_sub(str_remove(lineage, "__[a-zA-Z0-9_]*$"), start = -1)
 
-  unname(ranks[letter])
+  unname(.ranks[letter])
 }
 
 
@@ -82,9 +79,7 @@ all_clades <- function(lineage, sep = "\\|", simplify = TRUE) {
 
   } else {
 
-    ranks <- c(k = "kingdom", p = "phylum", c = "class", o = "order",
-               f = "family", g = "genus", s = "species", t = "strain")
-    ranks_ <- ranks[str_sub(clades, end = 1)]
+    ranks_ <- .ranks[str_sub(clades, end = 1)]
     df <-data.frame(clade = str_sub(clades, start = 4), rank = ranks_,
                     stringsAsFactors = FALSE)
     ind <- order(df$clade)
