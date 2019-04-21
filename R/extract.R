@@ -44,7 +44,8 @@ last_rank <- function(lineage, sep = "\\|", same = TRUE) {
 
   if (same) depth(lineage)
 
-  letter <- str_sub(str_remove(lineage, "__[a-zA-Z0-9_]*$"), start = -1)
+  letter <- str_sub(str_remove(lineage, paste0("__", .allchr, "*$")),
+                    start = -1)
 
   unname(.ranks[letter])
 }

@@ -11,14 +11,14 @@
 #' @examples
 #' is_lineage("k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales")
 is_lineage <- function(string, sep = "\\|"){
-  str_detect(string, paste0("^k__[a-zA-Z_]*",
-                            "($|", sep ,"p__[a-zA-Z0-9_]*)",
-                            "($|", sep ,"c__[a-zA-Z0-9_]*)",
-                            "($|", sep ,"o__[a-zA-Z0-9_]*)",
-                            "($|", sep ,"f__[a-zA-Z0-9_]*)",
-                            "($|", sep ,"g__[a-zA-Z0-9_]*)",
-                            "($|", sep ,"s__[a-zA-Z0-9_]*)",
-                            "($|", sep ,"t__[a-zA-Z0-9_]*)$"))
+  str_detect(string, paste0("^k__", .allchr, "*",
+                            "($|", sep ,"p__", .allchr, "*)",
+                            "($|", sep ,"c__", .allchr, "*)",
+                            "($|", sep ,"o__", .allchr, "*)",
+                            "($|", sep ,"f__", .allchr, "*)",
+                            "($|", sep ,"g__", .allchr, "*)",
+                            "($|", sep ,"s__", .allchr, "*)",
+                            "($|", sep ,"t__", .allchr, "*)$"))
 }
 
 
@@ -50,7 +50,7 @@ is_rank <- function(lineage,
   rank <- match.arg(rank)
   letter <- ifelse(rank == "strain", "t", str_sub(rank, end = 1))
 
-  str_detect(lineage, paste0(letter, "__[a-zA-Z0-9_]*$"))
+  str_detect(lineage, paste0(letter, "__", .allchr, "*$"))
   }
 
 
