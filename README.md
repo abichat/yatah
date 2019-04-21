@@ -14,7 +14,7 @@ status](https://travis-ci.org/abichat/yatah.svg?branch=master)](https://travis-c
 coverage](https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/yatah?branch=master)
 [![Codacy
 Badge](https://api.codacy.com/project/badge/Grade/2d7712f99522472db847f9bdc3f7b7a4)](https://www.codacy.com/app/abichat/yatah?utm_source=github.com&utm_medium=referral&utm_content=abichat/yatah&utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--11-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--21-yellowgreen.svg)](/commits/master)
 <!-- [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abichat/yatah?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/yatah) -->
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
@@ -95,6 +95,25 @@ last_clade(lineages)
 #> [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales" 
 #> [4] "Bacillales"        "Lactobacillales"   "Clostridiales"    
 #> [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"
+```
+
+  - `all_clades` extracts all clades of the lineages.
+
+<!-- end list -->
+
+``` r
+all_clades(lineages, simplify = TRUE)
+#>  [1] "Actinobacteria"        "Actinobacteria"       
+#>  [3] "Bacillales"            "Bacilli"              
+#>  [5] "Bacteria"              "Bacteroidales"        
+#>  [7] "Bacteroidetes"         "Bacteroidia"          
+#>  [9] "Campylobacterales"     "Clostridia"           
+#> [11] "Clostridiales"         "Coriobacteriales"     
+#> [13] "Enterobacteriales"     "Epsilonproteobacteria"
+#> [15] "Firmicutes"            "Flavobacteriales"     
+#> [17] "Flavobacteriia"        "Gammaproteobacteria"  
+#> [19] "Lactobacillales"       "Proteobacteria"       
+#> [21] "Pseudomonadales"
 ```
 
   - `taxtable()` computes the taxonomic table corresponding to the
