@@ -1,6 +1,14 @@
+# yatah 0.0.0.9006
+
+* Vignette and package website.
+* New function `all_clades`.
+* Argument `sep` is necessary for all functions with a `lineage` argument.
+* `is_lineage()` is always checked.
+* New special characters are supported in lineages: ., -, [ and ].
+
 # yatah 0.0.0.9005
 
-* Added a new argument `sep` in several functions to choose the separator (# 1)
+* Added a new argument `sep` in several functions to choose the separator (# 1).
 
 # yatah 0.0.0.9004
 
