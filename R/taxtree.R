@@ -11,6 +11,7 @@
 #' @return A phylo object.
 #' @importFrom ape collapse.singles write.tree read.tree
 #' @importFrom stats na.omit
+#' @importFrom stringr str_replace_all
 #' @export
 #'
 #' @examples
@@ -88,7 +89,17 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
                edge.length = rep(lineage_length / (nrk - 1), nrow(el)))
   class(tree) <- "phylo"
 
+  ## Remove brackets
+
+  tree$tip.label <- str_replace_all(tree$tip.label, "\\[", "_ob_")
+  tree$tip.label <- str_replace_all(tree$tip.label, "\\]", "_cb_")
+
   tree <- read.tree(text = write.tree(tree))
+
+  ## Put brackets back
+
+  tree$tip.label <- str_replace_all(tree$tip.label, "_ob_", "\\[")
+  tree$tip.label <- str_replace_all(tree$tip.label, "_cb_", "\\]")
 
   ## Collapse
 

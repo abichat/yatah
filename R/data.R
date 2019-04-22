@@ -8,4 +8,4 @@
 
 #' Characters allowed in lineages
 #'
-.allchr <- "[a-zA-Z0-9_]"
+.allchr <- "[a-zA-Z0-9_\\-\\.\\[\\]]"
