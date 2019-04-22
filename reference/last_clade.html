@@ -34,7 +34,7 @@
 
 <meta property="og:description" content="Extract the last clade of a lineage" />
 
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="https://abichat.github.io/yatah/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -75,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">yatah</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9005</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9006</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Extract the last clade of a lineage</h1>
-    <small class="dont-index">Source: <a href='https://github.com/abichat/yatah/blob/master/R/ranks.R'><code>R/ranks.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/abichat/yatah/blob/master/R/extract.R'><code>R/extract.R</code></a></small>
     <div class="hidden name"><code>last_clade.Rd</code></div>
     </div>
 
@@ -131,7 +131,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>last_clade</span>(<span class='no'>lineage</span>, <span class='kw'>same</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>last_clade</span>(<span class='no'>lineage</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"\\|"</span>, <span class='kw'>same</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,6 +139,11 @@
     <tr>
       <th>lineage</th>
       <td><p>string. Vector of lineages.</p></td>
+    </tr>
+    <tr>
+      <th>sep</th>
+      <td><p>string. Rank separator. Default to <code>\\|</code> but
+<code>;</code> could be used too.</p></td>
     </tr>
     <tr>
       <th>same</th>
