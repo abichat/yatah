@@ -93,6 +93,11 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
 
   tree$tip.label <- str_replace_all(tree$tip.label, "\\[", "_ob_")
   tree$tip.label <- str_replace_all(tree$tip.label, "\\]", "_cb_")
+  tree$tip.label <- str_replace_all(tree$tip.label, " ", "_sp_")
+
+  tree$node.label <- str_replace_all(tree$node.label, "\\[", "_ob_")
+  tree$node.label <- str_replace_all(tree$node.label, "\\]", "_cb_")
+  tree$node.label <- str_replace_all(tree$node.label, " ", "_sp_")
 
   tree <- read.tree(text = write.tree(tree))
 
@@ -100,6 +105,11 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
 
   tree$tip.label <- str_replace_all(tree$tip.label, "_ob_", "\\[")
   tree$tip.label <- str_replace_all(tree$tip.label, "_cb_", "\\]")
+  tree$tip.label <- str_replace_all(tree$tip.label, "_sp_", " ")
+
+  tree$node.label <- str_replace_all(tree$node.label, "_ob_", "\\[")
+  tree$node.label <- str_replace_all(tree$node.label, "_cb_", "\\]")
+  tree$node.label <- str_replace_all(tree$node.label, "_sp_", " ")
 
   ## Collapse
 

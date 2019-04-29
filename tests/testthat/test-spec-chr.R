@@ -42,11 +42,18 @@ test_that("special characters are handled correclty in taxtable", {
                                    "Bacte_roidia", "[Acidobacteria]"))
 })
 
+df_birds <-
+  data.frame(family = c("Parulidae", "Passerellidae", "Passerellidae"),
+             genus = c("Setophaga", "Spizelloides", "Zonotrichia"),
+             species = c("Setophaga magnolia", "Spizelloides arborea",
+                         "Zonotrichia albicollis"), stringsAsFactors = FALSE)
+
 test_that("special characters are handled correclty in taxtree", {
   expect_equal(length(taxtree(tabl_spec2)$tip.label), 4)
   expect_equal(taxtree(tabl_spec2)$tip.label %in%
                  c("Acidobacteria-6", "Bacte.roidia",
                    "Bacte_roidia", "[Acidobacteria]"), rep(TRUE, 4))
+  expect_equal(sort(taxtree(df_birds)$tip.label), df_birds$species)
 })
 
 

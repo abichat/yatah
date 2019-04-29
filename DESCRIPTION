@@ -8,7 +8,7 @@ Authors@R:
            email = "a.bichat@yahoo.fr",
            comment = c(ORCID = "0000-0001-6599-7081"))
 Description: Provides functions to manage taxonomy when lineages
-    are described with strings and ranks separated with with special 
+    are described with strings and ranks separated with with special
     patterns like "|*__" or ";*__".
 License: GPL-3
 URL: https://github.com/abichat/yatah,
