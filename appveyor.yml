@@ -13,14 +13,39 @@ install:
 cache:
   - C:\RLibrary
 
-environment:
-  NOT_CRAN: true
-
 # Adapt as necessary starting from here
 
+# check suggested packges
+environment:
+  global:
+    # r-appveyor will fail to install some packages (e.g. XML) unless we
+    # specifically request binary packages.
+    # https://github.com/krlmlr/r-appveyor/issues/133
+    # https://github.com/krlmlr/r-appveyor/issues/138
+    # Note that enabling this can cause R-devel builds to fail.
+    # PKGTYPE: win.binary
+    # The more powerful `x64` image is now default over `i386`.
+    R_ARCH: x64
+    # Need to enable when installing GitHub dependency packages.
+    USE_RTOOLS: true
+  # Set the build matrix to use R-devel, otherwise Bioconductor checks will fail
+  # because the image now expects BioC 3.9 on R 3.6.
+  # https://github.com/krlmlr/r-appveyor/issues/144
+  matrix:
+    - R_VERSION: release
+      GCC_PATH: mingw_64
+
 build_script:
-  - travis-tool.sh install_deps
+  # `install_bioc_deps` will fail due to AnnotationHub unless we run these commands.
+  # - travis-tool.sh install_bioc GenomeInfoDbData
+  # - travis-tool.sh install_bioc DelayedArray
+  # - travis-tool.sh install_bioc ensembldb
+  # - travis-tool.sh install_bioc EnsDb.Hsapiens.v75
+  - travis-tool.sh install_bioc curatedMetagenomicData
+  - travis-tool.sh install_bioc ggtree
   - travis-tool.sh install_bioc_deps
+  # `install_deps` is now breaking with R 3.6 / BioC 3.9.
+  # - travis-tool.sh install_deps
 
 test_script:
   - travis-tool.sh run_tests
