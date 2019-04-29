@@ -10,12 +10,13 @@
 [![packageversion](https://img.shields.io/badge/package%20version-0.0.0.9006-orange.svg)](https://github.com/abichat/yatah/blob/master/DESCRIPTION)
 [![Travis build
 status](https://travis-ci.org/abichat/yatah.svg?branch=master)](https://travis-ci.org/abichat/yatah)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/abichat/yatah?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/yatah)
 [![Codecov test
 coverage](https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/yatah?branch=master)
 [![Codacy
 Badge](https://api.codacy.com/project/badge/Grade/2d7712f99522472db847f9bdc3f7b7a4)](https://www.codacy.com/app/abichat/yatah?utm_source=github.com&utm_medium=referral&utm_content=abichat/yatah&utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--22-yellowgreen.svg)](https://github.com/abichat/yatah/commits/master)
-<!-- [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abichat/yatah?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/yatah) -->
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--30-yellowgreen.svg)](https://github.com/abichat/yatah/commits/master)
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
 
@@ -42,8 +43,8 @@ You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("abichat/yatah")
+# install.packages("remotes")
+remotes::install_github("abichat/yatah")
 ```
 
 ## Example
