@@ -4,7 +4,7 @@
 * New function `all_clades`.
 * Argument `sep` is necessary for all functions with a `lineage` argument.
 * `is_lineage()` is always checked.
-* New special characters are supported in lineages: ., -, [ and ].
+* New special characters are supported in lineages: `.`, `-`, `[` and `]`.
 
 # yatah 0.0.0.9005
 
