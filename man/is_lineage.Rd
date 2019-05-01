@@ -4,7 +4,7 @@
 \alias{is_lineage}
 \title{Test if a string is a lineage}
 \usage{
-is_lineage(string, sep = "\\\\|")
+is_lineage(string, sep = NULL)
 }
 \arguments{
 \item{string}{string.}

@@ -10,15 +10,18 @@
 #'
 #' @examples
 #' is_lineage("k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales")
-is_lineage <- function(string, sep = "\\|"){
+is_lineage <- function(string, sep = NULL){
+
+  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
+
   str_detect(string, paste0("^k__", .allchr, "*",
-                            "($|", sep ,"p__", .allchr, "*)",
-                            "($|", sep ,"c__", .allchr, "*)",
-                            "($|", sep ,"o__", .allchr, "*)",
-                            "($|", sep ,"f__", .allchr, "*)",
-                            "($|", sep ,"g__", .allchr, "*)",
-                            "($|", sep ,"s__", .allchr, "*)",
-                            "($|", sep ,"t__", .allchr, "*)$"))
+                            "($|", sep, "p__", .allchr, "*)",
+                            "($|", sep, "c__", .allchr, "*)",
+                            "($|", sep, "o__", .allchr, "*)",
+                            "($|", sep, "f__", .allchr, "*)",
+                            "($|", sep, "g__", .allchr, "*)",
+                            "($|", sep, "s__", .allchr, "*)",
+                            "($|", sep, "t__", .allchr, "*)$"))
 }
 
 
