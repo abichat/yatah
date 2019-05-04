@@ -65,7 +65,7 @@ last_rank <- function(lineage, same = TRUE, sep = NULL) {
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' all_clades(c(lineage1, lineage2))
 #' all_clades(c(lineage1, lineage2), simplify = FALSE)
-all_clades <- function(lineage, simplify = TRUE, sep = "\\|") {
+all_clades <- function(lineage, simplify = TRUE, sep = NULL) {
 
   if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
 

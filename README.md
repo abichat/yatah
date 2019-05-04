@@ -7,7 +7,7 @@
 
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![packageversion](https://img.shields.io/badge/package%20version-0.0.0.9006-orange.svg)](https://github.com/abichat/yatah/blob/master/DESCRIPTION)
+[![packageversion](https://img.shields.io/badge/package%20version-0.0.0.9007-orange.svg)](https://github.com/abichat/yatah/blob/master/DESCRIPTION)
 [![Travis build
 status](https://travis-ci.org/abichat/yatah.svg?branch=master)](https://travis-ci.org/abichat/yatah)
 [![AppVeyor build
@@ -16,7 +16,7 @@ status](https://ci.appveyor.com/api/projects/status/github/abichat/yatah?branch=
 coverage](https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/yatah?branch=master)
 [![Codacy
 Badge](https://api.codacy.com/project/badge/Grade/2d7712f99522472db847f9bdc3f7b7a4)](https://www.codacy.com/app/abichat/yatah?utm_source=github.com&utm_medium=referral&utm_content=abichat/yatah&utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--30-yellowgreen.svg)](https://github.com/abichat/yatah/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--05--04-yellowgreen.svg)](https://github.com/abichat/yatah/commits/master)
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
 
@@ -98,7 +98,7 @@ last_clade(lineages)
 #> [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"
 ```
 
-  - `all_clades` extracts all clades of the lineages.
+  - `all_clades()` extracts all clades of the lineages.
 
 <!-- end list -->
 
@@ -159,3 +159,10 @@ plot(tree, show.node.label = TRUE)
 ```
 
 <img src="man/figures/README-taxtree-1.png" width="100%" />
+
+## Separator
+
+If you want to change the default separator from `|` to `;`, use
+`options(yatah_sep = ";)`.
+
+You can also use the `sep` argument for a one-shot change.

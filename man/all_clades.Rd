@@ -4,7 +4,7 @@
 \alias{all_clades}
 \title{Extract all clades present in the lineages}
 \usage{
-all_clades(lineage, simplify = TRUE, sep = "\\\\|")
+all_clades(lineage, simplify = TRUE, sep = NULL)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}

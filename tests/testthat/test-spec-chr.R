@@ -13,14 +13,18 @@ lin_spec <-
 
 
 test_that("special characters are handled correclty in general functions", {
-  expect_equal(is_lineage(lin_spec, "; "), rep(TRUE, length(lin_spec)))
-  expect_equal(last_clade(lin_spec, sep = "; ", same = FALSE),
+  options(yatah_sep = "; ")
+
+  expect_equal(is_lineage(lin_spec), rep(TRUE, length(lin_spec)))
+  expect_equal(last_clade(lin_spec, same = FALSE),
                c("iii1-15", "S24-7", "[Prevotella]",
                  "breve.longum.pseudocatenulatum"))
-  expect_equal(last_rank(lin_spec, sep = "; ", same = FALSE),
+  expect_equal(last_rank(lin_spec, same = FALSE),
                c("order", "family", "genus", "species"))
-  expect_equal(last_rank(lin_spec, sep = "; ", same = FALSE),
+  expect_equal(last_rank(lin_spec, same = FALSE),
                c("order", "family", "genus", "species"))
+
+  options(yatah_sep = "\\|")
 })
 
 lin_spec2 <-
