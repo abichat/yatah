@@ -1,9 +1,10 @@
 #' Throw error if the string is not a lineage
 #'
-#' @param string string.
-#' @param sep string. Rank separator. Default to \code{\\\\|} but
-#' \code{;} could be used too.
-error_lineage <- function(string, sep = "\\|"){
+#' @inheritParams is_lineage
+error_lineage <- function(string, sep = NULL){
+
+  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
+
   if(!all(is_lineage(string, sep))) {
     stop(paste0("Your string is not a lineage. Maybe you have ",
                 "specified the wrong separator or used special caracters."))
@@ -15,7 +16,7 @@ error_lineage <- function(string, sep = "\\|"){
 #'
 #' Throw an error if depth is not the same across lineages.
 #'
-#' @param lineage string. Vector of lineages.
+#' @inheritParams is_rank
 #' @importFrom stringr str_count
 depth <- function(lineage) {
   N <- str_count(lineage, "__")

@@ -1,8 +1,6 @@
 #' Extract the last clade of a lineage
 #'
-#' @param lineage string. Vector of lineages.
-#' @param sep string. Rank separator. Default to \code{\\\\|} but
-#' \code{;} could be used too.
+#' @inheritParams is_rank
 #' @param same logical. Does the lineage have the same depth? Default to TRUE.
 #'
 #' @return A string. The last clades of the given lineages.
@@ -13,7 +11,9 @@
 #' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' last_clade(c(lineage1, lineage2))
-last_clade <- function(lineage, sep = "\\|", same = TRUE) {
+last_clade <- function(lineage, same = TRUE, sep = NULL) {
+
+  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
 
   error_lineage(lineage, sep = sep)
 
@@ -25,10 +25,7 @@ last_clade <- function(lineage, sep = "\\|", same = TRUE) {
 
 #' Extract the last rank of a lineage
 #'
-#' @param lineage string. Vector of lineages.
-#' @param sep string. Rank separator. Default to \code{\\\\|} but
-#' \code{;} could be used too.
-#' @param same logical. Does the lineage have the same depth? Default to TRUE.
+#' @inheritParams last_clade
 #'
 #' @return A string. The last rank of the given lineages.
 #' @importFrom stringr str_remove
@@ -38,7 +35,9 @@ last_clade <- function(lineage, sep = "\\|", same = TRUE) {
 #' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' last_rank(c(lineage1, lineage2))
-last_rank <- function(lineage, sep = "\\|", same = TRUE) {
+last_rank <- function(lineage, same = TRUE, sep = NULL) {
+
+  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
 
   error_lineage(lineage, sep = sep)
 
@@ -53,9 +52,7 @@ last_rank <- function(lineage, sep = "\\|", same = TRUE) {
 
 #' Extract all clades present in the lineages
 #'
-#' @param lineage string. Vector of lineages.
-#' @param sep string. Rank separator. Default to \code{\\\\|} but
-#' \code{;} could be used too.
+#' @inheritParams last_clade
 #' @param simplify logical. Should the output be a vector or a dataframe?
 #'
 #' @return The clades present in the lineage. Vector of ordered strings
@@ -68,7 +65,9 @@ last_rank <- function(lineage, sep = "\\|", same = TRUE) {
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' all_clades(c(lineage1, lineage2))
 #' all_clades(c(lineage1, lineage2), simplify = FALSE)
-all_clades <- function(lineage, sep = "\\|", simplify = TRUE) {
+all_clades <- function(lineage, simplify = TRUE, sep = "\\|") {
+
+  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
 
   error_lineage(lineage, sep = sep)
 

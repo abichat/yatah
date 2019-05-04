@@ -5,18 +5,18 @@
 \title{Test if a lineage belongs to a clade}
 \usage{
 is_clade(lineage, clade, rank = c(".", "kingdom", "phylum", "class",
-  "order", "family", "genus", "species", "strain"), sep = "\\\\|")
+  "order", "family", "genus", "species", "strain"), sep = NULL)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
 
 \item{clade}{string.}
 
-\item{rank}{string. One of \code{c(".", "kingdom", "phylum", "class",
+\item{rank}{string. One of \code{c("kingdom", "phylum", "class",
 "order", "family", "genus", "species", "strain")} with partial matching.}
 
-\item{sep}{string. Rank separator. Default to \code{\\\\|} but
-\code{;} could be used too.}
+\item{sep}{string. Rank separator. Default to \code{|} (regex \code{\\\\|}) but
+could be modified with \code{options(yatah_sep = ...)}.}
 }
 \value{
 logical.

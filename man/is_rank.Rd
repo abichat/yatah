@@ -5,7 +5,7 @@
 \title{Test if a lineage goes down to a specified rank}
 \usage{
 is_rank(lineage, rank = c("kingdom", "phylum", "class", "order",
-  "family", "genus", "species", "strain"), sep = "\\\\|")
+  "family", "genus", "species", "strain"), sep = NULL)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
@@ -13,8 +13,8 @@ is_rank(lineage, rank = c("kingdom", "phylum", "class", "order",
 \item{rank}{string. One of \code{c("kingdom", "phylum", "class",
 "order", "family", "genus", "species", "strain")} with partial matching.}
 
-\item{sep}{string. Rank separator. Default to \code{\\\\|} but
-\code{;} could be used too.}
+\item{sep}{string. Rank separator. Default to \code{|} (regex \code{\\\\|}) but
+could be modified with \code{options(yatah_sep = ...)}.}
 }
 \value{
 logical.

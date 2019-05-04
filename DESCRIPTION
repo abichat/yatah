@@ -20,7 +20,6 @@ Imports:
     stats,
     stringr
 Suggests: 
-    covr,
     curatedMetagenomicData,
     dplyr,
     ggtree,

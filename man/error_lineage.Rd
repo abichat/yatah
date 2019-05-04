@@ -4,13 +4,13 @@
 \alias{error_lineage}
 \title{Throw error if the string is not a lineage}
 \usage{
-error_lineage(string, sep = "\\\\|")
+error_lineage(string, sep = NULL)
 }
 \arguments{
-\item{string}{string.}
+\item{string}{string to be tested as lineage.}
 
-\item{sep}{string. Rank separator. Default to \code{\\\\|} but
-\code{;} could be used too.}
+\item{sep}{string. Rank separator. Default to \code{|} (regex \code{\\\\|}) but
+could be modified with \code{options(yatah_sep = ...)}.}
 }
 \description{
 Throw error if the string is not a lineage
