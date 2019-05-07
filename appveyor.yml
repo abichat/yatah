@@ -32,7 +32,8 @@ environment:
   # because the image now expects BioC 3.9 on R 3.6.
   # https://github.com/krlmlr/r-appveyor/issues/144
   matrix:
-    - R_VERSION: release
+  #  - R_VERSION: release
+    - R_VERSION: devel
       GCC_PATH: mingw_64
 
 build_script:
