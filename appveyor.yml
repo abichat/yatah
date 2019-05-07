@@ -43,9 +43,9 @@ build_script:
   # - travis-tool.sh install_bioc EnsDb.Hsapiens.v75
   - travis-tool.sh install_bioc curatedMetagenomicData
   - travis-tool.sh install_bioc ggtree
-  - travis-tool.sh install_bioc_deps
+  # - travis-tool.sh install_bioc_deps
   # `install_deps` is now breaking with R 3.6 / BioC 3.9.
-  # - travis-tool.sh install_deps
+  - travis-tool.sh install_deps
 
 test_script:
   - travis-tool.sh run_tests
