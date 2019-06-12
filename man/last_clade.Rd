@@ -4,15 +4,12 @@
 \alias{last_clade}
 \title{Extract the last clade of a lineage}
 \usage{
-last_clade(lineage, same = TRUE, sep = NULL)
+last_clade(lineage, same = TRUE)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
 
 \item{same}{logical. Does the lineage have the same depth? Default to TRUE.}
-
-\item{sep}{string. Rank separator. Default to \code{|} (regex \code{\\\\|}) but
-could be modified with \code{options(yatah_sep = ...)}.}
 }
 \value{
 A string. The last clades of the given lineages.

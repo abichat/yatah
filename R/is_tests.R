@@ -1,8 +1,6 @@
 #' Test if a string is a lineage
 #'
 #' @param string string to be tested as lineage.
-#' @param sep string. Rank separator. Default to \code{|} (regex \code{\\\\|}) but
-#' could be modified with \code{options(yatah_sep = ...)}.
 #'
 #' @return A logical.
 #' @importFrom stringr str_detect
@@ -10,9 +8,9 @@
 #'
 #' @examples
 #' is_lineage("k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales")
-is_lineage <- function(string, sep = NULL){
+is_lineage <- function(string){
 
-  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
+  sep <- getOption("yatah_sep", default = "\\|")
 
   str_detect(string, paste0("^k__", .allchr, "*",
                             "($|", sep, "p__", .allchr, "*)",
@@ -44,12 +42,9 @@ is_lineage <- function(string, sep = NULL){
 #' is_rank(c(lineage1, lineage2), "order")
 is_rank <- function(lineage,
                     rank = c("kingdom", "phylum", "class", "order",
-                             "family", "genus", "species", "strain"),
-                    sep = NULL) {
+                             "family", "genus", "species", "strain")) {
 
-  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
-
-  error_lineage(lineage, sep = sep)
+  error_lineage(lineage)
 
   rank <- match.arg(rank)
   letter <- ifelse(rank == "strain", "t", str_sub(rank, end = 1))
@@ -75,12 +70,11 @@ is_rank <- function(lineage,
 #' is_clade(c(lineage1, lineage2), clade = "Clostridia")
 is_clade <- function(lineage, clade,
                      rank = c(".", "kingdom", "phylum", "class", "order",
-                              "family", "genus", "species", "strain"),
-                     sep = NULL) {
+                              "family", "genus", "species", "strain")) {
 
-  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
+  error_lineage(lineage)
 
-  error_lineage(lineage, sep = sep)
+  sep <- getOption("yatah_sep", default = "\\|")
 
   stopifnot(length(clade) == 1)
 

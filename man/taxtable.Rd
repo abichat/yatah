@@ -4,13 +4,10 @@
 \alias{taxtable}
 \title{Taxonomic table}
 \usage{
-taxtable(lineage, sep = NULL)
+taxtable(lineage)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
-
-\item{sep}{string. Rank separator. Default to \code{|} (regex \code{\\\\|}) but
-could be modified with \code{options(yatah_sep = ...)}.}
 }
 \value{
 A data.frame with columns corresponding to different ranks.

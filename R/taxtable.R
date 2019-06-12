@@ -16,11 +16,11 @@
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' lineage3 <- "k__Bacteria|p__Firmicutes|c__Bacilli"
 #' taxtable(c(lineage1, lineage2, lineage3))
-taxtable <- function(lineage, sep = NULL) {
+taxtable <- function(lineage) {
 
-  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
+  error_lineage(lineage)
 
-  error_lineage(lineage, sep = sep)
+  sep <- getOption("yatah_sep", default = "\\|")
 
   N <- depth(lineage)
 

@@ -4,13 +4,10 @@
 \alias{is_lineage}
 \title{Test if a string is a lineage}
 \usage{
-is_lineage(string, sep = NULL)
+is_lineage(string)
 }
 \arguments{
 \item{string}{string to be tested as lineage.}
-
-\item{sep}{string. Rank separator. Default to \code{|} (regex \code{\\\\|}) but
-could be modified with \code{options(yatah_sep = ...)}.}
 }
 \value{
 A logical.

@@ -11,11 +11,9 @@
 #' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' last_clade(c(lineage1, lineage2))
-last_clade <- function(lineage, same = TRUE, sep = NULL) {
+last_clade <- function(lineage, same = TRUE) {
 
-  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
-
-  error_lineage(lineage, sep = sep)
+  error_lineage(lineage)
 
   if (same) depth(lineage)
 
@@ -35,11 +33,9 @@ last_clade <- function(lineage, same = TRUE, sep = NULL) {
 #' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' last_rank(c(lineage1, lineage2))
-last_rank <- function(lineage, same = TRUE, sep = NULL) {
+last_rank <- function(lineage, same = TRUE) {
 
-  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
-
-  error_lineage(lineage, sep = sep)
+  error_lineage(lineage)
 
   if (same) depth(lineage)
 
@@ -65,11 +61,11 @@ last_rank <- function(lineage, same = TRUE, sep = NULL) {
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 #' all_clades(c(lineage1, lineage2))
 #' all_clades(c(lineage1, lineage2), simplify = FALSE)
-all_clades <- function(lineage, simplify = TRUE, sep = NULL) {
+all_clades <- function(lineage, simplify = TRUE) {
 
-  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
+  error_lineage(lineage)
 
-  error_lineage(lineage, sep = sep)
+  sep <- getOption("yatah_sep", default = "\\|")
 
   clades <- unique(unlist(str_split(lineage, pattern = sep)))
 

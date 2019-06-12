@@ -1,11 +1,9 @@
 #' Throw error if the string is not a lineage
 #'
 #' @inheritParams is_lineage
-error_lineage <- function(string, sep = NULL){
+error_lineage <- function(string){
 
-  if(is.null(sep)) sep <- getOption("yatah_sep", default = "\\|")
-
-  if(!all(is_lineage(string, sep))) {
+  if(!all(is_lineage(string))) {
     stop(paste0("Your string is not a lineage. Maybe you have ",
                 "specified the wrong separator or used special caracters."))
   }

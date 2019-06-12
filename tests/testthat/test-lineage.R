@@ -33,8 +33,10 @@ errorbadlin <- paste0("Your string is not a lineage. Maybe you have specified",
 
 test_that("is_lineage() is correct", {
   expect_equal(is_lineage(lineages), rep(TRUE, 8))
-  expect_equal(is_lineage(lineagesbis, sep = ";"), rep(TRUE, 5))
   expect_equal(is_lineage(badlins), rep(FALSE, 5))
+  options(yatah_sep = ";")
+  expect_equal(is_lineage(lineagesbis), rep(TRUE, 5))
+  options(yatah_sep = "\\|")
 })
 
 
@@ -42,7 +44,9 @@ test_that("is_lineage() is correct", {
 
 test_that("error_lineage() is correct", {
   expect_silent(error_lineage(lineages))
-  expect_silent(error_lineage(lineagesbis, sep = ";"))
+  options(yatah_sep = ";")
+  expect_silent(error_lineage(lineagesbis))
+  options(yatah_sep = "\\|")
   expect_error(error_lineage(badlins), errorbadlin)
   expect_error(error_lineage(c(lineages, badlin5)), errorbadlin)
 })

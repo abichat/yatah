@@ -4,15 +4,12 @@
 \alias{last_rank}
 \title{Extract the last rank of a lineage}
 \usage{
-last_rank(lineage, same = TRUE, sep = NULL)
+last_rank(lineage, same = TRUE)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
 
 \item{same}{logical. Does the lineage have the same depth? Default to TRUE.}
-
-\item{sep}{string. Rank separator. Default to \code{|} (regex \code{\\\\|}) but
-could be modified with \code{options(yatah_sep = ...)}.}
 }
 \value{
 A string. The last rank of the given lineages.
