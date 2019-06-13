@@ -1,3 +1,7 @@
+.onLoad <- function(libname, pkgname){
+  options(yatah_sep = "\\|")
+}
+
 #' Ranks
 #'
 #' Named vector of ranks
@@ -9,3 +13,5 @@
 #' Characters allowed in lineages
 #'
 .allchr <- "[a-zA-Z0-9_\\-\\.\\[\\]]"
+
+

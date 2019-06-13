@@ -39,7 +39,11 @@ lin2bis <- "k__Bacteria;p__Firmicutes;c__Clostridia"
 lin3bis <- "k__Bacteria;p__Firmicutes;c__Bacilli"
 lineages1bis <- c(lin1bis, lin2bis, lin3bis)
 
+
+
 test_that("taxtable() works with other separators", {
-  expect_equal(taxtable(lineages1bis, sep = ";"),
-               taxtable(lineages1, sep = "\\|"))
+  temmp_taxtable <- taxtable(lineages1)
+  options(yatah_sep = ";")
+  expect_equal(taxtable(lineages1bis), temmp_taxtable)
+  options(yatah_sep = "\\|")
 })

@@ -4,13 +4,10 @@
 \alias{last_clade}
 \title{Extract the last clade of a lineage}
 \usage{
-last_clade(lineage, sep = "\\\\|", same = TRUE)
+last_clade(lineage, same = TRUE)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
-
-\item{sep}{string. Rank separator. Default to \code{\\\\|} but
-\code{;} could be used too.}
 
 \item{same}{logical. Does the lineage have the same depth? Default to TRUE.}
 }

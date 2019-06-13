@@ -13,14 +13,18 @@ lin_spec <-
 
 
 test_that("special characters are handled correclty in general functions", {
-  expect_equal(is_lineage(lin_spec, "; "), rep(TRUE, length(lin_spec)))
-  expect_equal(last_clade(lin_spec, sep = "; ", same = FALSE),
+  options(yatah_sep = "; ")
+
+  expect_equal(is_lineage(lin_spec), rep(TRUE, length(lin_spec)))
+  expect_equal(last_clade(lin_spec, same = FALSE),
                c("iii1-15", "S24-7", "[Prevotella]",
                  "breve.longum.pseudocatenulatum"))
-  expect_equal(last_rank(lin_spec, sep = "; ", same = FALSE),
+  expect_equal(last_rank(lin_spec, same = FALSE),
                c("order", "family", "genus", "species"))
-  expect_equal(last_rank(lin_spec, sep = "; ", same = FALSE),
+  expect_equal(last_rank(lin_spec, same = FALSE),
                c("order", "family", "genus", "species"))
+
+  options(yatah_sep = "\\|")
 })
 
 lin_spec2 <-
@@ -30,16 +34,18 @@ lin_spec2 <-
     "k__Bacteria; p__Acidobacteria; c__[Acidobacteria]"
   )
 
-tabl_spec2 <- taxtable(lin_spec2, sep = "; ")
 
 test_that("special characters are handled correclty in taxtable", {
-  expect_equal(taxtable(lin_spec[1], sep = "; ")$order, "iii1-15")
-  expect_equal(taxtable(lin_spec[2], sep = "; ")$family, "S24-7")
-  expect_equal(taxtable(lin_spec[3], sep = "; ")$genus, "[Prevotella]")
-  expect_equal(taxtable(lin_spec[4], sep = "; ")$species,
+  options(yatah_sep = "; ")
+  tabl_spec2 <- taxtable(lin_spec2)
+  expect_equal(taxtable(lin_spec[1])$order, "iii1-15")
+  expect_equal(taxtable(lin_spec[2])$family, "S24-7")
+  expect_equal(taxtable(lin_spec[3])$genus, "[Prevotella]")
+  expect_equal(taxtable(lin_spec[4])$species,
                "breve.longum.pseudocatenulatum")
   expect_equal(tabl_spec2$class, c("Acidobacteria-6", "Bacte.roidia",
                                    "Bacte_roidia", "[Acidobacteria]"))
+  options(yatah_sep = "\\|")
 })
 
 df_birds <-
@@ -49,6 +55,9 @@ df_birds <-
                          "Zonotrichia albicollis"), stringsAsFactors = FALSE)
 
 test_that("special characters are handled correclty in taxtree", {
+  options(yatah_sep = "; ")
+  tabl_spec2 <- taxtable(lin_spec2)
+  options(yatah_sep = "\\|")
   expect_equal(length(taxtree(tabl_spec2)$tip.label), 4)
   expect_equal(taxtree(tabl_spec2)$tip.label %in%
                  c("Acidobacteria-6", "Bacte.roidia",

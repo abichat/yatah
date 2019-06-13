@@ -4,13 +4,10 @@
 \alias{last_rank}
 \title{Extract the last rank of a lineage}
 \usage{
-last_rank(lineage, sep = "\\\\|", same = TRUE)
+last_rank(lineage, same = TRUE)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
-
-\item{sep}{string. Rank separator. Default to \code{\\\\|} but
-\code{;} could be used too.}
 
 \item{same}{logical. Does the lineage have the same depth? Default to TRUE.}
 }

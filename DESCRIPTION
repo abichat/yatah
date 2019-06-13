@@ -1,6 +1,6 @@
 Package: yatah
 Title: Yet Another TAxonomy Handler
-Version: 0.0.0.9006
+Version: 0.0.0.9008
 Authors@R: 
     person(given = "Antoine",
            family = "Bichat",
@@ -20,14 +20,13 @@ Imports:
     stats,
     stringr
 Suggests: 
-    covr,
     curatedMetagenomicData,
     dplyr,
     ggtree,
     knitr,
     rmarkdown,
     spelling,
-    testthat
+    testthat (>= 2.1.0)
 VignetteBuilder: 
     knitr
 biocViews: curatedMetagenomicData, ggtree

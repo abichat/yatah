@@ -24,6 +24,8 @@ environment:
     # https://github.com/krlmlr/r-appveyor/issues/138
     # Note that enabling this can cause R-devel builds to fail.
     # PKGTYPE: win.binary
+    BIOC_USE_DEVEL: "FALSE"
+    GCC_PATH: mingw_64
     # The more powerful `x64` image is now default over `i386`.
     R_ARCH: x64
     # Need to enable when installing GitHub dependency packages.
@@ -32,8 +34,11 @@ environment:
   # because the image now expects BioC 3.9 on R 3.6.
   # https://github.com/krlmlr/r-appveyor/issues/144
   matrix:
-    - R_VERSION: release
-      GCC_PATH: mingw_64
+    - configuration: 3.5
+      R_VERSION: 3.5.3
+    - configuration: 3.6
+      R_VERSION: 3.6.0
+
 
 build_script:
   # `install_bioc_deps` will fail due to AnnotationHub unless we run these commands.
