@@ -1,3 +1,7 @@
+# yatah 0.0.0.9008
+
+* `sep` argument has been removed. 
+
 # yatah 0.0.0.9007
 
 * `yatah_sep` is now a global option.
