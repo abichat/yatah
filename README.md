@@ -163,5 +163,5 @@ plot(tree, show.node.label = TRUE)
 
 ## Separator
 
-If you want to change the default separator from `|` to `;`, use
-`options(yatah_sep = ";")`.
+If you want to change the default separator from `|` to, e.g., `;`, use
+`options(yatah_sep = ";")`. Reset it with `options(yatah_sep = "\\|")`.
