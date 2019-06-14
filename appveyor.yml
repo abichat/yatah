@@ -11,7 +11,7 @@ install:
   ps: Bootstrap
 
 cache:
-  - C:\RLibrary
+  #- C:\RLibrary
 
 # Adapt as necessary starting from here
 
@@ -30,6 +30,8 @@ environment:
     R_ARCH: x64
     # Need to enable when installing GitHub dependency packages.
     USE_RTOOLS: true
+    # https://github.com/r-lib/usethis/issues/640 / Builds 1.0.51 -> 1.0.56
+    # R_REMOTES_STANDALONE: true
   # Set the build matrix to use R-devel, otherwise Bioconductor checks will fail
   # because the image now expects BioC 3.9 on R 3.6.
   # https://github.com/krlmlr/r-appveyor/issues/144
@@ -42,10 +44,6 @@ environment:
 
 build_script:
   # `install_bioc_deps` will fail due to AnnotationHub unless we run these commands.
-  # - travis-tool.sh install_bioc GenomeInfoDbData
-  # - travis-tool.sh install_bioc DelayedArray
-  # - travis-tool.sh install_bioc ensembldb
-  # - travis-tool.sh install_bioc EnsDb.Hsapiens.v75
   - travis-tool.sh install_bioc curatedMetagenomicData
   - travis-tool.sh install_bioc ggtree
   - travis-tool.sh install_bioc_deps
