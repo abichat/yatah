@@ -11,7 +11,7 @@ install:
   ps: Bootstrap
 
 cache:
-  - C:\RLibrary
+  #- C:\RLibrary
 
 # Adapt as necessary starting from here
 
@@ -31,7 +31,7 @@ environment:
     # Need to enable when installing GitHub dependency packages.
     USE_RTOOLS: true
     # https://github.com/r-lib/usethis/issues/640 / Builds 1.0.51 -> 1.0.56
-    R_REMOTES_STANDALONE: true
+    # R_REMOTES_STANDALONE: true
   # Set the build matrix to use R-devel, otherwise Bioconductor checks will fail
   # because the image now expects BioC 3.9 on R 3.6.
   # https://github.com/krlmlr/r-appveyor/issues/144
