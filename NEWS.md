@@ -1,3 +1,8 @@
+# yatah 0.0.1
+
+* On CRAN
+* `abundances` dataset added 
+
 # yatah 0.0.0.9008
 
 * `sep` argument has been removed. 
