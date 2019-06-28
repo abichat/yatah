@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">yatah</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9008</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
@@ -96,115 +96,122 @@
 <h2 class="hasAnchor">
 <a href="#preliminaries" class="anchor"></a>Preliminaries</h2>
 <p>This vignette illustrates the most useful functions of <strong>yatah</strong>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(curatedMetagenomicData) <span class="co"># from Bioconductor</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggtree) <span class="co"># from Bioconductor</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(yatah)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggtree) <span class="co"># from Bioconductor</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(yatah)</a></code></pre></div>
 </div>
 <div id="data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#data" class="anchor"></a>Data</h2>
-<p>For this example, we use normalized data given in <strong>curatedMetagenomicData</strong> (<span class="citation">Pasolli et al. (<a href="#ref-cmd2017">2017</a>)</span>) corresponding to the dataset from <span class="citation">Zeller et al. (<a href="#ref-zeller2014potential">2014</a>)</span>. We collect the lineages of bacteria present in 199 stool samples.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">taxonomy &lt;-</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  "ZellerG_2014.metaphlan_bugs_list.stool"</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/curatedMetagenomicData/topics/curatedMetagenomicData">curatedMetagenomicData</a></span>(<span class="dt">dryrun =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/curatedMetagenomicData/topics/mergeData">mergeData</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw">exprs</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>(<span class="dt">rownames =</span> <span class="st">"lineages"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(lineages)</a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">taxonomy</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; # A tibble: 1,585 x 1</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;    lineages                                  </span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;                                     </span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;  1 k__Bacteria                               </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;  2 k__Viruses                                </span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  3 k__Bacteria|p__Firmicutes                 </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  4 k__Bacteria|p__Bacteroidetes              </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  5 k__Bacteria|p__Actinobacteria             </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  6 k__Bacteria|p__Verrucomicrobia            </span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  7 k__Bacteria|p__Proteobacteria             </span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  8 k__Viruses|p__Viruses_noname              </span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  9 k__Bacteria|p__Candidatus_Saccharibacteria</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 10 k__Bacteria|p__Firmicutes|c__Clostridia   </span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; # … with 1,575 more rows</span></a></code></pre></div>
+<p>For this example, we use data from <span class="citation">Zeller et al. (<a href="#ref-zeller2014potential">2014</a>)</span>. It is the abundances of bacteria present in 199 stool samples.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">abundances &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>(yatah<span class="op">::</span>abundances)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(abundances, <span class="dt">n_extra =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; # A tibble: 1,585 x 200</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;    lineages `CCIS00146684ST… `CCIS00281083ST… `CCIS02124300ST…</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;    &lt;chr&gt;               &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;  1 k__Bact…        100.0             99.8               96.3  </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  2 k__Viru…          0.00697          0.128              3.70 </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  3 k__Bact…         66.2             24.6               74.2  </span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  4 k__Bact…         19.1             74.4               11.9  </span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  5 k__Bact…         12.1              0.0428             7.22 </span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  6 k__Bact…          1.86             0.428              0.765</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  7 k__Bact…          0.758            0.388              2.28 </span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  8 k__Viru…          0.00697          0.128              3.70 </span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  9 k__Bact…          0.00155          0.00415            0    </span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; 10 k__Bact…         62.4             21.7               62.3  </span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; # … with 1,575 more rows, and 196 more variables:</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; #   `CCIS02379307ST-4-0` &lt;dbl&gt;, `CCIS02856720ST-4-0` &lt;dbl&gt;, …</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">taxonomy &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(abundances, lineages)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">taxonomy</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; # A tibble: 1,585 x 1</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;    lineages                                  </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;    &lt;chr&gt;                                     </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;  1 k__Bacteria                               </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  2 k__Viruses                                </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  3 k__Bacteria|p__Firmicutes                 </span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  4 k__Bacteria|p__Bacteroidetes              </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  5 k__Bacteria|p__Actinobacteria             </span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  6 k__Bacteria|p__Verrucomicrobia            </span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  7 k__Bacteria|p__Proteobacteria             </span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  8 k__Viruses|p__Viruses_noname              </span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;  9 k__Bacteria|p__Candidatus_Saccharibacteria</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; 10 k__Bacteria|p__Firmicutes|c__Clostridia   </span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; # … with 1,575 more rows</span></a></code></pre></div>
 </div>
 <div id="filtering" class="section level2">
 <h2 class="hasAnchor">
 <a href="#filtering" class="anchor"></a>Filtering</h2>
 <p>Here, we have all the present bacteria at all different ranks. As we are just interested in genera that belong to the <em>Gammaproteobacteria</em> class, we <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> the lineages with <code><a href="../reference/is_clade.html">is_clade()</a></code> and <code><a href="../reference/is_rank.html">is_rank()</a></code>. The genus name is accessible with <code><a href="../reference/last_clade.html">last_clade()</a></code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">taxonomy <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="../reference/is_clade.html">is_clade</a></span>(lineages, <span class="st">"Gammaproteobacteria"</span>),</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">         <span class="kw"><a href="../reference/is_rank.html">is_rank</a></span>(lineages, <span class="st">"genus"</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">genus =</span> <span class="kw"><a href="../reference/last_clade.html">last_clade</a></span>(lineages))</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; # A tibble: 26 x 2</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;    lineages                                            genus               </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;    &lt;chr&gt;                                               &lt;chr&gt;               </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  1 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Escherichia         </span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  2 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Haemophilus         </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  3 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Enterobacteriaceae_…</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  4 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Pseudomonas         </span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  5 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Enterobacter        </span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  6 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Aggregatibacter     </span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;  7 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Hafnia              </span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  8 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Actinobacillus      </span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;  9 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Sinobacteraceae_unc…</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; 10 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Citrobacter         </span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; # … with 16 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">gammap_genus &lt;-</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span>taxonomy <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="../reference/is_clade.html">is_clade</a></span>(lineages, <span class="st">"Gammaproteobacteria"</span>),</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">         <span class="kw"><a href="../reference/is_rank.html">is_rank</a></span>(lineages, <span class="st">"genus"</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">genus =</span> <span class="kw"><a href="../reference/last_clade.html">last_clade</a></span>(lineages))</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">gammap_genus</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; # A tibble: 26 x 2</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;    lineages                                            genus               </span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;    &lt;chr&gt;                                               &lt;chr&gt;               </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  1 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Escherichia         </span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  2 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Haemophilus         </span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  3 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Enterobacteriaceae_…</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  4 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Pseudomonas         </span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;  5 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Enterobacter        </span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  6 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Aggregatibacter     </span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;  7 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Hafnia              </span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt;  8 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Actinobacillus      </span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt;  9 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Sinobacteraceae_unc…</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; 10 k__Bacteria|p__Proteobacteria|c__Gammaproteobacter… Citrobacter         </span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt; # … with 16 more rows</span></a></code></pre></div>
 </div>
 <div id="taxonomic-table" class="section level2">
 <h2 class="hasAnchor">
 <a href="#taxonomic-table" class="anchor"></a>Taxonomic table</h2>
 <p>It is useful to have a taxonomic table. <code><a href="../reference/taxtable.html">taxtable()</a></code> do the job.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">gammap_table &lt;-</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span>taxonomy <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="../reference/is_clade.html">is_clade</a></span>(lineages, <span class="st">"Gammaproteobacteria"</span>),</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">         <span class="kw"><a href="../reference/is_rank.html">is_rank</a></span>(lineages, <span class="st">"genus"</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(lineages) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/taxtable.html">taxtable</a></span>()</a></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>(gammap_table)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 26 x 6</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;    kingdom  phylum     class        order       family      genus          </span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;          </span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt;  1 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Escherichia    </span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;  2 Bacteria Proteobac… Gammaproteo… Pasteurell… Pasteurell… Haemophilus    </span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;  3 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Enterobacteria…</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;  4 Bacteria Proteobac… Gammaproteo… Pseudomona… Pseudomona… Pseudomonas    </span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;  5 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Enterobacter   </span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;  6 Bacteria Proteobac… Gammaproteo… Pasteurell… Pasteurell… Aggregatibacter</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;  7 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Hafnia         </span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  8 Bacteria Proteobac… Gammaproteo… Pasteurell… Pasteurell… Actinobacillus </span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;  9 Bacteria Proteobac… Gammaproteo… Xanthomona… Sinobacter… Sinobacteracea…</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 10 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Citrobacter    </span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; # … with 16 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">gammaprot_table &lt;-</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span>gammap_genus <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(lineages) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/taxtable.html">taxtable</a></span>()</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>(gammaprot_table)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; # A tibble: 26 x 6</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;    kingdom  phylum     class        order       family      genus          </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;          </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  1 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Escherichia    </span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  2 Bacteria Proteobac… Gammaproteo… Pasteurell… Pasteurell… Haemophilus    </span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  3 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Enterobacteria…</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  4 Bacteria Proteobac… Gammaproteo… Pseudomona… Pseudomona… Pseudomonas    </span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  5 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Enterobacter   </span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt;  6 Bacteria Proteobac… Gammaproteo… Pasteurell… Pasteurell… Aggregatibacter</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt;  7 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Hafnia         </span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt;  8 Bacteria Proteobac… Gammaproteo… Pasteurell… Pasteurell… Actinobacillus </span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt;  9 Bacteria Proteobac… Gammaproteo… Xanthomona… Sinobacter… Sinobacteracea…</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; 10 Bacteria Proteobac… Gammaproteo… Enterobact… Enterobact… Citrobacter    </span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; # … with 16 more rows</span></a></code></pre></div>
 </div>
 <div id="taxonomic-tree" class="section level2">
 <h2 class="hasAnchor">
 <a href="#taxonomic-tree" class="anchor"></a>Taxonomic tree</h2>
 <p>To have a tree, use <code><a href="../reference/taxtree.html">taxtree()</a></code> with a taxonomic table in input. By default, it collapses ranks with only one subrank.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">gammap_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/taxtree.html">taxtree</a></span>(gammap_table)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">gammap_tree</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; Phylogenetic tree with 26 tips and 7 internal nodes.</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; Tip labels:</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;  Escherichia, Enterobacteriaceae_noname, Enterobacter, Hafnia, Citrobacter, Pantoea, ...</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; Node labels:</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;  Gammaproteobacteria, Enterobacteriaceae, Pasteurellaceae, Pseudomonadales, Moraxellaceae, Xanthomonadales, ...</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; Rooted; includes branch lengths.</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">gammaprot_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/taxtree.html">taxtree</a></span>(gammaprot_table)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">gammaprot_tree</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; Phylogenetic tree with 26 tips and 7 internal nodes.</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; Tip labels:</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;  Escherichia, Enterobacteriaceae_noname, Enterobacter, Hafnia, Citrobacter, Pantoea, ...</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; Node labels:</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;  Gammaproteobacteria, Enterobacteriaceae, Pasteurellaceae, Pseudomonadales, Moraxellaceae, Xanthomonadales, ...</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; Rooted; includes branch lengths.</span></a></code></pre></div>
 <p>Instead of a classical <code>plot</code>, we use <strong>ggtree</strong> (<span class="citation">Yu et al. (<a href="#ref-ggtree2017">2017</a>)</span>) to display the tree.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggtree/topics/ggtree">ggtree</a></span>(gammap_tree) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggtree/topics/geom_tiplab">geom_tiplab</a></span>(<span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">geom =</span> <span class="st">"label"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggtree/topics/geom_nodelab">geom_nodelab</a></span>(<span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">size =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggtree/topics/ggtree">ggtree</a></span>(gammaprot_tree) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggtree/topics/geom_tiplab">geom_tiplab</a></span>(<span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">geom =</span> <span class="st">"label"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggtree/topics/geom_nodelab">geom_nodelab</a></span>(<span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">size =</span> <span class="dv">3</span>)</a></code></pre></div>
 <p><img src="gammaproteobacteria_files/figure-html/ggtree-1.png" width="672"></p>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
 <div id="refs" class="references">
-<div id="ref-cmd2017">
-<p>Pasolli, Edoardo, Lucas Schiffer, Paolo Manghi, Audrey Renson, Valerie Obenchain, Duy Tin Truong, Francesco Beghini, et al. 2017. “Accessible, Curated Metagenomic Data Through Experimenthub.” <em>Nat. Methods</em> 14 (11): 1023–4. <a href="https://doi.org/10.1038/nmeth.4468" class="uri">https://doi.org/10.1038/nmeth.4468</a>.</p>
-</div>
 <div id="ref-ggtree2017">
 <p>Yu, Guangchuang, David Smith, Huachen Zhu, Yi Guan, and Tommy Tsan-Yuk Lam. 2017. “Ggtree: An R Package for Visualization and Annotation of Phylogenetic Trees with Their Covariates and Other Associated Data.” <em>Methods in Ecology and Evolution</em> 8 (1): 28–36. <a href="https://doi.org/10.1111/2041-210X.12628" class="uri">https://doi.org/10.1111/2041-210X.12628</a>.</p>
 </div>

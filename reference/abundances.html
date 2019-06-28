@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Test if a lineage goes down to a specified rank — is_rank • yatah</title>
+<title>Abundance table for 199 samples. — abundances • yatah</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Test if a lineage goes down to a specified rank — is_rank" />
+<meta property="og:title" content="Abundance table for 199 samples. — abundances" />
 
-<meta property="og:description" content="Test if a lineage goes down to a specified rank" />
+<meta property="og:description" content="A dataset containing the abundances of 1585 lineages among 199 patients." />
 
 <meta property="og:image" content="https://abichat.github.io/yatah/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -120,53 +120,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Test if a lineage goes down to a specified rank</h1>
-    <small class="dont-index">Source: <a href='https://github.com/abichat/yatah/blob/master/R/is_tests.R'><code>R/is_tests.R</code></a></small>
-    <div class="hidden name"><code>is_rank.Rd</code></div>
+    <h1>Abundance table for 199 samples.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/abichat/yatah/blob/master/R/abundances.R'><code>R/abundances.R</code></a></small>
+    <div class="hidden name"><code>abundances.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Test if a lineage goes down to a specified rank</p>
+    <p>A dataset containing the abundances of 1585 lineages among 199 patients.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>is_rank</span>(<span class='no'>lineage</span>, <span class='kw'>rank</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"kingdom"</span>, <span class='st'>"phylum"</span>, <span class='st'>"class"</span>, <span class='st'>"order"</span>,
-  <span class='st'>"family"</span>, <span class='st'>"genus"</span>, <span class='st'>"species"</span>, <span class='st'>"strain"</span>))</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>lineage</th>
-      <td><p>string. Vector of lineages.</p></td>
-    </tr>
-    <tr>
-      <th>rank</th>
-      <td><p>string. One of <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("kingdom", "phylum", "class",
-"order", "family", "genus", "species", "strain")</a></code> with partial matching.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre class="usage"><span class='no'>abundances</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>logical.</p>
+    <p>A data.frame with 1585 rows and 200 variables:</p><dl class='dl-horizontal'>
+<dt>lineages</dt><dd><p>lineage (string)</p></dd>
+<dt>XXX</dt><dd><p>abundance of each lineage in the sample XXX (double)</p></dd>
+</dl>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p><a href='https://www.embopress.org/doi/pdf/10.15252/msb.20145645'>Zeller et al., 2014</a>, <a href='https://www.nature.com/articles/nmeth.4468'>Pasolli et al., 2017</a></p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>lineage1</span> <span class='kw'>&lt;-</span> <span class='st'>"k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"</span>
-<span class='no'>lineage2</span> <span class='kw'>&lt;-</span> <span class='st'>"k__Bacteria|p__Firmicutes|c__Clostridia"</span>
-<span class='fu'>is_rank</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>lineage1</span>, <span class='no'>lineage2</span>), <span class='st'>"class"</span>)</div><div class='output co'>#&gt; [1] TRUE TRUE</div><div class='input'><span class='fu'>is_rank</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>lineage1</span>, <span class='no'>lineage2</span>), <span class='st'>"order"</span>)</div><div class='output co'>#&gt; [1] FALSE FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
+          </ul>
 
   </div>
 </div>
