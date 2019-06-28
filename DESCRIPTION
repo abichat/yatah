@@ -30,7 +30,7 @@ Suggests:
     testthat (>= 2.1.0)
 VignetteBuilder: 
     knitr
-biocViews: curatedMetagenomicData, ggtree
+biocViews: ggtree
 Encoding: UTF-8
 Language: en-US
 LazyData: true
