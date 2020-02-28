@@ -6,3 +6,5 @@
 ^codecov\.yml$
 ^appveyor\.yml$
 ^_pkgdown\.yml$
+^cran-comments\.md$
+^dev_history\.R$
