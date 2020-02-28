@@ -39,7 +39,7 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
 
   ## Convert to data.frame with factor columns
 
-  table <- as.data.frame(apply(table, 2, as.factor))
+  table <- as.data.frame(apply(table, 2, as.factor), stringsAsFactors = TRUE)
 
   ## Number of ranks
 
