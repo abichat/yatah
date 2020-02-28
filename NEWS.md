@@ -1,3 +1,8 @@
+# yatah 0.1.0
+
+* Compatible with R 4.0.0.
+* Continuous integration with both release and development R versions.
+
 # yatah 0.0.1
 
 * On CRAN
