@@ -6,9 +6,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yet Another TAxonomy Handler • yatah</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Yet Another TAxonomy Handler">
 <meta property="og:description" content='Provides functions to manage taxonomy when lineages
     are described with strings and ranks separated with special patterns
@@ -27,7 +34,7 @@
 </script>
 </head>
 <body>
-    <div class="container template-article">
+    <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -39,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">yatah</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -80,13 +87,9 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    
 
-    
-    
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+      </header><div class="row">
+  <div class="contents col-md-9">
 <div id="yatah" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#yatah" class="anchor"></a>yatah <a href="https://abichat.github.io/yatah"><img src="reference/figures/logo.png" align="right" height="139"></a>
@@ -105,13 +108,13 @@
 <!-- And the development version from [GitHub](https://github.com/) with: -->
 <p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"abichat/yatah"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"abichat/yatah"</span>)</a></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(yatah)</a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">lineages &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(</a>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(yatah)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">lineages &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="st">"k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Coriobacteriales"</span>,</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="st">"k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales"</span>,</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="st">"k__Bacteria|p__Bacteroidetes|c__Flavobacteriia|o__Flavobacteriales"</span>,</a>
@@ -126,7 +129,7 @@
 <li>
 <code><a href="reference/is_rank.html">is_rank()</a></code> checks if the lineages are of the desired rank.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/is_rank.html">is_rank</a></span>(lineages, <span class="dt">rank =</span> <span class="st">"order"</span>)</a>
+<!-- end list --><div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/is_rank.html">is_rank</a></span>(lineages, <span class="dt">rank =</span> <span class="st">"order"</span>)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="reference/is_rank.html">is_rank</a></span>(lineages, <span class="dt">rank =</span> <span class="st">"species"</span>)</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></a></code></pre></div>
@@ -134,37 +137,31 @@
 <li>
 <code><a href="reference/is_clade.html">is_clade()</a></code> checks if the lineages belong to the desired clade.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/is_clade.html">is_clade</a></span>(lineages, <span class="dt">clade =</span> <span class="st">"Proteobacteria"</span>, <span class="dt">rank =</span> <span class="st">"phylum"</span>)</a>
+<!-- end list --><div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/is_clade.html">is_clade</a></span>(lineages, <span class="dt">clade =</span> <span class="st">"Proteobacteria"</span>, <span class="dt">rank =</span> <span class="st">"phylum"</span>)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</span></a></code></pre></div>
 <ul>
 <li>
 <code><a href="reference/last_clade.html">last_clade()</a></code> extracts the last clade of the lineages.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/last_clade.html">last_clade</a></span>(lineages)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales" </span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; [4] "Bacillales"        "Lactobacillales"   "Clostridiales"    </span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"</span></a></code></pre></div>
+<!-- end list --><div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/last_clade.html">last_clade</a></span>(lineages)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales"  "Bacillales"        "Lactobacillales"  </span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; [6] "Clostridiales"     "Campylobacterales" "Enterobacteriales" "Pseudomonadales"</span></a></code></pre></div>
 <ul>
 <li>
 <code><a href="reference/all_clades.html">all_clades()</a></code> extracts all clades of the lineages.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="reference/all_clades.html">all_clades</a></span>(lineages, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt;  [1] "Actinobacteria"        "Actinobacteria"       </span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;  [3] "Bacillales"            "Bacilli"              </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;  [5] "Bacteria"              "Bacteroidales"        </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;  [7] "Bacteroidetes"         "Bacteroidia"          </span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;  [9] "Campylobacterales"     "Clostridia"           </span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; [11] "Clostridiales"         "Coriobacteriales"     </span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; [13] "Enterobacteriales"     "Epsilonproteobacteria"</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt; [15] "Firmicutes"            "Flavobacteriales"     </span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; [17] "Flavobacteriia"        "Gammaproteobacteria"  </span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; [19] "Lactobacillales"       "Proteobacteria"       </span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; [21] "Pseudomonadales"</span></a></code></pre></div>
+<!-- end list --><div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="reference/all_clades.html">all_clades</a></span>(lineages, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt;  [1] "Actinobacteria"        "Actinobacteria"        "Bacillales"            "Bacilli"              </span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;  [5] "Bacteria"              "Bacteroidales"         "Bacteroidetes"         "Bacteroidia"          </span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;  [9] "Campylobacterales"     "Clostridia"            "Clostridiales"         "Coriobacteriales"     </span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; [13] "Enterobacteriales"     "Epsilonproteobacteria" "Firmicutes"            "Flavobacteriales"     </span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; [17] "Flavobacteriia"        "Gammaproteobacteria"   "Lactobacillales"       "Proteobacteria"       </span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; [21] "Pseudomonadales"</span></a></code></pre></div>
 <ul>
 <li>
 <code><a href="reference/taxtable.html">taxtable()</a></code> computes the taxonomic table corresponding to the lineages.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">table &lt;-<span class="st"> </span><span class="kw"><a href="reference/taxtable.html">taxtable</a></span>(lineages)</a>
+<!-- end list --><div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">table &lt;-<span class="st"> </span><span class="kw"><a href="reference/taxtable.html">taxtable</a></span>(lineages)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">table</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;    kingdom         phylum                 class             order</span></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; 1 Bacteria Actinobacteria        Actinobacteria  Coriobacteriales</span></a>
@@ -180,7 +177,7 @@
 <li>
 <code><a href="reference/taxtree.html">taxtree()</a></code> computes the taxonomic tree (format <code>phylo</code>) from a taxonomic table.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">tree &lt;-<span class="st"> </span><span class="kw"><a href="reference/taxtree.html">taxtree</a></span>(table)</a>
+<!-- end list --><div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">tree &lt;-<span class="st"> </span><span class="kw"><a href="reference/taxtree.html">taxtree</a></span>(table)</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">tree</a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt; Phylogenetic tree with 9 tips and 6 internal nodes.</span></a>
@@ -188,17 +185,17 @@
 <a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#&gt; Tip labels:</span></a>
 <a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt;  Coriobacteriales, Bacteroidales, Flavobacteriales, Bacillales, Lactobacillales, Clostridiales, ...</span></a>
 <a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt; Node labels:</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt; [1] "Bacteria"            "Bacteroidetes"       "Firmicutes"         </span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt; [4] "Bacilli"             "Proteobacteria"      "Gammaproteobacteria"</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt; [1] "Bacteria"            "Bacteroidetes"       "Firmicutes"          "Bacilli"             "Proteobacteria"     </span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt; [6] "Gammaproteobacteria"</span></a>
 <a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt; Rooted; includes branch lengths.</span></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(tree, <span class="dt">show.node.label =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(tree, <span class="dt">show.node.label =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="reference/figures/README-taxtree-1.png" width="100%"></p>
 </div>
 <div id="separator" class="section level2">
 <h2 class="hasAnchor">
 <a href="#separator" class="anchor"></a>Separator</h2>
-<p>If you want to change the default separator from <code>|</code> to, e.g., <code>;</code>, use <code><a href="https://www.rdocumentation.org/packages/base/topics/options">options(yatah_sep = ";")</a></code>. Reset it with <code><a href="https://www.rdocumentation.org/packages/base/topics/options">options(yatah_sep = "\\|")</a></code>.</p>
+<p>If you want to change the default separator from <code><a href="https://rdrr.io/r/base/Logic.html">|</a></code> to, e.g., <code>;</code>, use <code><a href="https://rdrr.io/r/base/options.html">options(yatah_sep = ";")</a></code>. Reset it with <code><a href="https://rdrr.io/r/base/options.html">options(yatah_sep = "\\|")</a></code>.</p>
 </div>
 </div>
   </div>
@@ -226,27 +223,26 @@
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://abichat.github.io">Antoine Bichat</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6599-7081" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<a href="https://abichat.github.io">Antoine Bichat</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6599-7081" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
 </ul>
 </div>
 
-      <div class="dev-status">
+  <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL--3-blue.svg" alt="license"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
-<li><a href="https://github.com/abichat/yatah/blob/master/DESCRIPTION"><img src="https://img.shields.io/badge/package%20version-0.0.1-orange.svg" alt="packageversion"></a></li>
+<li><a href="https://github.com/abichat/yatah/blob/master/DESCRIPTION"><img src="https://img.shields.io/badge/package%20version-0.1.0-orange.svg" alt="packageversion"></a></li>
 <li><a href="https://cran.r-project.org/package=yatah"><img src="https://www.r-pkg.org/badges/version/yatah" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://travis-ci.org/abichat/yatah"><img src="https://travis-ci.org/abichat/yatah.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/abichat/yatah"><img src="https://ci.appveyor.com/api/projects/status/github/abichat/yatah?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/gh/abichat/yatah?branch=master"><img src="https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://www.codacy.com/app/abichat/yatah?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/yatah&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/2d7712f99522472db847f9bdc3f7b7a4" alt="Codacy Badge"></a></li>
-<li><a href="https://github.com/abichat/yatah/commits/master"><img src="https://img.shields.io/badge/last%20change-2019--06--28-yellowgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="https://github.com/abichat/yatah/commits/master"><img src="https://img.shields.io/badge/last%20change-2020--02--28-yellowgreen.svg" alt="Last-changedate"></a></li>
 <li><a href="https://abichat.github.io/yatah/"><img src="https://img.shields.io/badge/documentation-pkgdown-E91E63.svg" alt="Documentation"></a></li>
 </ul>
 </div>
 </div>
-
 </div>
 
 
@@ -255,12 +251,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
