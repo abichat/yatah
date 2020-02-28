@@ -4,8 +4,11 @@
 \alias{is_rank}
 \title{Test if a lineage goes down to a specified rank}
 \usage{
-is_rank(lineage, rank = c("kingdom", "phylum", "class", "order",
-  "family", "genus", "species", "strain"))
+is_rank(
+  lineage,
+  rank = c("kingdom", "phylum", "class", "order", "family", "genus", "species",
+    "strain")
+)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}

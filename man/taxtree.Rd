@@ -9,9 +9,11 @@ taxtree(table, collapse = TRUE, lineage_length = 1, root = "")
 \arguments{
 \item{table}{dataframe.}
 
-\item{collapse}{logical. Should node with one child be vanished? Default to TRUE.}
+\item{collapse}{logical. Should node with one child be vanished? Default
+to TRUE.}
 
-\item{lineage_length}{double. Lineage length from the root to the leaves. Default to 1.}
+\item{lineage_length}{double. Lineage length from the root to the leaves.
+Default to 1.}
 
 \item{root}{character. Name of the root if there is no natural root.}
 }

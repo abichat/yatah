@@ -29,7 +29,6 @@ is_lineage <- function(string){
 #' @param lineage string. Vector of lineages.
 #' @param rank string. One of \code{c("kingdom", "phylum", "class",
 #' "order", "family", "genus", "species", "strain")} with partial matching.
-#' @inheritParams is_lineage
 #'
 #' @return logical.
 #' @importFrom stringr str_sub str_detect
@@ -55,7 +54,8 @@ is_rank <- function(lineage,
 
 #' Test if a lineage belongs to a clade
 #'
-#' @details  If \code{rank} is set to \code{.}, clade is looked for among all ranks.
+#' @details  If \code{rank} is set to \code{.}, clade is looked for
+#' among all ranks.
 #'
 #' @inheritParams is_rank
 #' @param clade string.

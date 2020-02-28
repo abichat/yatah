@@ -8,5 +8,6 @@
 #'   \item{XXX}{abundance of each lineage in the sample XXX (double)}
 #' }
 #' @keywords datasets
-#' @source \href{https://www.embopress.org/doi/pdf/10.15252/msb.20145645}{Zeller et al., 2014}, \href{https://www.nature.com/articles/nmeth.4468}{Pasolli et al., 2017}
+#' @source \href{https://doi.org/10.15252/msb.20145645}{Zeller et al., 2014},
+#' \href{https://doi.org/10.1038/nmeth.4468}{Pasolli et al., 2017}
 "abundances"

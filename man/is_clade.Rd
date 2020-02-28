@@ -4,8 +4,12 @@
 \alias{is_clade}
 \title{Test if a lineage belongs to a clade}
 \usage{
-is_clade(lineage, clade, rank = c(".", "kingdom", "phylum", "class",
-  "order", "family", "genus", "species", "strain"))
+is_clade(
+  lineage,
+  clade,
+  rank = c(".", "kingdom", "phylum", "class", "order", "family", "genus", "species",
+    "strain")
+)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
@@ -22,7 +26,8 @@ logical.
 Test if a lineage belongs to a clade
 }
 \details{
-If \code{rank} is set to \code{.}, clade is looked for among all ranks.
+If \code{rank} is set to \code{.}, clade is looked for
+among all ranks.
 }
 \examples{
 lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"

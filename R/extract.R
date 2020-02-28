@@ -76,8 +76,8 @@ all_clades <- function(lineage, simplify = TRUE) {
   } else {
 
     ranks_ <- .ranks[str_sub(clades, end = 1)]
-    df <-data.frame(clade = str_sub(clades, start = 4), rank = ranks_,
-                    stringsAsFactors = FALSE)
+    df <- data.frame(clade = str_sub(clades, start = 4), rank = ranks_,
+                     stringsAsFactors = FALSE)
     ind <- order(df$clade)
 
     return(df[ind, ])
