@@ -29,7 +29,6 @@ version <- gsub('-', '.', version)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d7712f99522472db847f9bdc3f7b7a4)](https://www.codacy.com/app/abichat/yatah?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/yatah&amp;utm_campaign=Badge_Grade)
 [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](https://github.com/abichat/yatah/commits/master)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/yatah/)
-<!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah) -->
 <!-- badges: end -->
 
 The goal of __yatah__ is to manage taxonomy when lineages are described with strings and ranks separated with special patterns like `|*__` or `;*__`.
