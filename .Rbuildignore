@@ -8,3 +8,4 @@
 ^_pkgdown\.yml$
 ^cran-comments\.md$
 ^dev_history\.R$
+^\.github$

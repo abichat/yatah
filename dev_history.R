@@ -10,6 +10,8 @@ library(testthat)
 
 # use_test("previous_outputs")
 
+# use_github_action("pkgdown")
+
 
 #### Repeated ####
 
