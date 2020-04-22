@@ -13,7 +13,8 @@ library(testthat)
 
 # use_github_action_check_standard()
 
-use_r("trim")
+# use_r("trim")
+# use_test("trim")
 
 
 
