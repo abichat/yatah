@@ -13,6 +13,8 @@ library(testthat)
 
 # use_github_action_check_standard()
 
+use_r("trim")
+
 
 
 #### Repeated ####
