@@ -38,6 +38,8 @@ test()
 check()
 goodpractice::gp()
 
+covr::package_coverage()
+covr::report()
 
 #### Less often ####
 

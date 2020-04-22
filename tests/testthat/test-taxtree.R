@@ -13,8 +13,8 @@ test_that("taxtree() give the right format", {
   expect_equal(length(taxtree(taxtable)$node.label), 2)
 })
 
-test_that("taxtree() is independant from the row orderand duplicated rows ", {
-  expect_equal(taxtree(taxtable[3:1, ]), taxtree(taxtable))
+test_that("taxtree() is independant from duplicated rows ", {
+  # as soon as the first appearance order is preserved
   expect_equal(taxtree(taxtable[rep(1:3, 2), ]), taxtree(taxtable))
 })
 
@@ -34,17 +34,21 @@ test_that("options are correct", {
 
 taxtable2 <- taxtable
 taxtable2$order <- NA
-taxtable2[6:7, ] <- taxtable2[1:2, ]
-taxtable2[2, 3] <- NA
+taxtable2[5:7, ] <- taxtable2[3:5, ]
+taxtable2[3, 3] <- NA
+taxtable2[4, ] <- NA
+taxtable2[8, ] <- taxtable2[1, ]
 
 test_that("improper taxonomic tables are correcly handled", {
   expect_equal(taxtree(taxtable2), taxtree(taxtable))
 })
 
-test_that("taxonomic tables with only one unique row throw errors", {
-  expect_error(taxtree(taxtable2[1, ]))
-  expect_error(taxtree(taxtable2[c(1, 6), ]))
-  expect_error(taxtree(taxtable2[c(1, 2, 6), ]))
+taxtable2$order <- NULL
+
+test_that("taxonomic tables with only one unique real row throw errors", {
+  expect_error(taxtree(taxtable2[1, ])) # one row
+  expect_error(taxtree(taxtable2[c(1, 8), ])) # same row
+  expect_error(taxtree(taxtable2[c(1, 3, 4, 8), ])) # same row after filtering
 })
 
 
