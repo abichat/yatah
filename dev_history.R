@@ -1,4 +1,3 @@
-library(usethis)
 library(devtools)
 library(testthat)
 
@@ -11,6 +10,9 @@ library(testthat)
 # use_test("previous_outputs")
 
 # use_github_action("pkgdown")
+
+# use_github_action_check_standard()
+
 
 
 #### Repeated ####
