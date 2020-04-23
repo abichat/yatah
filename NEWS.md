@@ -1,6 +1,7 @@
 # yatah (development version)
 
 * Add `trim_void()` and `trim_rank()` functions.
+* Remove `ggtree` from suggested packages.
 * Documentation improved.
 
 # yatah 0.1.0
