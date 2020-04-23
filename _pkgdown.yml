@@ -12,16 +12,16 @@ authors:
 navbar:
   title: "yatah"
   left:
-    - icon: fa-home
+    - icon: fas fa-home fa-lg
       href: index.html
     - text: "Get started"
       href: articles/gammaproteobacteria.html
     - text: "Reference"
       href: reference/index.html
   right:
-    - icon: fa-newspaper-o
+    - icon: fas fa-newspaper-o fa-lg
       href: news/index.html
-    - icon: fa-github
+    - icon: fab fa-github fa-lg
       href: https://github.com/abichat/yatah
 
 reference:
@@ -37,8 +37,17 @@ reference:
     - '`all_clades`'
     - '`last_clade`'
     - '`last_rank`'
+  - title: Trim lineages
+    desc: ~
+    contents:
+     - '`trim_rank`'
+     - '`trim_void`'
   - title: Convert into other formats
     desc: ~
     contents:
     - '`taxtable`'
     - '`taxtree`'
+  - title: Dataset
+    desc: ~
+    contents:
+    - '`abundances`'

@@ -21,4 +21,8 @@ abundances
 \description{
 A dataset containing the abundances of 1585 lineages among 199 patients.
 }
+\examples{
+dim(abundances)
+abundances[1:5, 1:7]
+}
 \keyword{datasets}

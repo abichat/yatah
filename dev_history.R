@@ -16,6 +16,9 @@ library(testthat)
 # use_r("trim")
 # use_test("trim")
 
+# use_package_doc()
+
+# badger::badge_last_commit()
 
 
 #### Repeated ####
