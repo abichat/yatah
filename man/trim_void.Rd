@@ -4,12 +4,16 @@
 \alias{trim_void}
 \title{Trim void ranks in lineages}
 \usage{
-trim_void(lineage, same = TRUE)
+trim_void(lineage, same = TRUE, only_tail = FALSE)
 }
 \arguments{
 \item{lineage}{string. Vector of lineages.}
 
 \item{same}{logical. Does the lineage have the same depth? Default to TRUE.}
+
+\item{only_tail}{Logical. If \code{FALSE} (default), void ranks amid
+lineages and subranks are removed. If \code{TRUE}, only final
+void ranks are removed.}
 }
 \value{
 The trimmed lineages. Depth could be different among them.
@@ -26,4 +30,5 @@ lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae|o__|f__"
 lineage2 <- "k__Bacteria|p__Firmicutes|c__"
 lineage3 <- "k__Bacteria|p__|c__Verrucomicrobiae|o__|f__"
 trim_void(c(lineage1, lineage2, lineage3), same = FALSE)
+trim_void(c(lineage1, lineage2, lineage3), same = FALSE, only_tail = TRUE)
 }

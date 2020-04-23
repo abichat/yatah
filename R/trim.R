@@ -4,6 +4,9 @@
 #' will be removed. See the example with \code{lineage3}.
 #'
 #' @inheritParams last_clade
+#' @param only_tail Logical. If \code{FALSE} (default), void ranks amid
+#' lineages and subranks are removed. If \code{TRUE}, only final
+#' void ranks are removed.
 #'
 #' @return The trimmed lineages. Depth could be different among them.
 #' @importFrom stringr str_extract
@@ -14,13 +17,20 @@
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__"
 #' lineage3 <- "k__Bacteria|p__|c__Verrucomicrobiae|o__|f__"
 #' trim_void(c(lineage1, lineage2, lineage3), same = FALSE)
-trim_void <- function(lineage, same = TRUE) {
+#' trim_void(c(lineage1, lineage2, lineage3), same = FALSE, only_tail = TRUE)
+trim_void <- function(lineage, same = TRUE, only_tail = FALSE) {
 
   error_lineage(lineage)
 
   if (same) depth(lineage)
 
-  str_extract(lineage, paste0("((^|\\|)[kpcofgst]__", .allchr, "+)*"))
+  if(only_tail){
+    lin <- str_remove(lineage, paste0("((^|\\|)[kpcofgst]__", "+)*$"))
+  } else {
+    lin <- str_extract(lineage, paste0("((^|\\|)[kpcofgst]__", .allchr, "+)*"))
+  }
+
+  return(lin)
 
 }
 

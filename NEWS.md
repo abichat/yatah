@@ -1,5 +1,7 @@
 # yatah (development version)
 
+* Add `trim_void()` and `trim_rank()` functions.
+
 # yatah 0.1.0
 
 * Compatible with R 4.0.0.
