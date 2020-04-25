@@ -20,6 +20,8 @@ library(testthat)
 
 # badger::badge_last_commit()
 
+# use_test("special_characters")
+
 
 #### Repeated ####
 
