@@ -28,7 +28,7 @@ clades with same name and same rank when \code{simplify} is set to
 \examples{
 lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
-lineage3 <- "k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales"
+lineage3 <- "k__Bacteria|p__Actinobacteria|c__Actinobacteria"
 all_clades(c(lineage1, lineage2, lineage3))
 all_clades(c(lineage1, lineage2, lineage3), simplify = FALSE)
 }
