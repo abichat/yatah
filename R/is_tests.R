@@ -2,8 +2,11 @@
 #'
 #' @param string string to be tested as lineage.
 #'
+#' @details Alphanumeric character, hyphen, dots, square brackets
+#' and non-consecutive underscores are allowed in clades names.
+#'
 #' @return A logical.
-#' @importFrom stringr str_detect
+#' @importFrom stringr str_detect str_replace_all
 #' @export
 #'
 #' @examples
@@ -12,14 +15,20 @@ is_lineage <- function(string){
 
   sep <- getOption("yatah_sep", default = "\\|")
 
-  str_detect(string, paste0("^k__", .allchr, "*",
-                            "($|", sep, "p__", .allchr, "*)",
-                            "($|", sep, "c__", .allchr, "*)",
-                            "($|", sep, "o__", .allchr, "*)",
-                            "($|", sep, "f__", .allchr, "*)",
-                            "($|", sep, "g__", .allchr, "*)",
-                            "($|", sep, "s__", .allchr, "*)",
-                            "($|", sep, "t__", .allchr, "*)$"))
+  only_clades <- str_replace_all(string,
+                                 paste0("(^|", sep, ")[kpcofgst]__"), " ")
+  cond1 <- ! str_detect(only_clades, "__")
+
+  cond2 <- str_detect(string, paste0("^k__", .allchr, "*",
+                                     "($|", sep, "p__", .allchr, "*)",
+                                     "($|", sep, "c__", .allchr, "*)",
+                                     "($|", sep, "o__", .allchr, "*)",
+                                     "($|", sep, "f__", .allchr, "*)",
+                                     "($|", sep, "g__", .allchr, "*)",
+                                     "($|", sep, "s__", .allchr, "*)",
+                                     "($|", sep, "t__", .allchr, "*)$"))
+
+  as.logical(cond1 * cond2)
 }
 
 
