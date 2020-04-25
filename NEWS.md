@@ -2,6 +2,7 @@
 
 * Add `trim_void()` and `trim_rank()` functions.
 * Remove `ggtree` from suggested packages.
+* `all_clades()` behavior has changed for duplicated clades.
 * Documentation improved.
 
 # yatah 0.1.0
