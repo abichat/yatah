@@ -22,6 +22,8 @@ library(testthat)
 
 # use_test("special_characters")
 
+# use_r("zzz")
+
 
 #### Repeated ####
 

@@ -31,7 +31,7 @@ For this example, we use data from @zeller2014potential. It is the abundances of
 
 ```{r}
 abundances <- as_tibble(yatah::abundances)
-print(abundances, n_extra = 2)
+print(abundances, max_extra_cols = 2)
 ```
 
 ```{r data, message=FALSE}
