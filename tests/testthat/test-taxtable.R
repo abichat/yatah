@@ -39,11 +39,22 @@ lin2bis <- "k__Bacteria;p__Firmicutes;c__Clostridia"
 lin3bis <- "k__Bacteria;p__Firmicutes;c__Bacilli"
 lineages1bis <- c(lin1bis, lin2bis, lin3bis)
 
-
-
 test_that("taxtable() works with other separators", {
   temmp_taxtable <- taxtable(lineages1)
   options(yatah_sep = ";")
   expect_equal(taxtable(lineages1bis), temmp_taxtable)
   options(yatah_sep = "\\|")
+})
+
+lin8 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
+lin9 <- "k__Bacteria|p__|c__Clostridia"
+lin10 <- "k__Bacteria|p__Firmicutes|c__"
+lin11 <- "k__Bacteria|p__|c__"
+
+test_that("taxtable() works with void clades", {
+  taxtable_void <- taxtable(c(lin8, lin9, lin10, lin11))
+  taxtable_void_bis <- taxtable(c(lin10, lin11))
+  expect_equal(taxtable_void$phylum[c(2, 4)], c("", ""))
+  expect_equal(taxtable_void$class[c(3, 4)], c("", ""))
+  expect_equal(taxtable_void_bis$class, c("", ""))
 })
