@@ -37,6 +37,12 @@ taxtree <- function(table, collapse = TRUE, lineage_length = 1, root = ""){
 
   table <- unique(na.omit(table))
 
+  ## Return an error if there are void ranks
+
+  if(any(table == "")) {
+    stop("Void ranks are not allowed in taxonomic trees.")
+  }
+
   ## Convert to data.frame with factor columns
 
   table <- as.data.frame(apply(table, 2, as.factor), stringsAsFactors = TRUE)

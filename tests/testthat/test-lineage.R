@@ -1,5 +1,3 @@
-context("Lineages")
-
 lineage1 <- "k__Bacteria"
 lineage2 <- "k__Bacteria|p__Firmicutes"
 lineage3 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
@@ -24,7 +22,8 @@ badlin2 <- "k__Bac|p__Fir|o__Clos|c__Clost|f__Rumi"
 badlin3 <- "k__Bac|p__Fir|c__Clos|o__Clo|f__Rumi|g__Sub|s__Sub_su|t__X_56Z|a__c"
 badlin4 <- "k__Bac|p__Fir|b__Clos|o__Clo|f__Rumi|"
 badlin5 <- "k__Bac|c__Clos|o__Clost|f__Rumi"
-badlins <- c(badlin1, badlin2, badlin3, badlin4, badlin5)
+badlin6 <- "k__Bac|p__Fir|c__Clos|o__Clos__t|f__Rumi"
+badlins <- c(badlin1, badlin2, badlin3, badlin4, badlin5, badlin6)
 
 errorbadlin <- paste0("Your string is not a lineage. Maybe you have specified",
                       " the wrong separator or used special caracters.")
@@ -33,7 +32,7 @@ errorbadlin <- paste0("Your string is not a lineage. Maybe you have specified",
 
 test_that("is_lineage() is correct", {
   expect_equal(is_lineage(lineages), rep(TRUE, 8))
-  expect_equal(is_lineage(badlins), rep(FALSE, 5))
+  expect_equal(is_lineage(badlins), rep(FALSE, 6))
   options(yatah_sep = ";")
   expect_equal(is_lineage(lineagesbis), rep(TRUE, 5))
   options(yatah_sep = "\\|")

@@ -1,18 +1,14 @@
 Package: yatah
 Title: Yet Another TAxonomy Handler
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
-    person(given = "Antoine",
-           family = "Bichat",
-           role = c("aut", "cre"),
-           email = "a.bichat@yahoo.fr",
+    person("Antoine", "Bichat", , "a.bichat@yahoo.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6599-7081"))
-Description: Provides functions to manage taxonomy when lineages
-    are described with strings and ranks separated with special patterns
-    like "|*__" or ";*__".
+Description: Provides functions to manage taxonomy when lineages are
+    described with strings and ranks separated with special patterns like
+    "|*__" or ";*__".
 License: GPL-3
-URL: https://github.com/abichat/yatah,
-    https://abichat.github.io/yatah
+URL: https://github.com/abichat/yatah, https://abichat.github.io/yatah
 BugReports: https://github.com/abichat/yatah/issues
 Depends: 
     R (>= 2.10)
@@ -23,16 +19,14 @@ Imports:
     stringr
 Suggests: 
     dplyr,
-    ggtree,
     knitr,
     rmarkdown,
     spelling,
     testthat (>= 2.1.0)
 VignetteBuilder: 
     knitr
-biocViews: 
 Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2.9000
+RoxygenNote: 7.1.2

@@ -48,6 +48,12 @@ last_rank <- function(lineage, same = TRUE) {
 
 #' Extract all clades present in the lineages
 #'
+#' @details If a clade correspond to different ranks (e.g. Actinobacteria
+#' is both a phylum and a clade), it will be displayed only one time when
+#' \code{simplify} is set to \code{TRUE}. It is also the case for different
+#' clades with same name and same rank when \code{simplify} is set to
+#' \code{FALSE}.
+#'
 #' @inheritParams last_clade
 #' @param simplify logical. Should the output be a vector or a dataframe?
 #'
@@ -59,8 +65,9 @@ last_rank <- function(lineage, same = TRUE) {
 #' @examples
 #' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 #' lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
-#' all_clades(c(lineage1, lineage2))
-#' all_clades(c(lineage1, lineage2), simplify = FALSE)
+#' lineage3 <- "k__Bacteria|p__Actinobacteria|c__Actinobacteria"
+#' all_clades(c(lineage1, lineage2, lineage3))
+#' all_clades(c(lineage1, lineage2, lineage3), simplify = FALSE)
 all_clades <- function(lineage, simplify = TRUE) {
 
   error_lineage(lineage)
@@ -71,13 +78,14 @@ all_clades <- function(lineage, simplify = TRUE) {
 
   if (simplify) {
 
-    return(sort(str_sub(clades, start = 4)))
+    return(sort(unique(str_sub(clades, start = 4))))
 
   } else {
 
     ranks_ <- .ranks[str_sub(clades, end = 1)]
     df <- data.frame(clade = str_sub(clades, start = 4), rank = ranks_,
                      stringsAsFactors = FALSE)
+    df <- unique(df)
     ind <- order(df$clade)
 
     return(df[ind, ])

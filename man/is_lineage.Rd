@@ -15,6 +15,10 @@ A logical.
 \description{
 Test if a string is a lineage
 }
+\details{
+Alphanumeric character, hyphen, dots, square brackets
+and non-consecutive underscores are allowed in clades names.
+}
 \examples{
 is_lineage("k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales")
 }

@@ -18,9 +18,17 @@ or data.frame.
 \description{
 Extract all clades present in the lineages
 }
+\details{
+If a clade correspond to different ranks (e.g. Actinobacteria
+is both a phylum and a clade), it will be displayed only one time when
+\code{simplify} is set to \code{TRUE}. It is also the case for different
+clades with same name and same rank when \code{simplify} is set to
+\code{FALSE}.
+}
 \examples{
 lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 lineage2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
-all_clades(c(lineage1, lineage2))
-all_clades(c(lineage1, lineage2), simplify = FALSE)
+lineage3 <- "k__Bacteria|p__Actinobacteria|c__Actinobacteria"
+all_clades(c(lineage1, lineage2, lineage3))
+all_clades(c(lineage1, lineage2, lineage3), simplify = FALSE)
 }

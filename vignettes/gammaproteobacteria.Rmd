@@ -1,5 +1,5 @@
 ---
-title: "Taxonomy of _Gammaproteobacteria_"
+title: "Taxonomy of Gammaproteobacteria"
 output: rmarkdown::html_vignette
 bibliography: references.bib
 link-citations: yes
@@ -21,7 +21,6 @@ knitr::opts_chunk$set(
 This vignette illustrates the most useful functions of **yatah**. 
 
 ```{r setup, message=FALSE}
-library(ggtree) # from Bioconductor
 library(dplyr)
 library(yatah)
 ```
@@ -32,7 +31,7 @@ For this example, we use data from @zeller2014potential. It is the abundances of
 
 ```{r}
 abundances <- as_tibble(yatah::abundances)
-print(abundances, n_extra = 2)
+print(abundances, max_extra_cols = 2)
 ```
 
 ```{r data, message=FALSE}
@@ -74,12 +73,10 @@ gammaprot_tree <- taxtree(gammaprot_table)
 gammaprot_tree
 ```
 
-Instead of a classical `plot`, we use **ggtree** (@ggtree2017) to display the tree. 
 
 ```{r ggtree, fig.width=7, fig.height=7}
-ggtree(gammaprot_tree) +
-  geom_tiplab(hjust = 1, geom = "label") +
-  geom_nodelab(hjust = 0, size = 3)
+plot(gammaprot_tree, show.node.label = TRUE, cex = 0.7, 
+     main = "Taxonomy of Gammaproteobacteria")
 ```
 
 ## References

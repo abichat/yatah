@@ -1,4 +1,3 @@
-context("Previous outputs")
 library(dplyr)
 
 lineages1 <- c(

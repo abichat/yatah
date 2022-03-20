@@ -20,15 +20,12 @@ version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])
 version <- gsub('-', '.', version)
 ```
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![packageversion](https://img.shields.io/badge/package%20version-`r version`-orange.svg)](https://github.com/abichat/yatah/blob/master/DESCRIPTION)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah)
-[![Travis build status](https://travis-ci.org/abichat/yatah.svg?branch=master)](https://travis-ci.org/abichat/yatah)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abichat/yatah?branch=master&svg=true)](https://ci.appveyor.com/project/abichat/yatah)
-[![Codecov test coverage](https://codecov.io/gh/abichat/yatah/branch/master/graph/badge.svg)](https://codecov.io/gh/abichat/yatah?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d7712f99522472db847f9bdc3f7b7a4)](https://www.codacy.com/app/abichat/yatah?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abichat/yatah&amp;utm_campaign=Badge_Grade)
-[![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](https://github.com/abichat/yatah/commits/master)
+[![R-CMD-check](https://github.com/abichat/yatah/workflows/R-CMD-check/badge.svg)](https://github.com/abichat/yatah/actions)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/yatah/)
+[![last-commit](https://img.shields.io/github/last-commit/abichat/yatah.svg)](https://github.com/abichat/yatah/commits/master)
 <!-- badges: end -->
 
 The goal of __yatah__ is to manage taxonomy when lineages are described with strings and ranks separated with special patterns like `|*__` or `;*__`.
@@ -37,19 +34,19 @@ For instance, the well-known _Escherichia coli_ could be coded as `k__Bacteria|p
 
 ## Installation
 
-<!-- You can install the released version of yatah from [CRAN](https://CRAN.R-project.org) with: -->
+You can install the released version of yatah from [CRAN](https://CRAN.R-project.org) with:
 
-<!-- ``` r -->
-<!-- install.packages("yatah") -->
-<!-- ``` -->
+``` r
+install.packages("yatah")
+```
 
-<!-- And the development version from [GitHub](https://github.com/) with: -->
-You can install the development version from [GitHub](https://github.com/) with:
+And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("abichat/yatah")
 ```
+
 ## Example
 
 ```{r}
