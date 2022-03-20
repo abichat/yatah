@@ -12,3 +12,4 @@ error_lineage(string)
 \description{
 Throw error if the string is not a lineage
 }
+\keyword{internal}
