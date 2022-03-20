@@ -42,6 +42,7 @@ reference:
     contents:
      - '`trim_rank`'
      - '`trim_void`'
+     - '`trim_common`'
   - title: Convert into other formats
     desc: ~
     contents:

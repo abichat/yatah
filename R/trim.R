@@ -68,3 +68,35 @@ trim_rank <- function(lineage, rank = c("kingdom", "phylum", "class",
               paste0("((^|\\|)[", regex, "]__", .allchr, "*){", N, "}"))
 
 }
+
+
+#' Trim lineages until the shallowest common rank.
+#'
+#' @inheritParams last_clade
+#' @param remove_void Should void ranks be removed? Default to `TRUE`.
+#' @param only_tail Logical to be passed to `trim_void()`. Used only if
+#' `remove_void` is set to `TRUE`.
+#'
+#' @return The trimmed lineages, with same depth.
+#' @export
+#'
+#' @examples
+#' lineage1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
+#' lineage2 <- "k__Bacteria|p__Firmicutes"
+#' lineage3 <- "k__Bacteria|p__|c__Clostridia"
+#' trim_common(c(lineage1, lineage2, lineage3), remove_void = FALSE)
+#' trim_common(c(lineage1, lineage2, lineage3), only_tail = FALSE)
+trim_common <- function(lineage, remove_void = TRUE, only_tail = TRUE) {
+  lin <- lineage
+
+  if (remove_void) {
+    lin <- trim_void(lin, same = FALSE, only_tail = only_tail)
+  }
+
+  # find shallowest common rank
+  lrs <- last_rank(lin, same = FALSE)
+  lrs <- factor(lrs, levels = .ranks, ordered = TRUE)
+  lr <- as.character(min(lrs))
+
+  trim_rank(lin, rank = lr, same = FALSE)
+}

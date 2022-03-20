@@ -1,6 +1,6 @@
 # yatah (development version)
 
-* Add `trim_void()` and `trim_rank()` functions.
+* Add `trim_void()`, `trim_rank()` and `trim_common()` functions.
 * Remove `ggtree` from suggested packages.
 * `all_clades()` behavior has changed for duplicated clades.
 * Consecutive underscores are not allowed anymore.
