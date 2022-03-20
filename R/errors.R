@@ -1,6 +1,7 @@
 #' Throw error if the string is not a lineage
 #'
 #' @inheritParams is_lineage
+#' @keywords internal
 error_lineage <- function(string){
 
   if(!all(is_lineage(string))) {
@@ -16,6 +17,7 @@ error_lineage <- function(string){
 #'
 #' @inheritParams is_rank
 #' @importFrom stringr str_count
+#' @keywords internal
 depth <- function(lineage) {
   N <- str_count(lineage, "__")
   if (!all(N == N[1])) {

@@ -13,4 +13,4 @@ An object of class \code{character} of length 8.
 \description{
 Named vector of ranks
 }
-\keyword{datasets}
+\keyword{internal}

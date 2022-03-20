@@ -12,3 +12,4 @@ depth(lineage)
 \description{
 Throw an error if depth is not the same across lineages.
 }
+\keyword{internal}

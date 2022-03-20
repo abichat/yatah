@@ -13,4 +13,4 @@ An object of class \code{character} of length 1.
 \description{
 Characters allowed in lineages
 }
-\keyword{datasets}
+\keyword{internal}
