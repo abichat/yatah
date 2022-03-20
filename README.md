@@ -6,8 +6,9 @@
 <!-- badges: start -->
 
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![packageversion](https://img.shields.io/badge/package%20version-0.1.0.9000-orange.svg)](https://github.com/abichat/yatah/blob/master/DESCRIPTION)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![packageversion](https://img.shields.io/badge/package%20version-0.2.0-orange.svg)](https://github.com/abichat/yatah/blob/master/DESCRIPTION)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah)
 [![R-CMD-check](https://github.com/abichat/yatah/workflows/R-CMD-check/badge.svg)](https://github.com/abichat/yatah/actions)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/yatah/)

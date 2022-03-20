@@ -24,6 +24,8 @@ library(testthat)
 
 # use_r("zzz")
 
+# use_lifecycle_badge("stable")
+
 
 #### Repeated ####
 
