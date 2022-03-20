@@ -8,9 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Provides functions to manage taxonomy when lineages
-    are described with strings and ranks separated with special patterns
-    like "|*__" or ";*__".
+Provides functions to manage taxonomy when lineages are described with strings and ranks separated with special patterns like "|*__" or ";*__".
 }
 \seealso{
 Useful links:

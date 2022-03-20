@@ -25,22 +25,26 @@ library(testthat)
 
 #### Repeated ####
 
-load_all()
+devtools::load_all()
 
-document()
-attachment::att_to_description()
-use_tidy_description()
+devtools::document()
+attachment::att_amend_desc()
+usethis::use_tidy_description()
 
 # covr::package_coverage()
 
-spell_check()
+devtools::spell_check()
 # spelling::update_wordlist()
 
-run_examples()
+devtools::run_examples()
 
-test()
+devtools::test()
 
-check()
+prefixer::check_import_from()
+prefixer::check_Rd_examples()
+prefixer::check_Rd_value()
+
+devtools::check()
 goodpractice::gp()
 
 covr::package_coverage()
@@ -50,9 +54,10 @@ covr::report()
 
 # pkgdown::template_reference()
 
-install(upgrade = "never")
+devtools::install(upgrade = "never")
 rmarkdown::render("README.Rmd")
 unlink("README.html")
+
 pkgdown::build_site()
 unlink(c("pkgdown/", "docs/"), recursive = TRUE)
 install(upgrade = "never")
