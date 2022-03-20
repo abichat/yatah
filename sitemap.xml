@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://abichat.github.io/yatah/404.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/articles/gammaproteobacteria.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/authors.html</loc>
+  </url>
+  <url>
     <loc>https://abichat.github.io/yatah/index.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/news/index.html</loc>
   </url>
   <url>
     <loc>https://abichat.github.io/yatah/reference/abundances.html</loc>
@@ -20,6 +38,9 @@
   </url>
   <url>
     <loc>https://abichat.github.io/yatah/reference/error_lineage.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/reference/index.html</loc>
   </url>
   <url>
     <loc>https://abichat.github.io/yatah/reference/is_clade.html</loc>
@@ -43,6 +64,15 @@
     <loc>https://abichat.github.io/yatah/reference/taxtree.html</loc>
   </url>
   <url>
-    <loc>https://abichat.github.io/yatah/articles/gammaproteobacteria.html</loc>
+    <loc>https://abichat.github.io/yatah/reference/trim_common.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/reference/trim_rank.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/reference/trim_void.html</loc>
+  </url>
+  <url>
+    <loc>https://abichat.github.io/yatah/reference/yatah-package.html</loc>
   </url>
 </urlset>
