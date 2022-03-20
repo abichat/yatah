@@ -51,7 +51,7 @@ lin9 <- "k__Bacteria|p__|c__Clostridia"
 lin10 <- "k__Bacteria|p__Firmicutes|c__"
 lin11 <- "k__Bacteria|p__|c__"
 
-test_that("taxtable() works with void clades", {
+test_that("taxtable() works with void ranks", {
   taxtable_void <- taxtable(c(lin8, lin9, lin10, lin11))
   taxtable_void_bis <- taxtable(c(lin10, lin11))
   expect_equal(taxtable_void$phylum[c(2, 4)], c("", ""))

@@ -51,4 +51,9 @@ test_that("taxonomic tables with only one unique real row throw errors", {
   expect_error(taxtree(taxtable2[c(1, 3, 4, 8), ])) # same row after filtering
 })
 
+lin6 <- "k__Bacteria|p__Firmicutes|c__"
+taxtable_void <- taxtable(c(lineages, lin6))
 
+test_that("taxonomic trees are not ploted with void ranks", {
+  expect_error(taxtree(taxtable_void), "Void .* not allowed")
+})
