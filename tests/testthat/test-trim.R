@@ -1,6 +1,3 @@
-context("Trim verbs")
-
-
 lin <- c("k__aaa|p__bbb|c__ccc|o__ddd|f__eee|g__fff|s__ggg|t__hhh",
           "k__aaa|p__bbb|c__ccc|o__ddd|f__eee|g__fff|s__ggg|t__",
           "k__aaa|p__bbb|c__ccc|o__",

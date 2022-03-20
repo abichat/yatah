@@ -1,5 +1,3 @@
-context("Special characters")
-
 lin <- c("k__Aaa|p__Bbb|c__Ccc|o__Ddd",
          "k__Aaa|p__Bbb|c__Ccc|o__Ddd0123456789", # numbers
          "k__Aaa|p__Bbb|c__Cc-c|o__Eee-e", # hyphen

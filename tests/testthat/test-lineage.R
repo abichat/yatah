@@ -1,5 +1,3 @@
-context("Lineages")
-
 lineage1 <- "k__Bacteria"
 lineage2 <- "k__Bacteria|p__Firmicutes"
 lineage3 <- "k__Bacteria|p__Firmicutes|c__Clostridia"

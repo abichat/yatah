@@ -1,5 +1,3 @@
-context("Taxonomic table")
-
 lin1 <- "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"
 lin2 <- "k__Bacteria|p__Firmicutes|c__Clostridia"
 lin3 <- "k__Bacteria|p__Firmicutes|c__Bacilli"
