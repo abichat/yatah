@@ -6,8 +6,7 @@
 \usage{
 trim_rank(
   lineage,
-  rank = c("kingdom", "phylum", "class", "order", "family", "genus", "species",
-    "strain"),
+  rank = c("kingdom", "phylum", "class", "order", "family", "genus", "species", "strain"),
   same = TRUE
 )
 }

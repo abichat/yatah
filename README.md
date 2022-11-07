@@ -8,7 +8,7 @@
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![packageversion](https://img.shields.io/badge/package%20version-0.2.0-orange.svg)](https://github.com/abichat/yatah/blob/master/DESCRIPTION)
+[![packageversion](https://img.shields.io/badge/package%20version-0.2.1-orange.svg)](https://github.com/abichat/yatah/blob/master/DESCRIPTION)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/yatah)](https://cran.r-project.org/package=yatah)
 [![R-CMD-check](https://github.com/abichat/yatah/workflows/R-CMD-check/badge.svg)](https://github.com/abichat/yatah/actions)
 [![Documentation](https://img.shields.io/badge/documentation-pkgdown-E91E63.svg)](https://abichat.github.io/yatah/)
@@ -78,9 +78,9 @@ is_clade(lineages, clade = "Proteobacteria", rank = "phylum")
 
 ``` r
 last_clade(lineages)
-#> [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales" 
-#> [4] "Bacillales"        "Lactobacillales"   "Clostridiales"    
-#> [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"
+#> [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales"  "Bacillales"       
+#> [5] "Lactobacillales"   "Clostridiales"     "Campylobacterales" "Enterobacteriales"
+#> [9] "Pseudomonadales"
 ```
 
 -   `all_clades()` extracts all clades of the lineages.
