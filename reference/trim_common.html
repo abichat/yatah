@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">yatah</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -71,33 +71,40 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">trim_common</span><span class="op">(</span><span class="va">lineage</span>, remove_void <span class="op">=</span> <span class="cn">TRUE</span>, only_tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">trim_common</span><span class="op">(</span><span class="va">lineage</span>, remove_void <span class="op">=</span> <span class="cn">TRUE</span>, only_tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>lineage</dt>
 <dd><p>string. Vector of lineages.</p></dd>
+
+
 <dt>remove_void</dt>
 <dd><p>Should void ranks be removed? Default to <code>TRUE</code>.</p></dd>
+
+
 <dt>only_tail</dt>
 <dd><p>Logical to be passed to <code><a href="trim_void.html">trim_void()</a></code>. Used only if
 <code>remove_void</code> is set to <code>TRUE</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The trimmed lineages, with same depth.</p>
+    
+
+<p>The trimmed lineages, with same depth.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">lineage1</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"</span></span>
-<span class="r-in"><span class="va">lineage2</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__Firmicutes"</span></span>
-<span class="r-in"><span class="va">lineage3</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__|c__Clostridia"</span></span>
-<span class="r-in"><span class="fu">trim_common</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lineage1</span>, <span class="va">lineage2</span>, <span class="va">lineage3</span><span class="op">)</span>, remove_void <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">lineage1</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"</span></span></span>
+<span class="r-in"><span><span class="va">lineage2</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__Firmicutes"</span></span></span>
+<span class="r-in"><span><span class="va">lineage3</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__|c__Clostridia"</span></span></span>
+<span class="r-in"><span><span class="fu">trim_common</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lineage1</span>, <span class="va">lineage2</span>, <span class="va">lineage3</span><span class="op">)</span>, remove_void <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "k__Bacteria|p__Verrucomicrobia" "k__Bacteria|p__Firmicutes"     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3] "k__Bacteria|p__"               </span>
-<span class="r-in"><span class="fu">trim_common</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lineage1</span>, <span class="va">lineage2</span>, <span class="va">lineage3</span><span class="op">)</span>, only_tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">trim_common</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lineage1</span>, <span class="va">lineage2</span>, <span class="va">lineage3</span><span class="op">)</span>, only_tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "k__Bacteria" "k__Bacteria" "k__Bacteria"</span>
 </code></pre></div>
     </div>
@@ -113,7 +120,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

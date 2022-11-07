@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">yatah</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -106,119 +106,122 @@
 </h2>
 <p>This vignette illustrates the most useful functions of <strong>yatah</strong>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/abichat/yatah" class="external-link">yatah</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/abichat/yatah" class="external-link">yatah</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
 </h2>
 <p>For this example, we use data from <span class="citation">Zeller et al. (<a href="#ref-zeller2014potential" role="doc-biblioref">2014</a>)</span>. It is the abundances of bacteria present in 199 stool samples.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">abundances</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu">yatah</span><span class="fu">::</span><span class="va"><a href="../reference/abundances.html">abundances</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">abundances</span>, max_extra_cols <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,585 × 200</span></span>
-<span class="co">#&gt;    lineages  `CCIS00146684S…` `CCIS00281083S…` `CCIS02124300S…` `CCIS02379307S…`</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> k__Bacte…        100.              99.8               96.3           99.9    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> k__Virus…          0.006<span style="text-decoration: underline;">97</span>          0.128              3.70           0.004<span style="text-decoration: underline;">71</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> k__Bacte…         66.2             24.6               74.2           45.1    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> k__Bacte…         19.1             74.4               11.9           53.0    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> k__Bacte…         12.1              0.042<span style="text-decoration: underline;">8</span>             7.22           0.078<span style="text-decoration: underline;">8</span> </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> k__Bacte…          1.86             0.428              0.765          0.361  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> k__Bacte…          0.758            0.388              2.28           0.985  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> k__Virus…          0.006<span style="text-decoration: underline;">97</span>          0.128              3.70           0.004<span style="text-decoration: underline;">71</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> k__Bacte…          0.001<span style="text-decoration: underline;">55</span>          0.004<span style="text-decoration: underline;">15</span>            0              0      </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> k__Bacte…         62.4             21.7               62.3           44.0    </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1,575 more rows, and 195 more variables: `CCIS02856720ST-4-0` &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   `CCIS03473770ST-4-0` &lt;dbl&gt;, …</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">abundances</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu">yatah</span><span class="fu">::</span><span class="va"><a href="../reference/abundances.html">abundances</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">abundances</span>, max_extra_cols <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,585 × 200</span></span></span>
+<span><span class="co">#&gt;    lineages      CCIS0…¹ CCIS0…² CCIS0…³ CCIS0…⁴ CCIS0…⁵ CCIS0…⁶ CCIS0…⁷ CCIS0…⁸</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> k__Bacteria   1.00<span style="color: #949494;">e</span>+2 9.98<span style="color: #949494;">e</span>+1  96.3   9.99<span style="color: #949494;">e</span>+1 9.76<span style="color: #949494;">e</span>+1 9.41<span style="color: #949494;">e</span>+1 1.00<span style="color: #949494;">e</span>+2 98.7   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> k__Viruses    6.97<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> 1.28<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>   3.70  4.71<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> 2.39<span style="color: #949494;">e</span>+0 1.10<span style="color: #949494;">e</span>+0 1.37<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> k__Bacteria|… 6.62<span style="color: #949494;">e</span>+1 2.46<span style="color: #949494;">e</span>+1  74.2   4.51<span style="color: #949494;">e</span>+1 6.46<span style="color: #949494;">e</span>+1 6.34<span style="color: #949494;">e</span>+1 8.25<span style="color: #949494;">e</span>+1 50.5   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> k__Bacteria|… 1.91<span style="color: #949494;">e</span>+1 7.44<span style="color: #949494;">e</span>+1  11.9   5.30<span style="color: #949494;">e</span>+1 2.26<span style="color: #949494;">e</span>+1 2.17<span style="color: #949494;">e</span>+1 1.24<span style="color: #949494;">e</span>+1 21.5   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> k__Bacteria|… 1.21<span style="color: #949494;">e</span>+1 4.28<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>   7.22  7.88<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> 1.73<span style="color: #949494;">e</span>+0 4.66<span style="color: #949494;">e</span>+0 3.59<span style="color: #949494;">e</span>+0 21.1   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> k__Bacteria|… 1.86<span style="color: #949494;">e</span>+0 4.28<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>   0.765 3.61<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 6.93<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 2.27<span style="color: #949494;">e</span>+0 1.17<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  0.978 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> k__Bacteria|… 7.58<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 3.88<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>   2.28  9.85<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span> 7.94<span style="color: #949494;">e</span>+0 2.07<span style="color: #949494;">e</span>+0 1.44<span style="color: #949494;">e</span>+0  4.66  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> k__Viruses|p… 6.97<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> 1.28<span style="color: #949494;">e</span><span style="color: #BB0000;">-1</span>   3.70  4.71<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> 2.39<span style="color: #949494;">e</span>+0 1.10<span style="color: #949494;">e</span>+0 1.37<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> k__Bacteria|… 1.55<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> 4.15<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   0     0   <span style="color: #949494;"> </span>   6.43<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> 4.76<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> 2.05<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.004<span style="text-decoration: underline;">2</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> k__Bacteria|… 6.24<span style="color: #949494;">e</span>+1 2.17<span style="color: #949494;">e</span>+1  62.3   4.40<span style="color: #949494;">e</span>+1 6.00<span style="color: #949494;">e</span>+1 5.78<span style="color: #949494;">e</span>+1 7.41<span style="color: #949494;">e</span>+1 50.2   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 1,575 more rows, 191 more variables: `CCIS06260551ST-3-0` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `CCIS07277498ST-4-0` &lt;dbl&gt;, …, and abbreviated variable names</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`CCIS00146684ST-4-0`, ²​`CCIS00281083ST-3-0`, ³​`CCIS02124300ST-4-0`,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ⁴​`CCIS02379307ST-4-0`, ⁵​`CCIS02856720ST-4-0`, ⁶​`CCIS03473770ST-4-0`,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ⁷​`CCIS03857607ST-4-0`, ⁸​`CCIS05314658ST-4-0`</span></span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">taxonomy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">abundances</span>, <span class="va">lineages</span><span class="op">)</span>
-<span class="va">taxonomy</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,585 × 1</span></span>
-<span class="co">#&gt;    lineages                                  </span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                     </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> k__Bacteria                               </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> k__Viruses                                </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> k__Bacteria|p__Firmicutes                 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> k__Bacteria|p__Bacteroidetes              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> k__Bacteria|p__Actinobacteria             </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> k__Bacteria|p__Verrucomicrobia            </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> k__Bacteria|p__Proteobacteria             </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> k__Viruses|p__Viruses_noname              </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> k__Bacteria|p__Candidatus_Saccharibacteria</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> k__Bacteria|p__Firmicutes|c__Clostridia   </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 1,575 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">taxonomy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">abundances</span>, <span class="va">lineages</span><span class="op">)</span></span>
+<span><span class="va">taxonomy</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1,585 × 1</span></span></span>
+<span><span class="co">#&gt;    lineages                                  </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> k__Bacteria                               </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> k__Viruses                                </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> k__Bacteria|p__Firmicutes                 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> k__Bacteria|p__Bacteroidetes              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> k__Bacteria|p__Actinobacteria             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> k__Bacteria|p__Verrucomicrobia            </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> k__Bacteria|p__Proteobacteria             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> k__Viruses|p__Viruses_noname              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> k__Bacteria|p__Candidatus_Saccharibacteria</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> k__Bacteria|p__Firmicutes|c__Clostridia   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 1,575 more rows</span></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="filtering">Filtering<a class="anchor" aria-label="anchor" href="#filtering"></a>
 </h2>
 <p>Here, we have all the present bacteria at all different ranks. As we are just interested in genera that belong to the <em>Gammaproteobacteria</em> class, we <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> the lineages with <code><a href="../reference/is_clade.html">is_clade()</a></code> and <code><a href="../reference/is_rank.html">is_rank()</a></code>. The genus name is accessible with <code><a href="../reference/last_clade.html">last_clade()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gammap_genus</span> <span class="op">&lt;-</span>
-  <span class="va">taxonomy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="../reference/is_clade.html">is_clade</a></span><span class="op">(</span><span class="va">lineages</span>, <span class="st">"Gammaproteobacteria"</span><span class="op">)</span>,
-         <span class="fu"><a href="../reference/is_rank.html">is_rank</a></span><span class="op">(</span><span class="va">lineages</span>, <span class="st">"genus"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>genus <span class="op">=</span> <span class="fu"><a href="../reference/last_clade.html">last_clade</a></span><span class="op">(</span><span class="va">lineages</span><span class="op">)</span><span class="op">)</span>
-<span class="va">gammap_genus</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 2</span></span>
-<span class="co">#&gt;    lineages                                                                genus</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Esch…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales… Haem…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Ente…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadale… Pseu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Ente…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales… Aggr…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Hafn…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales… Acti…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Xanthomonadale… Sino…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Citr…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">gammap_genus</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">taxonomy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="../reference/is_clade.html">is_clade</a></span><span class="op">(</span><span class="va">lineages</span>, <span class="st">"Gammaproteobacteria"</span><span class="op">)</span>,</span>
+<span>         <span class="fu"><a href="../reference/is_rank.html">is_rank</a></span><span class="op">(</span><span class="va">lineages</span>, <span class="st">"genus"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>genus <span class="op">=</span> <span class="fu"><a href="../reference/last_clade.html">last_clade</a></span><span class="op">(</span><span class="va">lineages</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">gammap_genus</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 2</span></span></span>
+<span><span class="co">#&gt;    lineages                                                                genus</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Esch…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales… Haem…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Ente…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadale… Pseu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Ente…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales… Aggr…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Hafn…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales… Acti…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Xanthomonadale… Sino…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteria… Citr…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="taxonomic-table">Taxonomic table<a class="anchor" aria-label="anchor" href="#taxonomic-table"></a>
 </h2>
 <p>It is useful to have a taxonomic table. <code><a href="../reference/taxtable.html">taxtable()</a></code> do the job.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gammaprot_table</span> <span class="op">&lt;-</span>
-  <span class="va">gammap_genus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">lineages</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/taxtable.html">taxtable</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">gammaprot_table</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 6</span></span>
-<span class="co">#&gt;    kingdom  phylum         class               order             family    genus</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Esch…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bacteria Proteobacteria Gammaproteobacteria Pasteurellales    Pasteure… Haem…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Ente…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Bacteria Proteobacteria Gammaproteobacteria Pseudomonadales   Pseudomo… Pseu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Ente…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Bacteria Proteobacteria Gammaproteobacteria Pasteurellales    Pasteure… Aggr…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Hafn…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Bacteria Proteobacteria Gammaproteobacteria Pasteurellales    Pasteure… Acti…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Bacteria Proteobacteria Gammaproteobacteria Xanthomonadales   Sinobact… Sino…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Citr…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">gammaprot_table</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">gammap_genus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">lineages</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/taxtable.html">taxtable</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">gammaprot_table</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 6</span></span></span>
+<span><span class="co">#&gt;    kingdom  phylum         class               order             family    genus</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Esch…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bacteria Proteobacteria Gammaproteobacteria Pasteurellales    Pasteure… Haem…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Ente…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Bacteria Proteobacteria Gammaproteobacteria Pseudomonadales   Pseudomo… Pseu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Ente…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Bacteria Proteobacteria Gammaproteobacteria Pasteurellales    Pasteure… Aggr…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Hafn…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Bacteria Proteobacteria Gammaproteobacteria Pasteurellales    Pasteure… Acti…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Bacteria Proteobacteria Gammaproteobacteria Xanthomonadales   Sinobact… Sino…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Bacteria Proteobacteria Gammaproteobacteria Enterobacteriales Enteroba… Citr…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="taxonomic-tree">Taxonomic tree<a class="anchor" aria-label="anchor" href="#taxonomic-tree"></a>
 </h2>
 <p>To have a tree, use <code><a href="../reference/taxtree.html">taxtree()</a></code> with a taxonomic table in input. By default, it collapses ranks with only one subrank.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gammaprot_tree</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/taxtree.html">taxtree</a></span><span class="op">(</span><span class="va">gammaprot_table</span><span class="op">)</span>
-<span class="va">gammaprot_tree</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Phylogenetic tree with 26 tips and 7 internal nodes.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Tip labels:</span>
-<span class="co">#&gt;   Escherichia, Enterobacteriaceae_noname, Enterobacter, Hafnia, Citrobacter, Pantoea, ...</span>
-<span class="co">#&gt; Node labels:</span>
-<span class="co">#&gt;   Gammaproteobacteria, Enterobacteriaceae, Pasteurellaceae, Pseudomonadales, Moraxellaceae, Xanthomonadales, ...</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Rooted; includes branch lengths.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">gammaprot_tree</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/taxtree.html">taxtree</a></span><span class="op">(</span><span class="va">gammaprot_table</span><span class="op">)</span></span>
+<span><span class="va">gammaprot_tree</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Phylogenetic tree with 26 tips and 7 internal nodes.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Tip labels:</span></span>
+<span><span class="co">#&gt;   Escherichia, Enterobacteriaceae_noname, Enterobacter, Hafnia, Citrobacter, Pantoea, ...</span></span>
+<span><span class="co">#&gt; Node labels:</span></span>
+<span><span class="co">#&gt;   Gammaproteobacteria, Enterobacteriaceae, Pasteurellaceae, Pseudomonadales, Moraxellaceae, Xanthomonadales, ...</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Rooted; includes branch lengths.</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">gammaprot_tree</span>, show.node.label <span class="op">=</span> <span class="cn">TRUE</span>, cex <span class="op">=</span> <span class="fl">0.7</span>, 
-     main <span class="op">=</span> <span class="st">"Taxonomy of Gammaproteobacteria"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">gammaprot_tree</span>, show.node.label <span class="op">=</span> <span class="cn">TRUE</span>, cex <span class="op">=</span> <span class="fl">0.7</span>, </span>
+<span>     main <span class="op">=</span> <span class="st">"Taxonomy of Gammaproteobacteria"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="gammaproteobacteria_files/figure-html/ggtree-1.png" width="672"></p>
 </div>
 <div class="section level2 unnumbered">
@@ -249,7 +252,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

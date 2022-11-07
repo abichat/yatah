@@ -48,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">yatah</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -97,7 +97,6 @@
 <a class="anchor" aria-label="anchor" href="#yatah-"></a>
 </h1></div>
 <!-- badges: start -->
-
 <p>The goal of <strong>yatah</strong> is to manage taxonomy when lineages are described with strings and ranks separated with special patterns like <code>|*__</code> or <code>;*__</code>.</p>
 <p>For instance, the well-known <em>Escherichia coli</em> could be coded as <code>k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli</code>.</p>
 <div class="section level2">
@@ -105,101 +104,89 @@
 </h2>
 <p>You can install the released version of yatah from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"yatah"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"yatah"</span><span class="op">)</span></span></code></pre></div>
 <p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"abichat/yatah"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"abichat/yatah"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/abichat/yatah" class="external-link">yatah</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/abichat/yatah" class="external-link">yatah</a></span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lineages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-  <span class="st">"k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Coriobacteriales"</span>,
-  <span class="st">"k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales"</span>,
-  <span class="st">"k__Bacteria|p__Bacteroidetes|c__Flavobacteriia|o__Flavobacteriales"</span>,
-  <span class="st">"k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales"</span>,
-  <span class="st">"k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales"</span>,
-  <span class="st">"k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales"</span>,
-  <span class="st">"k__Bacteria|p__Proteobacteria|c__Epsilonproteobacteria|o__Campylobacterales"</span>,
-  <span class="st">"k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales"</span>,
-  <span class="st">"k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales"</span>
-<span class="op">)</span></code></pre></div>
-<ul>
-<li>
-<code><a href="reference/is_rank.html">is_rank()</a></code> checks if the lineages are of the desired rank.</li>
-</ul>
+<code class="sourceCode R"><span><span class="va">lineages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Coriobacteriales"</span>,</span>
+<span>  <span class="st">"k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales"</span>,</span>
+<span>  <span class="st">"k__Bacteria|p__Bacteroidetes|c__Flavobacteriia|o__Flavobacteriales"</span>,</span>
+<span>  <span class="st">"k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales"</span>,</span>
+<span>  <span class="st">"k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales"</span>,</span>
+<span>  <span class="st">"k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales"</span>,</span>
+<span>  <span class="st">"k__Bacteria|p__Proteobacteria|c__Epsilonproteobacteria|o__Campylobacterales"</span>,</span>
+<span>  <span class="st">"k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacteriales"</span>,</span>
+<span>  <span class="st">"k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<ul><li>
+<code><a href="reference/is_rank.html">is_rank()</a></code> checks if the lineages are of the desired rank.</li></ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/is_rank.html">is_rank</a></span><span class="op">(</span><span class="va">lineages</span>, rank <span class="op">=</span> <span class="st">"order"</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span>
-<span class="fu"><a href="reference/is_rank.html">is_rank</a></span><span class="op">(</span><span class="va">lineages</span>, rank <span class="op">=</span> <span class="st">"species"</span><span class="op">)</span>
-<span class="co">#&gt; [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></code></pre></div>
-<ul>
-<li>
-<code><a href="reference/is_clade.html">is_clade()</a></code> checks if the lineages belong to the desired clade.</li>
-</ul>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/is_rank.html">is_rank</a></span><span class="op">(</span><span class="va">lineages</span>, rank <span class="op">=</span> <span class="st">"order"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span>
+<span><span class="fu"><a href="reference/is_rank.html">is_rank</a></span><span class="op">(</span><span class="va">lineages</span>, rank <span class="op">=</span> <span class="st">"species"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span></code></pre></div>
+<ul><li>
+<code><a href="reference/is_clade.html">is_clade()</a></code> checks if the lineages belong to the desired clade.</li></ul>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/is_clade.html">is_clade</a></span><span class="op">(</span><span class="va">lineages</span>, clade <span class="op">=</span> <span class="st">"Proteobacteria"</span>, rank <span class="op">=</span> <span class="st">"phylum"</span><span class="op">)</span>
-<span class="co">#&gt; [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</span></code></pre></div>
-<ul>
-<li>
-<code><a href="reference/last_clade.html">last_clade()</a></code> extracts the last clade of the lineages.</li>
-</ul>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/is_clade.html">is_clade</a></span><span class="op">(</span><span class="va">lineages</span>, clade <span class="op">=</span> <span class="st">"Proteobacteria"</span>, rank <span class="op">=</span> <span class="st">"phylum"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</span></span></code></pre></div>
+<ul><li>
+<code><a href="reference/last_clade.html">last_clade()</a></code> extracts the last clade of the lineages.</li></ul>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/last_clade.html">last_clade</a></span><span class="op">(</span><span class="va">lineages</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales" </span>
-<span class="co">#&gt; [4] "Bacillales"        "Lactobacillales"   "Clostridiales"    </span>
-<span class="co">#&gt; [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"</span></code></pre></div>
-<ul>
-<li>
-<code><a href="reference/all_clades.html">all_clades()</a></code> extracts all clades of the lineages.</li>
-</ul>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/last_clade.html">last_clade</a></span><span class="op">(</span><span class="va">lineages</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales"  "Bacillales"       </span></span>
+<span><span class="co">#&gt; [5] "Lactobacillales"   "Clostridiales"     "Campylobacterales" "Enterobacteriales"</span></span>
+<span><span class="co">#&gt; [9] "Pseudomonadales"</span></span></code></pre></div>
+<ul><li>
+<code><a href="reference/all_clades.html">all_clades()</a></code> extracts all clades of the lineages.</li></ul>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/all_clades.html">all_clades</a></span><span class="op">(</span><span class="va">lineages</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "Actinobacteria"        "Bacillales"            "Bacilli"              </span>
-<span class="co">#&gt;  [4] "Bacteria"              "Bacteroidales"         "Bacteroidetes"        </span>
-<span class="co">#&gt;  [7] "Bacteroidia"           "Campylobacterales"     "Clostridia"           </span>
-<span class="co">#&gt; [10] "Clostridiales"         "Coriobacteriales"      "Enterobacteriales"    </span>
-<span class="co">#&gt; [13] "Epsilonproteobacteria" "Firmicutes"            "Flavobacteriales"     </span>
-<span class="co">#&gt; [16] "Flavobacteriia"        "Gammaproteobacteria"   "Lactobacillales"      </span>
-<span class="co">#&gt; [19] "Proteobacteria"        "Pseudomonadales"</span></code></pre></div>
-<ul>
-<li>
-<code><a href="reference/taxtable.html">taxtable()</a></code> computes the taxonomic table corresponding to the lineages.</li>
-</ul>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/all_clades.html">all_clades</a></span><span class="op">(</span><span class="va">lineages</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "Actinobacteria"        "Bacillales"            "Bacilli"              </span></span>
+<span><span class="co">#&gt;  [4] "Bacteria"              "Bacteroidales"         "Bacteroidetes"        </span></span>
+<span><span class="co">#&gt;  [7] "Bacteroidia"           "Campylobacterales"     "Clostridia"           </span></span>
+<span><span class="co">#&gt; [10] "Clostridiales"         "Coriobacteriales"      "Enterobacteriales"    </span></span>
+<span><span class="co">#&gt; [13] "Epsilonproteobacteria" "Firmicutes"            "Flavobacteriales"     </span></span>
+<span><span class="co">#&gt; [16] "Flavobacteriia"        "Gammaproteobacteria"   "Lactobacillales"      </span></span>
+<span><span class="co">#&gt; [19] "Proteobacteria"        "Pseudomonadales"</span></span></code></pre></div>
+<ul><li>
+<code><a href="reference/taxtable.html">taxtable()</a></code> computes the taxonomic table corresponding to the lineages.</li></ul>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taxtable.html">taxtable</a></span><span class="op">(</span><span class="va">lineages</span><span class="op">)</span>
-<span class="va">table</span>
-<span class="co">#&gt;    kingdom         phylum                 class             order</span>
-<span class="co">#&gt; 1 Bacteria Actinobacteria        Actinobacteria  Coriobacteriales</span>
-<span class="co">#&gt; 2 Bacteria  Bacteroidetes           Bacteroidia     Bacteroidales</span>
-<span class="co">#&gt; 3 Bacteria  Bacteroidetes        Flavobacteriia  Flavobacteriales</span>
-<span class="co">#&gt; 4 Bacteria     Firmicutes               Bacilli        Bacillales</span>
-<span class="co">#&gt; 5 Bacteria     Firmicutes               Bacilli   Lactobacillales</span>
-<span class="co">#&gt; 6 Bacteria     Firmicutes            Clostridia     Clostridiales</span>
-<span class="co">#&gt; 7 Bacteria Proteobacteria Epsilonproteobacteria Campylobacterales</span>
-<span class="co">#&gt; 8 Bacteria Proteobacteria   Gammaproteobacteria Enterobacteriales</span>
-<span class="co">#&gt; 9 Bacteria Proteobacteria   Gammaproteobacteria   Pseudomonadales</span></code></pre></div>
-<ul>
-<li>
-<code><a href="reference/taxtree.html">taxtree()</a></code> computes the taxonomic tree (format <code>phylo</code>) from a taxonomic table.</li>
-</ul>
+<code class="sourceCode R"><span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taxtable.html">taxtable</a></span><span class="op">(</span><span class="va">lineages</span><span class="op">)</span></span>
+<span><span class="va">table</span></span>
+<span><span class="co">#&gt;    kingdom         phylum                 class             order</span></span>
+<span><span class="co">#&gt; 1 Bacteria Actinobacteria        Actinobacteria  Coriobacteriales</span></span>
+<span><span class="co">#&gt; 2 Bacteria  Bacteroidetes           Bacteroidia     Bacteroidales</span></span>
+<span><span class="co">#&gt; 3 Bacteria  Bacteroidetes        Flavobacteriia  Flavobacteriales</span></span>
+<span><span class="co">#&gt; 4 Bacteria     Firmicutes               Bacilli        Bacillales</span></span>
+<span><span class="co">#&gt; 5 Bacteria     Firmicutes               Bacilli   Lactobacillales</span></span>
+<span><span class="co">#&gt; 6 Bacteria     Firmicutes            Clostridia     Clostridiales</span></span>
+<span><span class="co">#&gt; 7 Bacteria Proteobacteria Epsilonproteobacteria Campylobacterales</span></span>
+<span><span class="co">#&gt; 8 Bacteria Proteobacteria   Gammaproteobacteria Enterobacteriales</span></span>
+<span><span class="co">#&gt; 9 Bacteria Proteobacteria   Gammaproteobacteria   Pseudomonadales</span></span></code></pre></div>
+<ul><li>
+<code><a href="reference/taxtree.html">taxtree()</a></code> computes the taxonomic tree (format <code>phylo</code>) from a taxonomic table.</li></ul>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taxtree.html">taxtree</a></span><span class="op">(</span><span class="va">table</span><span class="op">)</span>
-<span class="va">tree</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Phylogenetic tree with 9 tips and 6 internal nodes.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Tip labels:</span>
-<span class="co">#&gt;   Coriobacteriales, Bacteroidales, Flavobacteriales, Bacillales, Lactobacillales, Clostridiales, ...</span>
-<span class="co">#&gt; Node labels:</span>
-<span class="co">#&gt;   Bacteria, Bacteroidetes, Firmicutes, Bacilli, Proteobacteria, Gammaproteobacteria</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Rooted; includes branch lengths.</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">tree</span>, show.node.label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taxtree.html">taxtree</a></span><span class="op">(</span><span class="va">table</span><span class="op">)</span></span>
+<span><span class="va">tree</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Phylogenetic tree with 9 tips and 6 internal nodes.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Tip labels:</span></span>
+<span><span class="co">#&gt;   Coriobacteriales, Bacteroidales, Flavobacteriales, Bacillales, Lactobacillales, Clostridiales, ...</span></span>
+<span><span class="co">#&gt; Node labels:</span></span>
+<span><span class="co">#&gt;   Bacteria, Bacteroidetes, Firmicutes, Bacilli, Proteobacteria, Gammaproteobacteria</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Rooted; includes branch lengths.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">tree</span>, show.node.label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-taxtree-1.png" width="100%"></p>
 </div>
 <div class="section level2">
@@ -249,7 +236,7 @@
 <ul class="list-unstyled">
 <li><a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL--3-blue.svg" alt="license"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://github.com/abichat/yatah/blob/master/DESCRIPTION" class="external-link"><img src="https://img.shields.io/badge/package%20version-0.2.0-orange.svg" alt="packageversion"></a></li>
+<li><a href="https://github.com/abichat/yatah/blob/master/DESCRIPTION" class="external-link"><img src="https://img.shields.io/badge/package%20version-0.2.1-orange.svg" alt="packageversion"></a></li>
 <li><a href="https://cran.r-project.org/package=yatah" class="external-link"><img src="https://www.r-pkg.org/badges/version/yatah" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://github.com/abichat/yatah/actions" class="external-link"><img src="https://github.com/abichat/yatah/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://abichat.github.io/yatah/"><img src="https://img.shields.io/badge/documentation-pkgdown-E91E63.svg" alt="Documentation"></a></li>
@@ -268,7 +255,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

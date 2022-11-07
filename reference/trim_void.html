@@ -23,7 +23,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">yatah</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -71,23 +71,30 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">trim_void</span><span class="op">(</span><span class="va">lineage</span>, same <span class="op">=</span> <span class="cn">TRUE</span>, only_tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">trim_void</span><span class="op">(</span><span class="va">lineage</span>, same <span class="op">=</span> <span class="cn">TRUE</span>, only_tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>lineage</dt>
 <dd><p>string. Vector of lineages.</p></dd>
+
+
 <dt>same</dt>
 <dd><p>logical. Does the lineage have the same depth? Default to TRUE.</p></dd>
+
+
 <dt>only_tail</dt>
 <dd><p>Logical. If <code>FALSE</code> (default), void ranks amid
 lineages and subranks are removed. If <code>TRUE</code>, only final
 void ranks are removed.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The trimmed lineages. Depth could be different among them.</p>
+    
+
+<p>The trimmed lineages. Depth could be different among them.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -97,14 +104,14 @@ will be removed. See the example with <code>lineage3</code>.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">lineage1</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae|o__|f__"</span></span>
-<span class="r-in"><span class="va">lineage2</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__Firmicutes|c__"</span></span>
-<span class="r-in"><span class="va">lineage3</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__|c__Verrucomicrobiae|o__|f__"</span></span>
-<span class="r-in"><span class="fu">trim_void</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lineage1</span>, <span class="va">lineage2</span>, <span class="va">lineage3</span><span class="op">)</span>, same <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">lineage1</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae|o__|f__"</span></span></span>
+<span class="r-in"><span><span class="va">lineage2</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__Firmicutes|c__"</span></span></span>
+<span class="r-in"><span><span class="va">lineage3</span> <span class="op">&lt;-</span> <span class="st">"k__Bacteria|p__|c__Verrucomicrobiae|o__|f__"</span></span></span>
+<span class="r-in"><span><span class="fu">trim_void</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lineage1</span>, <span class="va">lineage2</span>, <span class="va">lineage3</span><span class="op">)</span>, same <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2] "k__Bacteria|p__Firmicutes"                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3] "k__Bacteria"                                       </span>
-<span class="r-in"><span class="fu">trim_void</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lineage1</span>, <span class="va">lineage2</span>, <span class="va">lineage3</span><span class="op">)</span>, same <span class="op">=</span> <span class="cn">FALSE</span>, only_tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">trim_void</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lineage1</span>, <span class="va">lineage2</span>, <span class="va">lineage3</span><span class="op">)</span>, same <span class="op">=</span> <span class="cn">FALSE</span>, only_tail <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2] "k__Bacteria|p__Firmicutes"                         </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3] "k__Bacteria|p__|c__Verrucomicrobiae"               </span>
@@ -122,7 +129,7 @@ will be removed. See the example with <code>lineage3</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
