@@ -6,7 +6,7 @@
 \alias{yatah-package}
 \title{yatah: Yet Another TAxonomy Handler}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 Provides functions to manage taxonomy when lineages are described with strings and ranks separated with special patterns like "|*__" or ";*__".
 }
@@ -20,7 +20,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Antoine Bichat \email{a.bichat@yahoo.fr} (\href{https://orcid.org/0000-0001-6599-7081}{ORCID})
+\strong{Maintainer}: Antoine Bichat \email{antoine.bichat@proton.me} (\href{https://orcid.org/0000-0001-6599-7081}{ORCID})
 
 }
 \keyword{internal}

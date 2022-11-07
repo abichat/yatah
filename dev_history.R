@@ -62,6 +62,7 @@ devtools::install(upgrade = "never")
 rmarkdown::render("README.Rmd")
 unlink("README.html")
 
+pkgdown::check_pkgdown()
 pkgdown::build_site()
 unlink(c("pkgdown/", "docs/"), recursive = TRUE)
 install(upgrade = "never")

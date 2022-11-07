@@ -1,8 +1,8 @@
 Package: yatah
 Title: Yet Another TAxonomy Handler
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: 
-    person("Antoine", "Bichat", , "a.bichat@yahoo.fr", role = c("aut", "cre"),
+    person("Antoine", "Bichat", , "antoine.bichat@proton.me", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6599-7081"))
 Description: Provides functions to manage taxonomy when lineages are
     described with strings and ranks separated with special patterns like
@@ -29,4 +29,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1

@@ -1,3 +1,7 @@
+# yatah 0.2.1
+
+* Use of Roxygen 7.2.1.
+
 # yatah 0.2.0
 
 * Add `trim_void()`, `trim_rank()` and `trim_common()` functions.
