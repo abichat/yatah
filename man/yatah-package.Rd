@@ -13,8 +13,8 @@ Provides functions to manage taxonomy when lineages are described with strings a
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/abichat/yatah}
-  \item \url{https://abichat.github.io/yatah}
+  \item \url{https://abichat.github.io/yatah/}
+  \item \url{https://github.com/abichat/yatah/}
   \item Report bugs at \url{https://github.com/abichat/yatah/issues}
 }
 

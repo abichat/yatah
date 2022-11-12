@@ -12,8 +12,8 @@ A data.frame with 1585 rows and 200 variables:
 }
 }
 \source{
-\href{https://doi.org/10.15252/msb.20145645}{Zeller et al., 2014},
-\href{https://doi.org/10.1038/nmeth.4468}{Pasolli et al., 2017}
+Zeller et al., 2014 (\doi{10.15252/msb.20145645}),
+Pasolli et al., 2017 (\doi{10.1038/nmeth.4468}).
 }
 \usage{
 abundances
