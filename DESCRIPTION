@@ -8,7 +8,7 @@ Description: Provides functions to manage taxonomy when lineages are
     described with strings and ranks separated with special patterns like
     "|*__" or ";*__".
 License: GPL-3
-URL: https://github.com/abichat/yatah, https://abichat.github.io/yatah
+URL: https://abichat.github.io/yatah/, https://github.com/abichat/yatah/
 BugReports: https://github.com/abichat/yatah/issues
 Depends: 
     R (>= 2.10)
