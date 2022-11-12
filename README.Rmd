@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# yatah <a href='https://abichat.github.io/yatah'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# yatah <a href='https://abichat.github.io/yatah/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 ```{r, echo = FALSE}

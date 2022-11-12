@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# yatah <a href='https://abichat.github.io/yatah'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# yatah <a href='https://abichat.github.io/yatah/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -78,21 +78,24 @@ is_clade(lineages, clade = "Proteobacteria", rank = "phylum")
 
 ``` r
 last_clade(lineages)
-#> [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales"  "Bacillales"       
-#> [5] "Lactobacillales"   "Clostridiales"     "Campylobacterales" "Enterobacteriales"
-#> [9] "Pseudomonadales"
+#> [1] "Coriobacteriales"  "Bacteroidales"     "Flavobacteriales" 
+#> [4] "Bacillales"        "Lactobacillales"   "Clostridiales"    
+#> [7] "Campylobacterales" "Enterobacteriales" "Pseudomonadales"
 ```
 
 -   `all_clades()` extracts all clades of the lineages.
 
 ``` r
 all_clades(lineages, simplify = TRUE)
-#>  [1] "Actinobacteria"        "Bacillales"            "Bacilli"              
-#>  [4] "Bacteria"              "Bacteroidales"         "Bacteroidetes"        
-#>  [7] "Bacteroidia"           "Campylobacterales"     "Clostridia"           
-#> [10] "Clostridiales"         "Coriobacteriales"      "Enterobacteriales"    
-#> [13] "Epsilonproteobacteria" "Firmicutes"            "Flavobacteriales"     
-#> [16] "Flavobacteriia"        "Gammaproteobacteria"   "Lactobacillales"      
+#>  [1] "Actinobacteria"        "Bacillales"           
+#>  [3] "Bacilli"               "Bacteria"             
+#>  [5] "Bacteroidales"         "Bacteroidetes"        
+#>  [7] "Bacteroidia"           "Campylobacterales"    
+#>  [9] "Clostridia"            "Clostridiales"        
+#> [11] "Coriobacteriales"      "Enterobacteriales"    
+#> [13] "Epsilonproteobacteria" "Firmicutes"           
+#> [15] "Flavobacteriales"      "Flavobacteriia"       
+#> [17] "Gammaproteobacteria"   "Lactobacillales"      
 #> [19] "Proteobacteria"        "Pseudomonadales"
 ```
 
